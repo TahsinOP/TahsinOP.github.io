@@ -1,1 +1,1 @@
-User-agent: * Disallow: Sitemap: https://tahsinkhan.github.io/sitemap.xml
+User-agent: * Disallow: Sitemap: https://TahsinOP.github.io/sitemap.xml
