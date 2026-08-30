@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Research · Tahsin Khan</title>
+
+<meta name="description" content="Publications and research experience — cooperative mobile manipulation, autonomous driving theme development, SLAM and soft robotics.">
+<meta name="author" content="Tahsin Khan">
+<link rel="canonical" href="https://TahsinKhan.github.io/research/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tahsin Khan">
+<meta property="og:title" content="Research · Tahsin Khan">
+<meta property="og:description" content="Publications and research experience — cooperative mobile manipulation, autonomous driving theme development, SLAM and soft robotics.">
+<meta property="og:url" content="https://TahsinKhan.github.io/research/">
+<meta name="twitter:card" content="summary">
+
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1c1d" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23b509ac'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='17' font-weight='700' text-anchor='middle' fill='%23ffffff'>TK</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<script>
+  // Set the theme before first paint so there is no flash of the wrong palette.
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t !== 'light' && t !== 'dark') {
+        t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner wrap-wide">
+    <a class="nav__brand" href="/"><span class="strong">Tahsin</span> Khan</a>
+
+    <nav class="nav__links" aria-label="Primary"><a href="/">about</a><a href="/research/" aria-current="page">research</a><a href="/projects/">projects</a><a href="/cv/">cv</a></nav>
+
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme">
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/>
+        </g>
+      </svg>
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <path d="M20 14.2A8.2 8.2 0 019.8 4a8.4 8.4 0 102 10.2 8.2 8.2 0 008.2 0z" fill="currentColor"/>
+      </svg>
+    </button>
+
+    <button class="nav__burger" id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav__mobile wrap-wide" id="nav-mobile" aria-label="Primary mobile"><a href="/">about</a><a href="/research/" aria-current="page">research</a><a href="/projects/">projects</a><a href="/cv/">cv</a></nav>
+</header>
+
+
+  <main id="main">
+    <div class="post wrap">
+  <header class="post-header">
+    <h1 class="post-title">research</h1><p class="post-description">Publications and research positions — cooperative mobile manipulation, Ackermann autonomy at e-Yantra, SLAM and soft robotics.</p></header>
+
+  <div class="post-body">
+    <h2 class="h-section">research areas<span class="h-section__note">each links to the matching projects</span></h2>
+<div class="areas"><div class="area">
+    <p class="area__name"><a href="/projects/#navigation">Navigation</a></p>
+    <p class="area__text">Ackermann, differential and holonomic platforms. Nav2, global and local planners, pure pursuit.</p>
+  </div><div class="area">
+    <p class="area__name"><a href="/projects/#slam">SLAM & Estimation</a></p>
+    <p class="area__text">Visual SLAM written from scratch; 3D LiDAR SLAM flown on a drone. EKF, AMCL, pose-graph optimization.</p>
+  </div><div class="area">
+    <p class="area__name"><a href="/projects/#perception">Perception</a></p>
+    <p class="area__text">Depth cameras, ArUco pose, homography, bird's-eye-view lane pipelines.</p>
+  </div><div class="area">
+    <p class="area__name"><a href="/projects/#manipulation">Manipulation</a></p>
+    <p class="area__text">IK, Jacobians and null-space control, visual servoing, QP whole-body control.</p>
+  </div><div class="area">
+    <p class="area__name"><a href="/projects/#learning">Learning</a></p>
+    <p class="area__text">ACT, diffusion policy, SmolVLA, π0 — action chunking and flow matching for manipulation.</p>
+  </div><div class="area">
+    <p class="area__name"><a href="/projects/#hardware">Hardware</a></p>
+    <p class="area__text">ESP32 low-level control, power distribution, Jetson, LiDAR and depth-camera integration.</p>
+  </div></div>
+
+<h2 class="h-section">publications</h2>
+<div class="pubs"><article class="pub">
+  <div class="pub__meta">
+    <p class="pub__year">2026</p><p class="pub__status">Published</p></div>
+  <div class="pub__body">
+    <h3 class="pub__title">Soft autonomous mobile manipulators in agricultural automation – a review</h3>
+    <p class="pub__authors"><span class='me'>Tahsin Khan</span>, Mervin Joe Thomas</p><p class="pub__venue">Industrial Robot, Vol. 53 No. 2, pp. 376–398</p><p class="pub__summary">Soft grippers, actuation and control, localization and motion planning for agricultural manipulators — and why integrating them, rather than any one of them, is the open problem.</p><ul class="tags"><li class="tag">Soft Robotics</li><li class="tag">Mobile Manipulation</li><li class="tag">Review</li></ul><p class="pub__links"><a class="btn-sm" href="https://doi.org/10.1108/IR-05-2025-0162" target="_blank" rel="noopener">Paper</a><a class="btn-sm" href="https://www.emerald.com/ir/article-abstract/53/2/376/1301790/Soft-autonomous-mobile-manipulators-in" target="_blank" rel="noopener">Emerald</a></p></div>
+</article></div>
+
+<h2 class="h-section">research experience</h2>
+<div class="entries"><article class="entry" data-domains="manipulation slam perception ">
+  <div class="entry__meta">
+    <p class="entry__date">2026 — Present</p><p class="entry__loc">Mumbai, India</p><p class="entry__doms">Manipulation · SLAM · Perception</p></div>
+
+  <div class="entry__body">
+    <h3 class="entry__title">Cooperative Mobile Manipulation of a Shared Payload</h3><p class="entry__org">Researcher <span class="sep">·</span> IIT Bombay</p><ul class="entry__points"><li>2–3 mobile manipulators carrying one payload, with no central controller and no external tracking.</li><li>Decentralized localization and on-board compute; local sensing only — base depth cameras and wrist cameras.</li><li>QP-based whole-body control across base and arm under the payload's closed-chain constraint. Learning-based coordination next.</li></ul><ul class="tags"><li class="tag">Whole-Body Control</li><li class="tag">QP Control</li><li class="tag">Decentralized Estimation</li><li class="tag">Multi-Robot</li></ul></div>
+</article><article class="entry" data-domains="navigation perception manipulation hardware ">
+  <div class="entry__meta">
+    <p class="entry__date">Jul 2025 — Present</p><p class="entry__loc">Mumbai, India</p><p class="entry__doms">Navigation · Perception · Manipulation · Hardware</p></div>
+
+  <div class="entry__body">
+    <h3 class="entry__title">e-Yantra Robotics Competition — Theme Development</h3><p class="entry__org">Senior Project Technical Assistant <span class="sep">·</span> ERTS Lab, IIT Bombay</p><ul class="entry__points"><li>Build the competition themes end to end — reference implementation, simulation, hardware bring-up and the task progression students work through.</li><li><b>Niti Vahan</b>: an Ackermann vehicle driving a scaled city from one forward camera. Built the perception pipeline — bird's-eye-view homography, colour segmentation, polynomial lane fitting, obstacle layer for lane switching.</li><li>Localization in progress: visual odometry with landmark correction, then autonomous parking. Previous theme: <b>Krishi CoBot</b>, an autonomous greenhouse arm-plus-base system.</li></ul><ul class="tags"><li class="tag">Ackermann Autonomy</li><li class="tag">Visual Odometry</li><li class="tag">Lane Detection</li><li class="tag">ROS 2</li></ul></div>
+</article><article class="entry" data-domains="navigation hardware slam ">
+  <div class="entry__meta">
+    <p class="entry__date">May 2024 — Jul 2024</p><p class="entry__loc">Mumbai, India</p><p class="entry__doms">Navigation · Hardware · SLAM</p></div>
+
+  <div class="entry__body">
+    <h3 class="entry__title">Field Exploration with ROS-Powered Vehicles</h3><p class="entry__org">Robotics Research Intern <span class="sep">·</span> Autonomous Robots and Multi-Systems (ARMS) Lab, IIT Bombay</p><p class="entry__advisor">Advised by Prof. Arpita Sinha</p><ul class="entry__points"><li>Built a ROS 2-controlled 4WD Ackermann vehicle for field exploration — converted from an RC car, working mostly on the hardware side: electronics, circuit design and ESP32 low-level steering and drive control.</li><li>Implemented a Kalman filter fusing IMU data with Vicon velocity estimates for accurate odometry.</li><li>Used a pure-pursuit motion planner for autonomous waypoint navigation.</li><li>Performed LiDAR SLAM and leveraged Nav2 AMCL for localization, with a custom motion planner for navigation.</li></ul><ul class="tags"><li class="tag">ROS 2</li><li class="tag">Kalman Filter</li><li class="tag">LiDAR SLAM</li><li class="tag">Nav2 AMCL</li><li class="tag">Pure Pursuit</li><li class="tag">ESP32</li></ul></div>
+</article><article class="entry" data-domains="manipulation ">
+  <div class="entry__meta">
+    <p class="entry__date">Sep 2024 — 2025</p><p class="entry__loc">Surathkal, India</p><p class="entry__doms">Manipulation</p></div>
+
+  <div class="entry__body">
+    <h3 class="entry__title">Soft Autonomous Mobile Manipulators in Agriculture</h3><p class="entry__org">Undergraduate Researcher <span class="sep">·</span> NITK Surathkal</p><p class="entry__advisor">Advised by Prof. Mervin Joe Thomas</p><ul class="entry__points"><li>Reviewed soft gripping and actuation, mobile-base autonomy and motion planning for agricultural harvesting.</li><li>Published in <i>Industrial Robot</i> (2026).</li></ul><ul class="tags"><li class="tag">Soft Grippers</li><li class="tag">Mobile Manipulators</li><li class="tag">Review</li></ul></div>
+</article></div>
+  </div>
+</div>
+
+  </main>
+
+  <footer class="footer">
+  <div class="wrap-wide footer__inner">
+    <p class="footer__colophon">
+      © <span id="year">2026</span> Tahsin Khan<span class="footer__dot">·</span>Mumbai, India<span class="footer__dot">·</span><a href="mailto:tahsin.khan@e-yantra.org">tahsin.khan@e-yantra.org</a><br>
+      Built with Jekyll, hosted on GitHub Pages. Design after <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a>.
+    </p>
+  </div>
+</footer>
+
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

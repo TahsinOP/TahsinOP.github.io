@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Projects · Tahsin Khan</title>
+
+<meta name="description" content="Robotics projects — visual and LiDAR SLAM, imitation learning, autonomous vehicles, quadruped locomotion and mechanical design.">
+<meta name="author" content="Tahsin Khan">
+<link rel="canonical" href="https://TahsinKhan.github.io/projects/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tahsin Khan">
+<meta property="og:title" content="Projects · Tahsin Khan">
+<meta property="og:description" content="Robotics projects — visual and LiDAR SLAM, imitation learning, autonomous vehicles, quadruped locomotion and mechanical design.">
+<meta property="og:url" content="https://TahsinKhan.github.io/projects/">
+<meta name="twitter:card" content="summary">
+
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1c1d" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23b509ac'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='17' font-weight='700' text-anchor='middle' fill='%23ffffff'>TK</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<script>
+  // Set the theme before first paint so there is no flash of the wrong palette.
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t !== 'light' && t !== 'dark') {
+        t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner wrap-wide">
+    <a class="nav__brand" href="/"><span class="strong">Tahsin</span> Khan</a>
+
+    <nav class="nav__links" aria-label="Primary"><a href="/">about</a><a href="/research/">research</a><a href="/projects/" aria-current="page">projects</a><a href="/cv/">cv</a></nav>
+
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme">
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/>
+        </g>
+      </svg>
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <path d="M20 14.2A8.2 8.2 0 019.8 4a8.4 8.4 0 102 10.2 8.2 8.2 0 008.2 0z" fill="currentColor"/>
+      </svg>
+    </button>
+
+    <button class="nav__burger" id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav__mobile wrap-wide" id="nav-mobile" aria-label="Primary mobile"><a href="/">about</a><a href="/research/">research</a><a href="/projects/" aria-current="page">projects</a><a href="/cv/">cv</a></nav>
+</header>
+
+
+  <main id="main">
+    <div class="post wrap-wide">
+  <header class="post-header">
+    <h1 class="post-title">projects</h1><p class="post-description">Systems I have built, mentored or taken apart — SLAM, learned manipulation, autonomous platforms and the hardware underneath them.</p></header>
+
+  <div class="post-body">
+    <div class="filters">
+  <span class="filters__label">Filter</span>
+  <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button><button class="chip" type="button" data-filter="navigation" aria-pressed="false">Navigation</button><button class="chip" type="button" data-filter="slam" aria-pressed="false">SLAM</button><button class="chip" type="button" data-filter="perception" aria-pressed="false">Perception</button><button class="chip" type="button" data-filter="manipulation" aria-pressed="false">Manipulation</button><button class="chip" type="button" data-filter="learning" aria-pressed="false">Learning</button><button class="chip" type="button" data-filter="hardware" aria-pressed="false">Hardware</button></div>
+
+<p class="filter-empty">Nothing in that area yet.</p>
+
+<div class="grid"><article class="card" data-domains="learning manipulation perception ">
+  <h3 class="card__title">Imitation Learning for Bimanual Manipulation</h3><p class="card__sub">Cloth folding, stacking and pick-and-place from demonstrations</p><ul class="entry__points"><li>Entered the LeHome challenge at ICRA 2026 — bimanual cloth folding from demonstrations.</li><li>Worked through ACT, diffusion policy, SmolVLA, π0 and X-VLA, and the ideas underneath: action chunking, flow matching, VLM action experts.</li><li>Guided an intern project on bimanual stacking with LeRobot SO-101 arms across RGB and D405 setups.</li></ul><ul class="tags"><li class="tag">LeRobot</li><li class="tag">ACT</li><li class="tag">SmolVLA</li><li class="tag">π0</li><li class="tag">Diffusion Policy</li><li class="tag">SO-101</li><li class="tag">RealSense D405</li></ul><p class="card__meta">2026 <span class="sep">·</span> ERTS Lab, IIT Bombay · ICRA 2026 LeHome Challenge</p>
+</article><article class="card" data-domains="learning manipulation ">
+  <h3 class="card__title">VLA-Based Grasping on a UR5</h3><p class="card__sub">Teleoperation, demonstration collection and policy training</p><ul class="entry__points"><li>A vision-language-action grasping pipeline on a UR5.</li><li>Mentored interns through teleoperation with an AgileX Pika Sense, demonstration collection and LeRobot dataset conversion.</li></ul><ul class="tags"><li class="tag">UR5</li><li class="tag">AgileX Pika Sense</li><li class="tag">LeRobot</li><li class="tag">VLA</li></ul><p class="card__meta">2026 — Present <span class="sep">·</span> ERTS Lab, IIT Bombay</p>
+</article><article class="card" data-domains="slam hardware perception ">
+  <h3 class="card__title">3D LiDAR SLAM for Aerial Mapping</h3><p class="card__sub">LiDAR-inertial odometry onto a drone, from sim to flight</p><ul class="entry__points"><li>Benchmarked KISS-ICP, LIO-SAM and FAST-LIO in simulation, including FAST-LIO with a custom back-end.</li><li>Built the power distribution for the drone, LiDAR and Jetson, then hand-flew the platform to map an area with LIO-SAM.</li></ul><ul class="tags"><li class="tag">LIO-SAM</li><li class="tag">FAST-LIO</li><li class="tag">KISS-ICP</li><li class="tag">Jetson Orin Nano</li><li class="tag">3D LiDAR</li><li class="tag">Holybro</li></ul><p class="card__meta">2026 <span class="sep">·</span> ERTS Lab, IIT Bombay</p>
+</article><article class="card" data-domains="slam perception ">
+  <h3 class="card__title">Visual SLAM from Scratch</h3><p class="card__sub">A full front-end and back-end on Open3D and OpenCV</p><ul class="entry__points"><li>ICP odometry and incremental map building with local loop closure, then pose-graph optimization with global loop closure.</li><li>Relocalization through bag-of-words place recognition refined by ICP. Good maps end to end; scale drift left open.</li></ul><ul class="tags"><li class="tag">Open3D</li><li class="tag">OpenCV</li><li class="tag">Python</li><li class="tag">ICP</li><li class="tag">Pose-Graph Optimization</li><li class="tag">Bag of Words</li></ul><p class="card__meta">2025 <span class="sep">·</span> Internship project</p>
+</article><article class="card" data-domains="navigation perception hardware ">
+  <h3 class="card__title">NITK Autonomous Campus Shuttle</h3><p class="card__sub">Level-5 autonomous shuttle on a Mahindra Reva chassis</p><ul class="entry__points"><li>Autoware as the core autonomy stack over ROS 2, on an instrumented Reva chassis with LiDAR, cameras and radar.</li><li>Localization, path planning and control for mixed pedestrian–vehicle campus traffic.</li></ul><ul class="tags"><li class="tag">ROS 2 Humble</li><li class="tag">Autoware</li><li class="tag">AWSIM</li><li class="tag">Sensor Fusion</li></ul><p class="card__meta">Jan 2025 — 2025 <span class="sep">·</span> Centre for System Design, NITK</p>
+</article><article class="card" data-domains="navigation manipulation ">
+  <h3 class="card__title">MuJoCo–ROS 2 Quadruped Navigation</h3><p class="card__sub">Gait generation and waypoint navigation in simulation</p><ul class="entry__points"><li>ROS 2 bridge from MuJoCo physics into RViz, with 2D and 3D IK solvers mapping foot positions to joint angles.</li><li>Trotting gait with configurable stride, plus waypoint navigation over cubic-spline interpolated RViz markers.</li></ul><ul class="tags"><li class="tag">ROS 2 Humble</li><li class="tag">MuJoCo</li><li class="tag">Python</li><li class="tag">RViz</li></ul><p class="card__meta">Apr 2025 — May 2025 <span class="sep">·</span> Personal project</p>
+</article><article class="card" data-domains="manipulation ">
+  <h3 class="card__title">UR5 Manipulation for Pick-and-Place</h3><p class="card__sub">MoveIt motion planning from simulation to hardware</p><ul class="entry__points"><li>UR5 configured in ROS Noetic with a Gazebo world for repeatable pick-and-place trials.</li><li>Collision-aware planning through the MoveIt Python API, carried across to hardware.</li></ul><ul class="tags"><li class="tag">ROS Noetic</li><li class="tag">MoveIt</li><li class="tag">Gazebo</li><li class="tag">Python</li></ul><p class="card__meta">Jun 2023 — Aug 2023 <span class="sep">·</span> IITD-AIA Foundation for Smart Manufacturing, IIT Delhi</p>
+</article><article class="card" data-domains="slam hardware ">
+  <h3 class="card__title">MEMS Piezoelectric Flooring for Localization</h3><p class="card__sub">A smart floor that localizes robots and harvests its own power</p><ul class="entry__points"><li>Bimorph PZT cantilevers harvesting energy from wheel loading as robots cross the floor.</li><li>Hybrid localization fusing RFID identity with PZT vibration signatures — infrastructure-side odometry with no onboard sensing.</li></ul><ul class="tags"><li class="tag">MEMS</li><li class="tag">ANSYS</li><li class="tag">PZT Bimorphs</li><li class="tag">RFID</li></ul><p class="card__meta">Aug 2024 — Oct 2024 <span class="sep">·</span> Microsystems Technology, NITK</p>
+</article><article class="card" data-domains="navigation hardware ">
+  <h3 class="card__title">ROS 2 Teleoperated Differential-Drive Robot</h3><p class="card__sub">A from-scratch mobile base on a distributed ROS network</p><ul class="entry__points"><li>Nodes spanning a host machine and an onboard Raspberry Pi over a shared ROS network.</li><li>Low-latency UART between the Pi and the Arduino motor controller.</li></ul><ul class="tags"><li class="tag">ROS 2</li><li class="tag">Raspberry Pi</li><li class="tag">Arduino</li><li class="tag">UART</li></ul><p class="card__meta">Mar 2024 — Apr 2024 <span class="sep">·</span> Personal project</p>
+</article><article class="card" data-domains="hardware ">
+  <h3 class="card__title">IEEE Skye Expedition — Drone Delivery System</h3><p class="card__sub">A modular remote-release payload platform for UAVs</p><ul class="entry__points"><li>CFRP payload-release structure using a two-bar mechanism and electromagnetic attachment, airframe-agnostic.</li><li>Pi and Arduino control exposed over ROS 2, with ANSYS CFD to tune drag and stability.</li></ul><ul class="tags"><li class="tag">Fusion 360</li><li class="tag">ANSYS CFD</li><li class="tag">ROS 2</li><li class="tag">CFRP</li></ul><p class="card__meta">Feb 2024 — Mar 2024 <span class="sep">·</span> IEEE Skye Expedition</p>
+</article></div>
+  </div>
+</div>
+
+  </main>
+
+  <footer class="footer">
+  <div class="wrap-wide footer__inner">
+    <p class="footer__colophon">
+      © <span id="year">2026</span> Tahsin Khan<span class="footer__dot">·</span>Mumbai, India<span class="footer__dot">·</span><a href="mailto:tahsin.khan@e-yantra.org">tahsin.khan@e-yantra.org</a><br>
+      Built with Jekyll, hosted on GitHub Pages. Design after <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener">al-folio</a>.
+    </p>
+  </div>
+</footer>
+
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

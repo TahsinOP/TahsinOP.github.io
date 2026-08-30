@@ -1,0 +1,54 @@
+<section class="hero drive" id="drive" data-base="{{ site.baseurl }}">
+  <canvas class="drive__canvas"></canvas>
+  <div class="drive__scan" aria-hidden="true"></div>
+  <div class="drive__vignette" aria-hidden="true"></div>
+
+  <!-- identity, over the sky -->
+  <div class="wrap drive__intro">
+    <p class="hero__eyebrow">
+      <span class="hero__pulse" aria-hidden="true"></span>
+      e-Yantra · ERTS Lab, IIT Bombay
+    </p>
+    <h1 class="hero__name">Tahsin&nbsp;Khan</h1>
+    <p class="hero__lede">
+      Autonomous systems end to end — <b>navigation</b> and <b>SLAM</b>,
+      <b>whole-body control</b> for mobile manipulators, and
+      <b>imitation learning</b> for manipulation.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="{{ '/research/' | relative_url }}">Research</a>
+      <a class="btn" href="{{ '/projects/' | relative_url }}">Projects</a>
+      <a class="btn btn--ghost" href="{{ site.author.cv | relative_url }}" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+
+  <!-- heads-up display -->
+  <div class="hud" aria-hidden="true">
+    <div class="hud__left">
+      <div class="hud__row">
+        <span class="hud__mode" id="hud-mode">AUTONOMOUS</span>
+        <button class="hud__auto" id="hud-auto" type="button" aria-pressed="true" tabindex="-1">auto</button>
+      </div>
+      <div class="hud__row hud__data">
+        <span id="hud-vel">0.00 m/s</span>
+        <span id="hud-pose">x 0.0  z 0.0  θ 0°</span>
+      </div>
+      <pre class="hud__log" id="hud-log"></pre>
+    </div>
+
+    <div class="hud__right">
+      <canvas class="drive__mini" id="drive-mini"></canvas>
+      <p class="hud__minilabel">/map</p>
+    </div>
+  </div>
+
+  <a class="hud__prompt" id="hud-prompt" href="{{ '/research/' | relative_url }}">
+    <span class="hud__prompt-key">enter</span>
+    <span id="hud-prompt-label">RESEARCH</span>
+    <span aria-hidden="true">→</span>
+  </a>
+
+  <p class="drive__help">
+    <span>drag</span> or <span>← →</span> to take over · <span>enter</span> at a gate
+  </p>
+</section>

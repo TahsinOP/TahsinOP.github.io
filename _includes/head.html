@@ -1,0 +1,44 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{%- capture page_title -%}
+{%- if page.url == "/" -%}{{ site.title }} · {{ site.role }}{%- else -%}{{ page.title | capitalize }} · {{ site.title }}{%- endif -%}
+{%- endcapture -%}
+<title>{{ page_title }}</title>
+
+<meta name="description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
+<meta name="author" content="{{ site.author.name }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta name="twitter:card" content="summary">
+
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1c1d" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23b509ac'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='17' font-weight='700' text-anchor='middle' fill='%23ffffff'>TK</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+<script>
+  // Set the theme before first paint so there is no flash of the wrong palette.
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t !== 'light' && t !== 'dark') {
+        t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>

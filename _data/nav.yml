@@ -1,0 +1,8 @@
+- name: about
+  url: /
+- name: research
+  url: /research/
+- name: projects
+  url: /projects/
+- name: cv
+  url: /cv/

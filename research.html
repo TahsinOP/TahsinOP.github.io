@@ -1,0 +1,44 @@
+---
+title: research
+permalink: /research/
+subtitle: >-
+  Publications and research positions — cooperative mobile manipulation,
+  Ackermann autonomy at e-Yantra, SLAM and soft robotics.
+description: >-
+  Publications and research experience — cooperative mobile manipulation,
+  autonomous driving theme development, SLAM and soft robotics.
+---
+
+<h2 class="h-section">research areas<span class="h-section__note">each links to the matching projects</span></h2>
+<div class="areas">
+  {%- for a in site.data.research.areas -%}
+  <div class="area">
+    <p class="area__name"><a href="{{ '/projects/' | relative_url }}#{{ a.key }}">{{ a.name }}</a></p>
+    <p class="area__text">{{ a.text }}</p>
+  </div>
+  {%- endfor -%}
+</div>
+
+<h2 class="h-section">publications</h2>
+<div class="pubs">
+  {%- for pub in site.data.research.publications -%}
+    {%- if pub.status == "Published" -%}{% include pub.html item=pub %}{%- endif -%}
+  {%- endfor -%}
+
+  {%- capture ongoing_pubs -%}
+  {%- for pub in site.data.research.publications -%}
+    {%- unless pub.status == "Published" -%}{% include pub.html item=pub %}{%- endunless -%}
+  {%- endfor -%}
+  {%- endcapture -%}
+  {%- if ongoing_pubs != "" -%}
+  <h3 class="h-sub">in progress</h3>
+  {{ ongoing_pubs }}
+  {%- endif -%}
+</div>
+
+<h2 class="h-section">research experience</h2>
+<div class="entries">
+  {%- for item in site.data.research.experience -%}
+    {% include entry.html item=item %}
+  {%- endfor -%}
+</div>

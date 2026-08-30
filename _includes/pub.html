@@ -1,0 +1,21 @@
+{%- assign p = include.item -%}
+<article class="pub">
+  <div class="pub__meta">
+    <p class="pub__year">{{ p.year }}</p>
+    {%- if p.status %}<p class="pub__status">{{ p.status }}</p>{% endif -%}
+  </div>
+  <div class="pub__body">
+    <h3 class="pub__title">{{ p.title }}</h3>
+    <p class="pub__authors">{{ p.authors | replace: "Tahsin Khan", "<span class='me'>Tahsin Khan</span>" }}</p>
+    {%- if p.venue %}<p class="pub__venue">{{ p.venue }}</p>{% endif -%}
+    {%- if p.summary %}<p class="pub__summary">{{ p.summary }}</p>{% endif -%}
+    {%- if p.tags -%}
+    <ul class="tags">{%- for t in p.tags -%}<li class="tag">{{ t }}</li>{%- endfor -%}</ul>
+    {%- endif -%}
+    {%- if p.links and p.links.size > 0 -%}
+    <p class="pub__links">
+      {%- for l in p.links -%}<a class="btn-sm" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{%- endfor -%}
+    </p>
+    {%- endif -%}
+  </div>
+</article>

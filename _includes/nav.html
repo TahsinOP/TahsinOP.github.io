@@ -1,0 +1,35 @@
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner wrap-wide">
+    <a class="nav__brand" href="{{ '/' | relative_url }}"><span class="strong">{{ site.first_name }}</span> {{ site.last_name }}</a>
+
+    <nav class="nav__links" aria-label="Primary">
+      {%- for item in site.data.nav -%}
+      <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.name }}</a>
+      {%- endfor -%}
+    </nav>
+
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme">
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/>
+        </g>
+      </svg>
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <path d="M20 14.2A8.2 8.2 0 019.8 4a8.4 8.4 0 102 10.2 8.2 8.2 0 008.2 0z" fill="currentColor"/>
+      </svg>
+    </button>
+
+    <button class="nav__burger" id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav__mobile wrap-wide" id="nav-mobile" aria-label="Primary mobile">
+    {%- for item in site.data.nav -%}
+    <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.name }}</a>
+    {%- endfor -%}
+  </nav>
+</header>

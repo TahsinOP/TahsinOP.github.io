@@ -1,0 +1,41 @@
+- title:    "e-Yantra Robotics Competition 2024 — Cosmo Logistic"
+  role:     "Team Captain"
+  org:      "e-Yantra, IIT Bombay"
+  location: "Mumbai, India"
+  date:     "Aug 2023 — Dec 2023"
+  year:     2023
+  result:   "Rank 16 / 500 teams"
+  highlight: true
+  domains:  [Navigation, Manipulation, Perception]
+  tags:     [ROS 2, Nav2, MoveIt 2, OpenCV, ArUco, SLAM]
+  points:
+    - "Led a warehouse-automation solution on ROS 2, Nav2 and MoveIt 2 — SLAM-based navigation, ArUco pose detection and arm manipulation."
+    - "16th nationally out of roughly 500 teams, deployed onto real hardware remotely in e-Yantra's arena."
+
+- title:    "DD Robocon 2023"
+  role:     "Mechanical Subsystem — Chassis & Mechanism Design"
+  org:      "CSD Robocon, NITK"
+  location: "Delhi, India"
+  date:     "Jul 2023"
+  year:     2023
+  result:   "National qualifier · Top 50"
+  highlight: true
+  domains:  [Hardware]
+  tags:     [Mechanism Design, Fabrication, Dual-Roller Launcher]
+  points:
+    - "The institute's first-ever ABU Robocon qualification, top 50 in the country."
+    - "Two semi-autonomous robots throwing rings onto poles at up to 12 m, via catapult and dual-roller launchers."
+
+- title:    "e-Yantra Robotics Competition 2023 — Sentinel Drone"
+  role:     "Team Member"
+  org:      "e-Yantra, IIT Bombay"
+  location: "Mumbai, India"
+  date:     "Oct 2022 — Apr 2023"
+  year:     2022
+  result:   "Finalist"
+  highlight: false
+  domains:  [Navigation, Perception]
+  tags:     [PID Control, OpenCV, Gazebo, QGIS]
+  points:
+    - "PID attitude-and-position control stabilising a simulated quadrotor in Gazebo."
+    - "OpenCV colour segmentation for object detection, with QGIS georeferencing to real coordinates."

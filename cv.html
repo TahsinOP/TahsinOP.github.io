@@ -1,0 +1,63 @@
+---
+title: cv
+permalink: /cv/
+subtitle: Education, experience, competitions and the technical stack.
+description: >-
+  Curriculum vitae — education, research and work experience, robotics
+  competitions and technical skills.
+---
+
+<p class="cv-actions">
+  <a class="btn" href="{{ site.author.cv | relative_url }}" target="_blank" rel="noopener">Download PDF <span aria-hidden="true">↗</span></a>
+</p>
+
+<h2 class="h-section">education</h2>
+<div class="rows">
+  {%- for e in site.data.about.education -%}
+  <div class="row">
+    <div class="row__when">{{ e.date }}</div>
+    <div class="row__what">
+      <strong>{{ e.degree }}</strong>
+      <span>{{ e.school }}</span>
+      {%- if e.minor %}<span>{{ e.minor }}</span>{% endif -%}
+      {%- if e.detail and e.detail != "" %}<span>{{ e.detail }}</span>{% endif -%}
+    </div>
+  </div>
+  {%- endfor -%}
+</div>
+
+<h2 class="h-section">research experience<span class="h-section__note"><a href="{{ '/research/' | relative_url }}">detail →</a></span></h2>
+<div class="rows">
+  {%- for e in site.data.research.experience -%}
+  <div class="row">
+    <div class="row__when">{{ e.date }}</div>
+    <div class="row__what">
+      <strong>{{ e.title }}</strong>
+      <span>{{ e.role }} · {{ e.org }}</span>
+      {%- if e.advisor and e.advisor != "" %}<span>Advised by {{ e.advisor }}</span>{% endif -%}
+    </div>
+  </div>
+  {%- endfor -%}
+</div>
+
+<h2 class="h-section">competitions</h2>
+<div class="entries">
+  {%- for item in site.data.competitions -%}
+    {% include entry.html item=item %}
+  {%- endfor -%}
+</div>
+
+<h2 class="h-section">technical skills</h2>
+<div class="stack">
+  {%- for layer in site.data.about.skills -%}
+  <div class="stack__layer">
+    <div>
+      <p class="stack__name">{{ layer.group }}</p>
+      <p class="stack__blurb">{{ layer.blurb }}</p>
+    </div>
+    <ul class="tags">
+      {%- for i in layer.items -%}<li class="tag">{{ i }}</li>{%- endfor -%}
+    </ul>
+  </div>
+  {%- endfor -%}
+</div>

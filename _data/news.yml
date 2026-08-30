@@ -1,0 +1,37 @@
+# Newest first. `text` may contain inline HTML (<b>, <a>, <em>).
+- date: "Aug 2026"
+  text: >-
+    Ongoing research with two faculty advisors on <b>cooperative mobile
+    manipulation</b> — 2–3 mobile manipulators transporting a shared payload
+    with decentralized localization, local sensing and QP-based whole-body
+    control.
+
+- date: "Jul 2026"
+  text: >-
+    Guided two summer intern projects at ERTS Lab: <b>bimanual stacking</b> with
+    LeRobot SO-101 arms (ACT and SmolVLA), and a <b>VLA grasping pipeline</b> on
+    a UR5 with AgileX Pika Sense teleoperation — the second still running.
+
+- date: "Jun 2026"
+  text: >-
+    Took part in the <b>LeHome Challenge at ICRA 2026</b> — bimanual cloth
+    folding from demonstrations — my way into modern imitation learning: ACT,
+    diffusion policy, SmolVLA, π0 and X-VLA.
+
+- date: "May 2026"
+  text: >-
+    Mapped an area with <b>LIO-SAM</b> flown on a Holybro drone carrying a 3D
+    LiDAR and a Jetson Orin Nano, after building the platform's power
+    distribution end to end.
+
+- date: "Mar 2026"
+  text: >-
+    <b>Niti Vahan</b>'s perception pipeline is up — bird's-eye-view homography →
+    colour segmentation → polynomial lane fitting, with an obstacle layer
+    driving lane switching. Localization is next.
+
+- date: "Jul 2025"
+  text: >-
+    Joined the <b>ERTS Lab (e-Yantra), IIT Bombay</b> as a Senior Project
+    Technical Assistant, working on e-Yantra Robotics Competition theme
+    development.

@@ -1,0 +1,98 @@
+# ── Publications ──────────────────────────────────────────────
+# status: "Published" | "Under review" | "In preparation"
+publications:
+  - title:   "Soft autonomous mobile manipulators in agricultural automation – a review"
+    authors: "Tahsin Khan, Mervin Joe Thomas"
+    venue:   "Industrial Robot, Vol. 53 No. 2, pp. 376–398"
+    doi:     "10.1108/IR-05-2025-0162"
+    year:    2026
+    status:  "Published"
+    summary: >-
+      Soft grippers, actuation and control, localization and motion planning for
+      agricultural manipulators — and why integrating them, rather than any one
+      of them, is the open problem.
+    tags: [Soft Robotics, Mobile Manipulation, Review]
+    links:
+      - label: Paper
+        url: "https://doi.org/10.1108/IR-05-2025-0162"
+      - label: Emerald
+        url: "https://www.emerald.com/ir/article-abstract/53/2/376/1301790/Soft-autonomous-mobile-manipulators-in"
+
+# ── Research areas ────────────────────────────────────────────
+areas:
+  - name: Navigation
+    key:  navigation
+    text: "Ackermann, differential and holonomic platforms. Nav2, global and local planners, pure pursuit."
+  - name: SLAM & Estimation
+    key:  slam
+    text: "Visual SLAM written from scratch; 3D LiDAR SLAM flown on a drone. EKF, AMCL, pose-graph optimization."
+  - name: Perception
+    key:  perception
+    text: "Depth cameras, ArUco pose, homography, bird's-eye-view lane pipelines."
+  - name: Manipulation
+    key:  manipulation
+    text: "IK, Jacobians and null-space control, visual servoing, QP whole-body control."
+  - name: Learning
+    key:  learning
+    text: "ACT, diffusion policy, SmolVLA, π0 — action chunking and flow matching for manipulation."
+  - name: Hardware
+    key:  hardware
+    text: "ESP32 low-level control, power distribution, Jetson, LiDAR and depth-camera integration."
+
+# ── Research positions & threads ──────────────────────────────
+experience:
+  - title:    "Cooperative Mobile Manipulation of a Shared Payload"
+    role:     "Researcher"
+    org:      "IIT Bombay"
+    advisor:  ""
+    location: "Mumbai, India"
+    date:     "2026 — Present"
+    year:     2026
+    domains:  [Manipulation, SLAM, Perception]
+    tags:     [Whole-Body Control, QP Control, Decentralized Estimation, Multi-Robot]
+    points:
+      - "2–3 mobile manipulators carrying one payload, with no central controller and no external tracking."
+      - "Decentralized localization and on-board compute; local sensing only — base depth cameras and wrist cameras."
+      - "QP-based whole-body control across base and arm under the payload's closed-chain constraint. Learning-based coordination next."
+
+  - title:    "e-Yantra Robotics Competition — Theme Development"
+    role:     "Senior Project Technical Assistant"
+    org:      "ERTS Lab, IIT Bombay"
+    advisor:  ""
+    location: "Mumbai, India"
+    date:     "Jul 2025 — Present"
+    year:     2025
+    domains:  [Navigation, Perception, Manipulation, Hardware]
+    tags:     [Ackermann Autonomy, Visual Odometry, Lane Detection, ROS 2]
+    points:
+      - "Build the competition themes end to end — reference implementation, simulation, hardware bring-up and the task progression students work through."
+      - "<b>Niti Vahan</b>: an Ackermann vehicle driving a scaled city from one forward camera. Built the perception pipeline — bird's-eye-view homography, colour segmentation, polynomial lane fitting, obstacle layer for lane switching."
+      - "Localization in progress: visual odometry with landmark correction, then autonomous parking. Previous theme: <b>Krishi CoBot</b>, an autonomous greenhouse arm-plus-base system."
+
+  - title:    "Field Exploration with ROS-Powered Vehicles"
+    role:     "Robotics Research Intern"
+    org:      "Autonomous Robots and Multi-Systems (ARMS) Lab, IIT Bombay"
+    advisor:  "Prof. Arpita Sinha"
+    location: "Mumbai, India"
+    date:     "May 2024 — Jul 2024"
+    year:     2024
+    domains:  [Navigation, Hardware, SLAM]
+    tags:     [ROS 2, Kalman Filter, LiDAR SLAM, Nav2 AMCL, Pure Pursuit, ESP32]
+    points:
+      - "Built a ROS 2-controlled 4WD Ackermann vehicle for field exploration — converted from an RC car, working mostly on the hardware side: electronics, circuit design and ESP32 low-level steering and drive control."
+      - "Implemented a Kalman filter fusing IMU data with Vicon velocity estimates for accurate odometry."
+      - "Used a pure-pursuit motion planner for autonomous waypoint navigation."
+      - "Performed LiDAR SLAM and leveraged Nav2 AMCL for localization, with a custom motion planner for navigation."
+
+  - title:    "Soft Autonomous Mobile Manipulators in Agriculture"
+    role:     "Undergraduate Researcher"
+    org:      "NITK Surathkal"
+    advisor:  "Prof. Mervin Joe Thomas"
+    location: "Surathkal, India"
+    date:     "Sep 2024 — 2025"
+    year:     2024
+    domains:  [Manipulation]
+    tags:     [Soft Grippers, Mobile Manipulators, Review]
+    points:
+      - "Reviewed soft gripping and actuation, mobile-base autonomy and motion planning for agricultural harvesting."
+      - "Published in <i>Industrial Robot</i> (2026)."

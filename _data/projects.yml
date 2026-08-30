@@ -1,0 +1,132 @@
+# domains drive the filter chips on /projects/
+# use: Navigation | SLAM | Perception | Manipulation | Learning | Hardware
+- title:    "Imitation Learning for Bimanual Manipulation"
+  subtitle: "Cloth folding, stacking and pick-and-place from demonstrations"
+  org:      "ERTS Lab, IIT Bombay · ICRA 2026 LeHome Challenge"
+  date:     "2026"
+  year:     2026
+  featured: true
+  domains:  [Learning, Manipulation, Perception]
+  stack:    [LeRobot, ACT, SmolVLA, "π0", Diffusion Policy, SO-101, RealSense D405]
+  points:
+    - "Entered the LeHome challenge at ICRA 2026 — bimanual cloth folding from demonstrations."
+    - "Worked through ACT, diffusion policy, SmolVLA, π0 and X-VLA, and the ideas underneath: action chunking, flow matching, VLM action experts."
+    - "Guided an intern project on bimanual stacking with LeRobot SO-101 arms across RGB and D405 setups."
+  links: []
+
+- title:    "VLA-Based Grasping on a UR5"
+  subtitle: "Teleoperation, demonstration collection and policy training"
+  org:      "ERTS Lab, IIT Bombay"
+  date:     "2026 — Present"
+  year:     2026
+  featured: false
+  domains:  [Learning, Manipulation]
+  stack:    [UR5, AgileX Pika Sense, LeRobot, VLA]
+  points:
+    - "A vision-language-action grasping pipeline on a UR5."
+    - "Mentored interns through teleoperation with an AgileX Pika Sense, demonstration collection and LeRobot dataset conversion."
+  links: []
+
+- title:    "3D LiDAR SLAM for Aerial Mapping"
+  subtitle: "LiDAR-inertial odometry onto a drone, from sim to flight"
+  org:      "ERTS Lab, IIT Bombay"
+  date:     "2026"
+  year:     2026
+  featured: true
+  domains:  [SLAM, Hardware, Perception]
+  stack:    [LIO-SAM, FAST-LIO, KISS-ICP, Jetson Orin Nano, 3D LiDAR, Holybro]
+  points:
+    - "Benchmarked KISS-ICP, LIO-SAM and FAST-LIO in simulation, including FAST-LIO with a custom back-end."
+    - "Built the power distribution for the drone, LiDAR and Jetson, then hand-flew the platform to map an area with LIO-SAM."
+  links: []
+
+- title:    "Visual SLAM from Scratch"
+  subtitle: "A full front-end and back-end on Open3D and OpenCV"
+  org:      "Internship project"
+  date:     "2025"
+  year:     2025
+  featured: true
+  domains:  [SLAM, Perception]
+  stack:    [Open3D, OpenCV, Python, ICP, Pose-Graph Optimization, Bag of Words]
+  points:
+    - "ICP odometry and incremental map building with local loop closure, then pose-graph optimization with global loop closure."
+    - "Relocalization through bag-of-words place recognition refined by ICP. Good maps end to end; scale drift left open."
+  links: []
+
+- title:    "NITK Autonomous Campus Shuttle"
+  subtitle: "Level-5 autonomous shuttle on a Mahindra Reva chassis"
+  org:      "Centre for System Design, NITK"
+  date:     "Jan 2025 — 2025"
+  year:     2025
+  featured: false
+  domains:  [Navigation, Perception, Hardware]
+  stack:    [ROS 2 Humble, Autoware, AWSIM, Sensor Fusion]
+  points:
+    - "Autoware as the core autonomy stack over ROS 2, on an instrumented Reva chassis with LiDAR, cameras and radar."
+    - "Localization, path planning and control for mixed pedestrian–vehicle campus traffic."
+  links: []
+
+- title:    "MuJoCo–ROS 2 Quadruped Navigation"
+  subtitle: "Gait generation and waypoint navigation in simulation"
+  org:      "Personal project"
+  date:     "Apr 2025 — May 2025"
+  year:     2025
+  featured: false
+  domains:  [Navigation, Manipulation]
+  stack:    [ROS 2 Humble, MuJoCo, Python, RViz]
+  points:
+    - "ROS 2 bridge from MuJoCo physics into RViz, with 2D and 3D IK solvers mapping foot positions to joint angles."
+    - "Trotting gait with configurable stride, plus waypoint navigation over cubic-spline interpolated RViz markers."
+  links: []
+
+- title:    "UR5 Manipulation for Pick-and-Place"
+  subtitle: "MoveIt motion planning from simulation to hardware"
+  org:      "IITD-AIA Foundation for Smart Manufacturing, IIT Delhi"
+  date:     "Jun 2023 — Aug 2023"
+  year:     2023
+  featured: false
+  domains:  [Manipulation]
+  stack:    [ROS Noetic, MoveIt, Gazebo, Python]
+  points:
+    - "UR5 configured in ROS Noetic with a Gazebo world for repeatable pick-and-place trials."
+    - "Collision-aware planning through the MoveIt Python API, carried across to hardware."
+  links: []
+
+- title:    "MEMS Piezoelectric Flooring for Localization"
+  subtitle: "A smart floor that localizes robots and harvests its own power"
+  org:      "Microsystems Technology, NITK"
+  date:     "Aug 2024 — Oct 2024"
+  year:     2024
+  featured: false
+  domains:  [SLAM, Hardware]
+  stack:    [MEMS, ANSYS, PZT Bimorphs, RFID]
+  points:
+    - "Bimorph PZT cantilevers harvesting energy from wheel loading as robots cross the floor."
+    - "Hybrid localization fusing RFID identity with PZT vibration signatures — infrastructure-side odometry with no onboard sensing."
+  links: []
+
+- title:    "ROS 2 Teleoperated Differential-Drive Robot"
+  subtitle: "A from-scratch mobile base on a distributed ROS network"
+  org:      "Personal project"
+  date:     "Mar 2024 — Apr 2024"
+  year:     2024
+  featured: false
+  domains:  [Navigation, Hardware]
+  stack:    [ROS 2, Raspberry Pi, Arduino, UART]
+  points:
+    - "Nodes spanning a host machine and an onboard Raspberry Pi over a shared ROS network."
+    - "Low-latency UART between the Pi and the Arduino motor controller."
+  links: []
+
+- title:    "IEEE Skye Expedition — Drone Delivery System"
+  subtitle: "A modular remote-release payload platform for UAVs"
+  org:      "IEEE Skye Expedition"
+  date:     "Feb 2024 — Mar 2024"
+  year:     2024
+  featured: false
+  domains:  [Hardware]
+  stack:    [Fusion 360, ANSYS CFD, ROS 2, CFRP]
+  points:
+    - "CFRP payload-release structure using a two-bar mechanism and electromagnetic attachment, airframe-agnostic."
+    - "Pi and Arduino control exposed over ROS 2, with ANSYS CFD to tune drag and stability."
+  links: []

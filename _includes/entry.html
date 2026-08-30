@@ -1,0 +1,48 @@
+{%- assign it = include.item -%}
+<article class="entry"{% if it.domains %} data-domains="{% for d in it.domains %}{{ d | downcase }} {% endfor %}"{% endif %}>
+  <div class="entry__meta">
+    <p class="entry__date">{{ it.date }}</p>
+    {%- if it.location %}<p class="entry__loc">{{ it.location }}</p>{% endif -%}
+    {%- if it.result %}<p class="entry__result">{{ it.result }}</p>{% endif -%}
+    {%- if it.domains -%}
+    <p class="entry__doms">{% for d in it.domains %}{{ d }}{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="entry__body">
+    <h3 class="entry__title">{{ it.title }}</h3>
+
+    {%- if it.subtitle %}<p class="entry__subtitle">{{ it.subtitle }}</p>{% endif -%}
+
+    {%- if it.role or it.org -%}
+    <p class="entry__org">
+      {%- if it.role %}{{ it.role }}{% endif -%}
+      {%- if it.role and it.org %} <span class="sep">·</span> {% endif -%}
+      {%- if it.org %}{{ it.org }}{% endif -%}
+    </p>
+    {%- endif -%}
+
+    {%- if it.advisor and it.advisor != "" -%}
+    <p class="entry__advisor">Advised by {{ it.advisor }}</p>
+    {%- endif -%}
+
+    {%- if it.points -%}
+    <ul class="entry__points">
+      {%- for p in it.points -%}<li>{{ p }}</li>{%- endfor -%}
+    </ul>
+    {%- endif -%}
+
+    {%- assign chips = it.tags | default: it.stack -%}
+    {%- if chips -%}
+    <ul class="tags">
+      {%- for t in chips -%}<li class="tag">{{ t }}</li>{%- endfor -%}
+    </ul>
+    {%- endif -%}
+
+    {%- if it.links and it.links.size > 0 -%}
+    <p class="entry__links">
+      {%- for l in it.links -%}<a class="btn-sm" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{%- endfor -%}
+    </p>
+    {%- endif -%}
+  </div>
+</article>

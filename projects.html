@@ -1,0 +1,29 @@
+---
+title: projects
+permalink: /projects/
+wide: true
+subtitle: >-
+  Systems I have built, mentored or taken apart — SLAM, learned manipulation,
+  autonomous platforms and the hardware underneath them.
+description: >-
+  Robotics projects — visual and LiDAR SLAM, imitation learning, autonomous
+  vehicles, quadruped locomotion and mechanical design.
+---
+
+<div class="filters">
+  <span class="filters__label">Filter</span>
+  <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+  {%- assign keys   = "navigation,slam,perception,manipulation,learning,hardware" | split: "," -%}
+  {%- assign labels = "Navigation,SLAM,Perception,Manipulation,Learning,Hardware" | split: "," -%}
+  {%- for d in keys -%}
+  <button class="chip" type="button" data-filter="{{ d }}" aria-pressed="false">{{ labels[forloop.index0] }}</button>
+  {%- endfor -%}
+</div>
+
+<p class="filter-empty">Nothing in that area yet.</p>
+
+<div class="grid">
+  {%- for item in site.data.projects -%}
+    {% include card.html item=item %}
+  {%- endfor -%}
+</div>

@@ -1,0 +1,26 @@
+{%- assign it = include.item -%}
+<article class="card"{% if it.domains %} data-domains="{% for d in it.domains %}{{ d | downcase }} {% endfor %}"{% endif %}>
+  <h3 class="card__title">{{ it.title }}</h3>
+  {%- if it.subtitle %}<p class="card__sub">{{ it.subtitle }}</p>{% endif -%}
+
+  {%- if it.points -%}
+  <ul class="entry__points">
+    {%- for p in it.points -%}<li>{{ p }}</li>{%- endfor -%}
+  </ul>
+  {%- endif -%}
+
+  {%- assign chips = it.stack | default: it.tags -%}
+  {%- if chips -%}
+  <ul class="tags">
+    {%- for t in chips -%}<li class="tag">{{ t }}</li>{%- endfor -%}
+  </ul>
+  {%- endif -%}
+
+  {%- if it.links and it.links.size > 0 -%}
+  <p class="entry__links">
+    {%- for l in it.links -%}<a class="btn-sm" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{%- endfor -%}
+  </p>
+  {%- endif -%}
+
+  <p class="card__meta">{{ it.date }}{% if it.org %} <span class="sep">·</span> {{ it.org }}{% endif %}</p>
+</article>
