@@ -12,7 +12,7 @@ description: >-
   control and imitation learning for manipulation.
 
 # Change these two if you rename the repo or use a custom domain.
-url:     "https://TahsinKhan.github.io"
+url:     "https://tahsinop.github.io"
 baseurl: ""
 
 # ─────────────────────────────────────────────────────────────
@@ -21,8 +21,8 @@ baseurl: ""
 author:
   name:      Tahsin Khan
   email:     tahsin.khan@e-yantra.org
-  github:    TahsinKhan
-  linkedin:  TahsinKhan
+  github:    TahsinOP
+  linkedin:  tahsin-khan-
   scholar:   "hTFoPnEAAAAJ"
   orcid:     ""          # e.g. "0000-0000-0000-0000"
   photo:     ""          # e.g. "/assets/img/tahsin.jpg" — replaces the TK monogram

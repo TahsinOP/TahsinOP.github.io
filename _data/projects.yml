@@ -1,69 +1,45 @@
 # domains drive the filter chips on /projects/
 # use: Navigation | SLAM | Perception | Manipulation | Learning | Hardware
-- title:    "Imitation Learning for Bimanual Manipulation"
-  subtitle: "Cloth folding, stacking and pick-and-place from demonstrations"
-  org:      "ERTS Lab, IIT Bombay · ICRA 2026 LeHome Challenge"
-  date:     "2026"
+- title:    "Imitation Learning for Arm Manipulation"
+  subtitle: "Two parallel eYSIP 2026 projects benchmarking policies on real hardware"
+  org:      "ERTS Lab, IIT Bombay · Mentor and co-mentor, 4 interns"
+  date:     "May 2026 — Jul 2026"
   year:     2026
   featured: true
   domains:  [Learning, Manipulation, Perception]
-  stack:    [LeRobot, ACT, SmolVLA, "π0", Diffusion Policy, SO-101, RealSense D405]
+  stack:    [LeRobot, ACT, SmolVLA, SO-101, UR5, AgileX Pika Sense, RealSense D405]
   points:
-    - "Entered the LeHome challenge at ICRA 2026 — bimanual cloth folding from demonstrations."
-    - "Worked through ACT, diffusion policy, SmolVLA, π0 and X-VLA, and the ideas underneath: action chunking, flow matching, VLM action experts."
-    - "Guided an intern project on bimanual stacking with LeRobot SO-101 arms across RGB and D405 setups."
+    - "Defined and led two parallel projects evaluating imitation learning policies on real hardware: a bimanual SO-101 setup (mentor, 3 interns) and a UR5 arm (co-mentor, 1 intern)."
+    - "Benchmarked ACT and SmolVLA across bimanual pick and place, cube stacking, precision insertion and single-arm grasping, guiding dataset collection and end-to-end training; ran an ablation swapping an RGB wrist camera for a RealSense D405, modifying the ACT codebase for the extra modality."
+    - "Built a teleoperation and data pipeline for the UR5, a platform LeRobot does not support: Pika Sense teleoperation, joint and image capture to ROS bags, and conversion into LeRobot format — a learned counterpart to the classical GraspNet and MoveIt pipeline built the previous year."
   links: []
 
-- title:    "VLA-Based Grasping on a UR5"
-  subtitle: "Teleoperation, demonstration collection and policy training"
-  org:      "ERTS Lab, IIT Bombay"
-  date:     "2026 — Present"
-  year:     2026
-  featured: false
-  domains:  [Learning, Manipulation]
-  stack:    [UR5, AgileX Pika Sense, LeRobot, VLA]
-  points:
-    - "A vision-language-action grasping pipeline on a UR5."
-    - "Mentored interns through teleoperation with an AgileX Pika Sense, demonstration collection and LeRobot dataset conversion."
-  links: []
-
-- title:    "3D LiDAR SLAM for Aerial Mapping"
-  subtitle: "LiDAR-inertial odometry onto a drone, from sim to flight"
-  org:      "ERTS Lab, IIT Bombay"
-  date:     "2026"
+- title:    "3D LiDAR SLAM on a UAV"
+  subtitle: "LiDAR-inertial odometry onto a drone, from benchmark to flight"
+  org:      "ERTS Lab, IIT Bombay · Mentor, 1 intern (eYSIP 2026)"
+  date:     "May 2026 — Jul 2026"
   year:     2026
   featured: true
   domains:  [SLAM, Hardware, Perception]
-  stack:    [LIO-SAM, FAST-LIO, KISS-ICP, Jetson Orin Nano, 3D LiDAR, Holybro]
+  stack:    [LIO-SAM, FAST-LIO, KISS-ICP, Holybro X500, Airy LiDAR, Jetson Orin Nano, Pixhawk]
   points:
-    - "Benchmarked KISS-ICP, LIO-SAM and FAST-LIO in simulation, including FAST-LIO with a custom back-end."
-    - "Built the power distribution for the drone, LiDAR and Jetson, then hand-flew the platform to map an area with LIO-SAM."
-  links: []
-
-- title:    "Visual SLAM from Scratch"
-  subtitle: "A full front-end and back-end on Open3D and OpenCV"
-  org:      "Internship project"
-  date:     "2025"
-  year:     2025
-  featured: true
-  domains:  [SLAM, Perception]
-  stack:    [Open3D, OpenCV, Python, ICP, Pose-Graph Optimization, Bag of Words]
-  points:
-    - "ICP odometry and incremental map building with local loop closure, then pose-graph optimization with global loop closure."
-    - "Relocalization through bag-of-words place recognition refined by ICP. Good maps end to end; scale drift left open."
+    - "Benchmarked KISS-ICP, LIO-SAM and FAST-LIO in simulation and on a handheld rig, mapping the KReSIT building at IIT Bombay; guided development of a custom back end on FAST-LIO's odometry adding keyframe storage, pose-graph optimisation and loop closure."
+    - "Designed the full power distribution board and the sensor and compute mounts under tight payload constraints, for the airframe, Pixhawk, Orin Nano and LiDAR."
+    - "Diagnosed map drift traced to a LiDAR-to-IMU extrinsic error and thermal throttling; mapped an area from manual flight using LIO-SAM, with autonomous navigation ongoing."
   links: []
 
 - title:    "NITK Autonomous Campus Shuttle"
   subtitle: "Level-5 autonomous shuttle on a Mahindra Reva chassis"
   org:      "Centre for System Design, NITK"
-  date:     "Jan 2025 — 2025"
+  date:     "Jan 2025 — Dec 2025"
   year:     2025
-  featured: false
-  domains:  [Navigation, Perception, Hardware]
-  stack:    [ROS 2 Humble, Autoware, AWSIM, Sensor Fusion]
+  featured: true
+  domains:  [Navigation, SLAM, Perception]
+  stack:    [ROS 2, Autoware, LIO-SAM, 3D LiDAR, IMU, Cameras]
   points:
-    - "Autoware as the core autonomy stack over ROS 2, on an instrumented Reva chassis with LiDAR, cameras and radar."
-    - "Localization, path planning and control for mixed pedestrian–vehicle campus traffic."
+    - "Led the software side of an L5 autonomous shuttle built on a Mahindra Reva electric chassis, while the wider team handled drive-by-wire steering and throttle modifications."
+    - "Selected the sensor suite — 3D LiDAR, IMU and cameras — and set up Autoware as the core stack with ROS 2 as middleware."
+    - "Chose and integrated the SLAM stack, deploying LIO-SAM on the vehicle, mapping a substantial portion of the NITK campus and demonstrating point-to-point autonomous navigation."
   links: []
 
 - title:    "MuJoCo–ROS 2 Quadruped Navigation"
@@ -75,8 +51,8 @@
   domains:  [Navigation, Manipulation]
   stack:    [ROS 2 Humble, MuJoCo, Python, RViz]
   points:
-    - "ROS 2 bridge from MuJoCo physics into RViz, with 2D and 3D IK solvers mapping foot positions to joint angles."
-    - "Trotting gait with configurable stride, plus waypoint navigation over cubic-spline interpolated RViz markers."
+    - "ROS 2 bridge enabling communication between MuJoCo and RViz for robot visualization, with 2D and 3D IK solvers calculating joint angles from foot positions for trajectory generation."
+    - "Trotting-gait quadruped locomotion with configurable stride parameters, and waypoint navigation using cubic-spline interpolation of RViz interactive markers with heading control."
   links: []
 
 - title:    "UR5 Manipulation for Pick-and-Place"

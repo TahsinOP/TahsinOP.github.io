@@ -4,54 +4,66 @@
 # HTML: <b>bold</b>, <a href="...">links</a>, <em>italics</em>.
 
 subtitle: >-
-  Robotics Research engineer at
+  Robotics engineer at
   <a href="https://www.e-yantra.org/" target="_blank" rel="noopener">e-Yantra</a>,
   ERTS Lab, IIT Bombay.
 
 intro:
   - >-
-    Currently working at the <b>ERTS Lab (e-Yantra), IIT
-    Bombay</b> a robotics outreach programme where i develop theme stacks that students across India compete
-    on through the  <a href="https://portal.e-yantra.org/themes" target="_blank" rel="noopener">e-Yantra Robotics Competition </a>,  currently developing <b>Niti Vahan</b>,
-    an Ackermann vehicle that has to drive a scaled city from a single
-    forward-facing camera. Previous year worked on Krishi Cobot, a greenhouse automation system where two industrial robots a mobile robot and a UR5 manipulator collaboratively doing tasks. The whole system was given remote acess through our platform all over India 
+    I work on autonomous ground and aerial systems across <b>perception, state
+    estimation, planning and control</b>. My work spans the mechanical,
+    electrical and software sides of robotics: designing chassis and mechanisms,
+    building power distribution and embedded control hardware, and writing the
+    stacks that run on them.
   - >-
-    My ongoing reseach work is towards <b>cooperative non-holonomic mobile manipulation</b>: Two mobile
-    manipulators carrying a shared payload . Previous work involves visual SLAM (Mapping)
-    written from scratch, 3D LiDAR SLAM flown on a Holybro UAV and lately, exploring 
-    <b>learning</b> for manipulation, navigation 
- 
+    Recent work includes <b>decentralised cooperative mobile manipulation</b>,
+    LiDAR and visual SLAM on UAVs and ground vehicles, monocular Ackermann
+    autonomy, and imitation learning policies on bimanual manipulators.
+  - >-
+    Broadly, my research interests are in <b>multi-robot systems</b>,
+    <b>motion planning and control</b>, and <b>hybrid architectures</b> that
+    combine model-based estimation and control with learned policies, with a
+    further interest in soft robotics and biomimetic design.
+
 education:
   - degree:   "B.Tech. in Mechanical Engineering"
     minor:    "Minor in Electronics and Communication Engineering"
     school:   "National Institute of Technology Karnataka (NITK), Surathkal"
     location: "Surathkal, India"
-    date:     "2021 — 2025"
-    detail:   "CGPA 8.22 / 10 (major) · 8.25 / 10 (minor)"
+    date:     "Dec 2021 — Apr 2025"
+    detail:   "CGPA 8.22 / 10 (major) · 8.20 / 10 (minor)"
 
 # Grouped by what the work actually is, not by department.
 skills:
+  - group: Languages
+    key:   languages
+    blurb: "What the stacks above are written in."
+    items: [Python, C++, Embedded C]
   - group: Autonomy & Planning
     key:   navigation
     blurb: "Getting a robot from where it is to where it should be."
-    items: [ROS, ROS 2, Nav2, "Global & local planners (A*, APF, DWA, MPPI)", Pure Pursuit, Ackermann & Differential Drives, Mecanum & Holonomic Drives, Autoware, Gazebo]
+    items: [ROS, ROS 2, Nav2, "Global & local planners (A*, APF, DWA, MPPI)", Pure Pursuit, Ackermann & Differential Drives, Mecanum & Holonomic Drives, Autoware, Cubic Splines]
   - group: Perception, SLAM & Estimation
     key:   slam
     blurb: "Working out where the robot is and what is around it."
-    items: [Visual SLAM, "LiDAR SLAM (LIO-SAM, FAST-LIO, KISS-ICP)", ICP, Pose-Graph Optimization, Loop Closure, Bag of Words, EKF, Particle Filter / AMCL, Visual Odometry, OpenCV, Open3D, ArUco & Pose Estimation, Homography, RealSense D435/D455/D405]
+    items: [Visual SLAM, "LiDAR SLAM (LIO-SAM, FAST-LIO, KISS-ICP)", ICP, Pose-Graph Optimization, Loop Closure, Bag of Words, "EKF (incl. invariant EKF on SE(3))", Particle Filter / AMCL, Visual Odometry, OpenCV, Open3D, ArUco & Pose Estimation, Homography, "RealSense D435 / D455 / D405"]
   - group: Manipulation & Control
     key:   manipulation
     blurb: "Arms, mobile manipulators and the control that coordinates them."
-    items: [MoveIt, "Analytical & Numerical IK", Weighted DLS, Jacobians & Null-Space Control, Singularity Handling, Visual Servoing, QP Whole-Body Control, MuJoCo, UR5, SO-101]
+    items: [MoveIt, "Analytical & Numerical IK", Weighted DLS, Jacobians & Null-Space Control, Singularity Handling, Visual Servoing, "Whole-Body QP Control (OSQP)", Closed-Chain Constraints, PID, Gait Generation]
   - group: Learning
     key:   learning
     blurb: "Imitation learning and vision-language-action models for manipulation."
-    items: [LeRobot, ACT, Diffusion Policy, SmolVLA, "π0", X-VLA, Action Chunking, Flow Matching, Teleoperation & Dataset Collection]
+    items: [LeRobot, ACT, Diffusion Policy, SmolVLA, "π0", X-VLA, YOLO, Action Chunking, Flow Matching, Teleoperation & Dataset Collection]
+  - group: Simulation
+    key:   simulation
+    blurb: "Where the stack gets built before it touches hardware."
+    items: [Gazebo, MuJoCo, Isaac Sim, CoppeliaSim, AWSIM, RViz]
   - group: Embedded & Hardware
     key:   hardware
     blurb: "The electronics and low-level control everything else runs on."
-    items: [ESP32, Raspberry Pi, Arduino, NVIDIA Jetson Orin, Circuit & Power-Distribution Design, UART / Serial, "LiDAR, IMU & Depth-Camera Integration", Siemens TIA]
+    items: ["NVIDIA Jetson (Orin Nano, Orin NX)", Raspberry Pi, ESP32, Arduino, Pixhawk, UR5, Kinova, SO-101, Circuit & Power-Distribution Design, UART / Serial, "LiDAR, IMU & Depth-Camera Integration"]
   - group: Mechanical Design
     key:   mechanical
-    blurb: "Earlier work — chassis, mechanisms and rapid prototyping."
+    blurb: "Where I started — chassis, mechanisms and rapid prototyping."
     items: [Fusion 360, Onshape, SolidWorks, ANSYS (FEA & CFD), Mechanism Design, 3D Printing, Laser Cutting, Rapid Prototyping]

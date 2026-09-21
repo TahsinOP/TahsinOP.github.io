@@ -1,3 +1,18 @@
+- title:    "LeHome Challenge, IEEE ICRA 2026 — Bimanual Cloth Folding"
+  org:      "IIT Bombay"
+  advisor:  "Prof. Nived Chebrolu"
+  location: "Mumbai, India"
+  date:     "Jan 2026 — Mar 2026"
+  year:     2026
+  result:   "Rank 32 / 62 teams internationally"
+  highlight: true
+  domains:  [Learning, Manipulation, Perception]
+  tags:     [Isaac Sim, SO-101, SmolVLA, YOLO, ACT, X-VLA, Diffusion Policy, "π0"]
+  points:
+    - "Simulation round in Isaac Sim: fold any of four garment categories, spawned at random, with a bimanual SO-101 setup."
+    - "Compared four specialist SmolVLA policies routed by a YOLO garment classifier against a single generalist policy; both converged to comparable performance — 55% success locally and 49% on the final server evaluation."
+    - "Also evaluated ACT, X-VLA, diffusion policy and π0, including a SmolVLA and X-VLA hybrid for the specialist route."
+
 - title:    "e-Yantra Robotics Competition 2024 — Cosmo Logistic"
   role:     "Team Captain"
   org:      "e-Yantra, IIT Bombay"
@@ -12,7 +27,7 @@
     - "Led a warehouse-automation solution on ROS 2, Nav2 and MoveIt 2 — SLAM-based navigation, ArUco pose detection and arm manipulation."
     - "16th nationally out of roughly 500 teams, deployed onto real hardware remotely in e-Yantra's arena."
 
-- title:    "DD Robocon 2023"
+- title:    "DD Robocon 2023 — ABU Robocon National Qualifier"
   role:     "Mechanical Subsystem — Chassis & Mechanism Design"
   org:      "CSD Robocon, NITK"
   location: "Delhi, India"
@@ -21,10 +36,10 @@
   result:   "National qualifier · Top 50"
   highlight: true
   domains:  [Hardware]
-  tags:     [Mechanism Design, Fabrication, Dual-Roller Launcher]
+  tags:     [Mechanism Design, Catapult & Dual-Roller Launchers, FEA, 3D Printing, Laser Cutting]
   points:
-    - "The institute's first-ever ABU Robocon qualification, top 50 in the country."
-    - "Two semi-autonomous robots throwing rings onto poles at up to 12 m, via catapult and dual-roller launchers."
+    - "Designed chassis and mechanisms for two semi-autonomous robots, part of NITK's first-ever qualification for the national stage — including catapult and dual-roller shooting mechanisms for ring throwing onto poles up to 12 metres away."
+    - "Iterated through rapid prototyping with 3D printing and laser cutting, and performed FEA on load-bearing members to size the structure against impact loading during launch."
 
 - title:    "e-Yantra Robotics Competition 2023 — Sentinel Drone"
   role:     "Team Member"
