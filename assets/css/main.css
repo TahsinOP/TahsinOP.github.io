@@ -382,6 +382,7 @@ main { min-height: 60vh; }
 .workshop__aud { margin: 0; font: 600 1.05rem/1.35 var(--serif); color: var(--accent); }
 .workshop h3 { font-size: 1.04rem; }
 .workshop p { margin: 4px 0 0; font-size: .94rem; color: var(--graphite); }
+.workshop .link-row { margin-top: 10px; }
 
 /* about: timeline */
 .about-bio p { max-width: var(--measure); font-size: 1.06rem; line-height: 1.75; color: var(--ink-2); }
@@ -442,6 +443,11 @@ main { min-height: 60vh; }
 .skill:hover .skill__ico { background: var(--b, var(--accent)); }
 [data-theme="dark"] .skill:hover .skill__ico { background: var(--bd, var(--b, var(--accent))); }
 .skill:hover .skill__mark { color: var(--accent); }
+.skill__img {
+  width: 30px; height: 30px; object-fit: contain; border-radius: 7px; background: #fff;
+  filter: grayscale(1) contrast(.9); opacity: .78; transition: filter .22s ease, opacity .22s ease;
+}
+.skill:hover .skill__img { filter: none; opacity: 1; }
 
 /* 8. Project pages --------------------------------------------------------- */
 .detail { padding-top: 40px; }
@@ -580,11 +586,14 @@ figcaption a { margin-left: 6px; font-weight: 500; }
 .intro__text > :nth-child(4), .intro__photo, .detail__head > :nth-child(4) { animation-delay: .18s; }
 .rv { opacity: 0; transform: translateY(10px); transition: opacity .55s ease, transform .55s var(--ease); }
 .rv.is-in { opacity: 1; transform: none; }
+/* lazy images fade in once loaded (site.js adds .is-loaded) */
+img.fade { opacity: 0; transition: opacity .45s ease; }
+img.fade.is-loaded { opacity: 1; }
 .skill.rv { transition: opacity .55s ease, transform .4s var(--ease), background .22s ease; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-  .rv { opacity: 1; transform: none; }
+  .rv, img.fade { opacity: 1; transform: none; }
 }
 
 /* 11. Responsive ------------------------------------------------------------ */
@@ -622,6 +631,8 @@ figcaption a { margin-left: 6px; font-weight: 500; }
   .reel { aspect-ratio: 16 / 10; margin-top: 40px; }
   .reel__bar { padding: 36px 14px 12px; }
   .reel__caption span { font-size: 1rem; }
+  .reel__caption small { display: none; }
+  .reel__caption { max-width: 62%; }
   .grid, .feat { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .row-item { grid-template-columns: minmax(0, 1fr); gap: 18px; padding: 28px 0; }
   .news__row, .pub, .workshop, .edu, .skills__group { grid-template-columns: minmax(0, 1fr); gap: 6px; }

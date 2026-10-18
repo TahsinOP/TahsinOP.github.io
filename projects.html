@@ -44,7 +44,7 @@ description: >-
 </section>
 
 <section class="section" id="workshops" aria-labelledby="ws-h">
-  <h2 class="section-title" id="ws-h">Workshops</h2>
+  <h2 class="section-title" id="ws-h">Talks and workshops</h2>
   <div class="workshops">
     {%- for w in site.data.about.workshops -%}
     <div class="workshop">
@@ -52,6 +52,7 @@ description: >-
       <div>
         <h3>{{ w.title }}</h3>
         <p>{{ w.detail }} {{ w.where }}.</p>
+        {%- if w.link %}<p class="link-row">{% include link.html l=w.link %}</p>{% endif -%}
       </div>
     </div>
     {%- endfor -%}

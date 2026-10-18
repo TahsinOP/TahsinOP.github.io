@@ -119,6 +119,33 @@
     });
   }
 
+  /* ---------- autoplay videos pause when scrolled out of view ---------- */
+  if ('IntersectionObserver' in window) {
+    var vio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var v = e.target;
+        if (v.closest('.reel.is-paused')) return;          // respect the reel's Pause button
+        if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+        else v.pause();
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('video[autoplay]').forEach(function (v) {
+      if (calm) { v.pause(); v.removeAttribute('autoplay'); return; }
+      vio.observe(v);
+    });
+  }
+
+  /* ---------- lazy images fade in when loaded ---------- */
+  if (!calm) {
+    document.querySelectorAll('img[loading="lazy"]').forEach(function (img) {
+      if (img.complete && img.naturalWidth) return;      // already there, leave it
+      img.classList.add('fade');
+      var done = function () { img.classList.add('is-loaded'); };
+      img.addEventListener('load', done, { once: true });
+      img.addEventListener('error', done, { once: true });
+    });
+  }
+
   /* ---------- scroll reveals: short and light, About-page style ---------- */
   if ('IntersectionObserver' in window && !calm) {
     var targets = document.querySelectorAll('.card, .row-item, .tl__item, .skill, .pub, .news__row, .interest, .workshop');

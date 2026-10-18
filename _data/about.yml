@@ -31,12 +31,18 @@ education:
 
 outreach:
   - "Mentored three eYSIP 2026 summer research projects and five interns."
+  - 'Talk on imitation learning and VLAs with LeRobot and the SO-101 arm, for e-Yantra''s SO-101 series (<a href="https://youtu.be/vWnEfLNI44w" target="_blank" rel="noopener">watch</a>).'
   - "Two-day embedded systems Faculty Development Programmes for ~80 college professors in Bengaluru and Mysore."
   - "Two-day ROS workshop for 40+ participants under e-Yantra's Women in Robotics initiative."
   - "Electronics SIG Head, SAE NITK (2024-25): led year-long student projects in autonomous vehicles and robotics."
 
-# Workshops on /projects/ (Mentoring & workshops section).
+# Talks and workshops on /projects/, newest first. Optional `link` adds a button.
 workshops:
+  - title:    "The LeRobot SO-101 Arm: Introduction to Imitation Learning"
+    detail:   "A beginner-friendly talk on imitation learning and vision-language-action models with LeRobot and the SO-101 arm, Episode 4 of e-Yantra's SO-101 series."
+    audience: "Talk, e-Yantra YouTube"
+    where:    "Aug 2026"
+    link:     { label: "Watch the talk", url: "https://youtu.be/vWnEfLNI44w" }
   - title:    "Embedded Systems Faculty Development Programmes"
     detail:   "Two-day hands-on programmes on the AlphaBot v2 platform, representing IIT Bombay's ERTS Lab."
     audience: "~80 college professors"
@@ -51,7 +57,9 @@ workshops:
 #   logo:  file in assets/img/logos/ (without .svg). Brand logos come from
 #          simpleicons.org: download https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/<slug>.svg
 #   color: brand colour shown on hover; dark: optional lighter colour for dark mode
-#   mark:  1-2 letters shown instead, when there is no logo
+#   img:   a full-colour logo in assets/img/logos/<img>.png (square, ~128px),
+#          e.g. the project's GitHub organisation avatar; shown grey, colour on hover
+#   mark:  1-2 letters shown instead, when there is no logo at all
 skills:
   - group: Programming
     items:
@@ -62,29 +70,29 @@ skills:
     items:
       - { name: ROS,         logo: ros,         color: "#22314E", dark: "#8EA4CC" }
       - { name: ROS 2,       logo: ros,         color: "#22314E", dark: "#8EA4CC" }
-      - { name: Nav2,        mark: "N2" }
-      - { name: MoveIt,      mark: "Mi" }
-      - { name: Autoware,    mark: "Aw" }
+      - { name: Nav2,        img: nav2 }
+      - { name: MoveIt,      img: moveit }
+      - { name: Autoware,    img: autoware }
       - { name: LeRobot,     logo: huggingface, color: "#E0A800", dark: "#FFD21E" }
-      - { name: Open3D,      mark: "3D" }
+      - { name: Open3D,      logo: open3d,      color: "#1A5FB4", dark: "#6FA8F5" }
       - { name: OpenCV,      logo: opencv,      color: "#5C3EE8", dark: "#8F7BF2" }
-      - { name: OSQP,        mark: "QP" }
+      - { name: OSQP,        img: osqp }
   - group: Simulation
     items:
-      - { name: Gazebo,      mark: "Gz" }
-      - { name: MuJoCo,      mark: "Mj" }
+      - { name: Gazebo,      img: gazebo }
+      - { name: MuJoCo,      img: mujoco }
       - { name: Isaac Sim,   logo: nvidia,      color: "#76B900" }
-      - { name: CoppeliaSim, mark: "Cs" }
+      - { name: CoppeliaSim, img: coppeliasim }
   - group: Hardware
     items:
       - { name: Jetson Orin, logo: nvidia,      color: "#76B900" }
       - { name: Raspberry Pi, logo: raspberrypi, color: "#A22846", dark: "#E05A7A" }
       - { name: ESP32,       logo: espressif,   color: "#E7352C" }
-      - { name: Pixhawk,     mark: "Px" }
-      - { name: UR5,         mark: "UR" }
-      - { name: Kinova,      mark: "Kv" }
-      - { name: SO-101,      mark: "SO" }
+      - { name: Pixhawk,     img: px4 }
+      - { name: UR5,         img: universalrobots }
+      - { name: Kinova,      img: kinova }
+      - { name: SO-101,      img: so101 }
   - group: CAD
     items:
       - { name: Fusion 360,  logo: autodesk,    color: "#000000", dark: "#FFFFFF" }
-      - { name: Onshape,     mark: "On" }
+      - { name: Onshape,     img: onshape }

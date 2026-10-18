@@ -22,11 +22,6 @@ publications:
       - label: DOI
         url:   "https://doi.org/10.1108/IR-05-2025-0162"
 
-  - title:   "Scalable, low-cost remote laboratories for robotics education"
-    authors: "Tahsin Khan et al."
-    venue:   "Working title"
-    year:    2026
-    status:  "In preparation"
 
 # ── Research work ─────────────────────────────────────────────
 # Each item has a card, a row on /research/ and a detail page at

@@ -67,7 +67,9 @@ description: >-
       <ul class="skills__row">
         {%- for i in layer.items -%}
         <li class="skill"{% if i.color %} style="--b: {{ i.color }}; --bd: {{ i.dark | default: i.color }}"{% endif %}>
-          {%- if i.logo -%}
+          {%- if i.img -%}
+          <img class="skill__img" src="{{ '/assets/img/logos/' | relative_url }}{{ i.img }}.png" alt="" width="30" height="30" loading="lazy">
+          {%- elsif i.logo -%}
           <span class="skill__ico" style="--icon: url('{{ '/assets/img/logos/' | relative_url }}{{ i.logo }}.svg')" aria-hidden="true"></span>
           {%- else -%}
           <span class="skill__mark" aria-hidden="true">{{ i.mark }}</span>
