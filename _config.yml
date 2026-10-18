@@ -5,13 +5,13 @@ title:       Tahsin Khan
 first_name:  Tahsin
 last_name:   Khan
 role:        Robotics Engineer
-tagline:     Autonomy · SLAM · Mobile Manipulation · Imitation Learning
+tagline:     Cooperative Mobile Manipulation · Autonomy · SLAM
 description: >-
-  Tahsin Khan — robotics engineer at the ERTS Lab (e-Yantra), IIT Bombay.
+  Tahsin Khan, robotics engineer at the ERTS Lab (e-Yantra), IIT Bombay.
   Autonomous navigation, SLAM, cooperative mobile manipulation, whole-body
   control and imitation learning for manipulation.
 
-# Change these two if you rename the repo or use a custom domain.
+# GitHub Pages user site: the repo must be named TahsinOP.github.io.
 url:     "https://tahsinop.github.io"
 baseurl: ""
 
@@ -25,14 +25,14 @@ author:
   linkedin:  tahsin-khan-
   scholar:   "hTFoPnEAAAAJ"
   orcid:     ""          # e.g. "0000-0000-0000-0000"
-  photo:     ""          # e.g. "/assets/img/tahsin.jpg" — replaces the TK monogram
+  photo:     "/assets/img/passport.jpg"
   location:  "Mumbai, India"
-  cv:        "/assets/cv/Tahsin_Khan_CV.pdf"
+  cv:        "/assets/cv/CV_NEW.pdf"
 
 # Shown under the profile photo on the landing page.
 affiliation:
   role:    "Senior Project Technical Assistant"
-  lab:     "ERTS Lab · e-Yantra"
+  lab:     "ERTS Lab (e-Yantra)"
   org:     "IIT Bombay"
   address: "Powai, Mumbai 400076"
 

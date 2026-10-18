@@ -1,8 +1,12 @@
-- name: about
+- name: Home
   url: /
-- name: research
+- name: Research
   url: /research/
-- name: projects
+- name: Projects
   url: /projects/
-- name: cv
-  url: /cv/
+- name: About
+  url: /about/
+# external: opens in a new tab and is not relative to the page
+- name: CV
+  url: /assets/cv/CV_NEW.pdf
+  file: true

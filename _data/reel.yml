@@ -1,0 +1,26 @@
+# The footage reel on the home page: one short silent loop made from
+# project videos (assets/video/reel/reel.mp4), and which project each part
+# shows. `start` is the second where that clip begins in the loop.
+src:    /assets/video/reel/reel.mp4
+poster: /assets/img/reel-poster.jpg
+clips:
+  - start:  0
+    title:  "Grasp-Anchored Cooperative Transport"
+    detail: "Two mobile manipulators carrying a shared payload"
+    link:   /research/coop-manipulation/
+  - start:  11.2
+    title:  "Krishi CoBot, eYRC 2025-26"
+    detail: "UR5 sorting fruit and the eBot in the greenhouse arena (footage: e-Yantra theme film)"
+    link:   /research/remote-labs/
+  - start:  15.0
+    title:  "Niti Vahan"
+    detail: "Lane following in the CoppeliaSim digital twin"
+    link:   /research/niti-vahan/
+  - start:  23.2
+    title:  "Niti Vahan"
+    detail: "Lane following and obstacle avoidance on hardware"
+    link:   /research/niti-vahan/
+  - start:  32.4
+    title:  "Visual SLAM for UAVs"
+    detail: "Dense map built from scratch with Open3D and OpenCV"
+    link:   /research/visual-slam-uav/

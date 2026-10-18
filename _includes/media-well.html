@@ -1,0 +1,23 @@
+{%- comment -%}
+  Cover image for cards and rows. Loads the 800px `-thumb` copy made by
+  tools/optimise_media.py unless full=true. Falls back to a labelled placeholder.
+  Params: item, cls, video (show the Video badge), full
+{%- endcomment -%}
+{%- assign mw = include.item -%}
+<div class="media {{ include.cls }}{% if mw.cover_fit == 'contain' %} media--contain{% endif %}{% if mw.cover_bg == 'soft' %} media--soft{% endif %}">
+  {%- if mw.cover and mw.cover != "" -%}
+    {%- if include.full -%}
+      {%- assign mw_src = mw.cover -%}
+    {%- else -%}
+      {%- assign mw_ext = mw.cover | split: "." | last -%}
+      {%- assign mw_n = mw.cover.size | minus: mw_ext.size | minus: 1 -%}
+      {%- capture mw_src -%}{{ mw.cover | slice: 0, mw_n }}-thumb.{{ mw_ext }}{%- endcapture -%}
+    {%- endif -%}
+  <img src="{{ mw_src | relative_url }}" alt="" loading="lazy" decoding="async">
+  {%- else -%}
+  <div class="media__ph" aria-hidden="true">{{ mw.title }}</div>
+  {%- endif -%}
+  {%- if include.video -%}
+  <span class="badge"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0l9 5-9 5z"/></svg>Video</span>
+  {%- endif -%}
+</div>

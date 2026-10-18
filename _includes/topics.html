@@ -1,0 +1,6 @@
+{%- assign tp = include.list -%}
+{%- if tp -%}
+<ul class="topics" aria-label="Topics">
+  {%- for t in tp -%}<li class="topic" style="--c: {{ site.data.topics[t] | default: '#64748B' }}">{{ t }}</li>{%- endfor -%}
+</ul>
+{%- endif -%}

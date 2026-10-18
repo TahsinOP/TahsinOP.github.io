@@ -33,7 +33,7 @@ def inline_includes(text, depth=0):
         name, params = m.group(1), m.group(2).strip()
         path = os.path.join(ROOT, "_includes", name)
         body = open(path).read()
-        for kv in re.finditer(r"(\w+)\s*=\s*([\w.\[\]'\"]+)", params):
+        for kv in re.finditer(r"(\w+)\s*=\s*(\"[^\"]*\"|'[^']*'|[\w.\-]+)", params):
             body = body.replace("include." + kv.group(1), kv.group(2))
         return inline_includes(body, depth + 1)
     return INC.sub(repl, text)
@@ -48,6 +48,8 @@ def absolute_url(v):
 
 env.filters["relative_url"] = relative_url
 env.filters["absolute_url"] = absolute_url
+import json as _json
+env.filters["jsonify"] = lambda v: _json.dumps(v, ensure_ascii=False)
 
 def render(text, ctx):
     return env.from_string(inline_includes(text)).render(**ctx)
@@ -66,11 +68,12 @@ if os.path.isdir(OUT):
     shutil.rmtree(OUT)
 os.makedirs(OUT)
 
-pages = sorted(glob.glob(os.path.join(ROOT, "*.html")))
+pages = sorted(glob.glob(os.path.join(ROOT, "*.html")) + glob.glob(os.path.join(ROOT, "[!_]*", "*.html")))
+pages = [p for p in pages if not os.path.relpath(p, ROOT).startswith(("assets", "tools", "_"))]
 errors = []
 for p in pages:
     fm, body = split_fm(open(p).read())
-    base = os.path.basename(p)
+    base = os.path.relpath(p, ROOT)
     permalink = fm.get("permalink")
     if permalink is None:
         permalink = "/" if base == "index.html" else "/" + base[:-5] + "/"

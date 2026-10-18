@@ -1,0 +1,36 @@
+{%- comment -%} One entry of an item's `body:` list. {%- endcomment -%}
+{%- assign bk = include.block -%}
+{%- if bk.h -%}
+<h2>{{ bk.h }}</h2>
+{%- elsif bk.imgs -%}
+<div class="fig fig--pair">
+  {%- for im in bk.imgs -%}
+  <figure>
+    <a class="zoom" href="{{ im.src | relative_url }}" data-caption="{{ im.caption }}" aria-label="Enlarge image: {{ im.caption }}"><img src="{{ im.src | relative_url }}" alt="{{ im.caption }}" loading="lazy" decoding="async"></a>
+    {%- if im.caption %}<figcaption>{{ im.caption }}</figcaption>{% endif -%}
+  </figure>
+  {%- endfor -%}
+</div>
+{%- elsif bk.vids -%}
+<div class="fig fig--pair fig--vids">
+  {%- for vd in bk.vids -%}
+  <figure>
+    <video controls playsinline preload="none"{% if vd.poster %} poster="{{ vd.poster | relative_url }}"{% endif %}{% if vd.caption %} aria-label="{{ vd.caption }}"{% endif %}><source src="{{ vd.src | relative_url }}" type="video/mp4"></video>
+    {%- if vd.caption %}<figcaption>{{ vd.caption }}</figcaption>{% endif -%}
+  </figure>
+  {%- endfor -%}
+</div>
+{%- elsif bk.youtubes -%}
+<div class="fig fig--pair fig--videos">
+  {%- for yt in bk.youtubes -%}
+  <figure>
+    {% include yt.html id=yt.id caption=yt.caption %}
+    {%- if yt.caption %}<figcaption>{{ yt.caption }}</figcaption>{% endif -%}
+  </figure>
+  {%- endfor -%}
+</div>
+{%- elsif bk.img or bk.video or bk.youtube -%}
+{% include fig.html m=bk cls="fig" %}
+{%- else -%}
+<p>{{ bk }}</p>
+{%- endif -%}

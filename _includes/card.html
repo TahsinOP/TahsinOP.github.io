@@ -1,26 +1,22 @@
-{%- assign it = include.item -%}
-<article class="card"{% if it.domains %} data-domains="{% for d in it.domains %}{{ d | downcase }} {% endfor %}"{% endif %}>
-  <h3 class="card__title">{{ it.title }}</h3>
-  {%- if it.subtitle %}<p class="card__sub">{{ it.subtitle }}</p>{% endif -%}
-
-  {%- if it.points -%}
-  <ul class="entry__points">
-    {%- for p in it.points -%}<li>{{ p }}</li>{%- endfor -%}
-  </ul>
-  {%- endif -%}
-
-  {%- assign chips = it.stack | default: it.tags -%}
-  {%- if chips -%}
-  <ul class="tags">
-    {%- for t in chips -%}<li class="tag">{{ t }}</li>{%- endfor -%}
-  </ul>
-  {%- endif -%}
-
-  {%- if it.links and it.links.size > 0 -%}
-  <p class="entry__links">
-    {%- for l in it.links -%}<a class="btn-sm" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{%- endfor -%}
-  </p>
-  {%- endif -%}
-
-  <p class="card__meta">{{ it.date }}{% if it.org %} <span class="sep">·</span> {{ it.org }}{% endif %}</p>
+{%- comment -%}
+  The one card component. Params: item, base ("/research/" or "/projects/"),
+  lead (true for the large horizontal card on the home page).
+{%- endcomment -%}
+{%- assign c = include.item -%}
+{%- capture c_href -%}{{ include.base }}{{ c.slug }}/{%- endcapture -%}
+{% include has-video.html item=c %}
+<article class="card{% if include.lead %} card--lead{% endif %}"{% if c.domains %} data-domains="{% for d in c.domains %}{{ d | downcase }} {% endfor %}"{% endif %}>
+  {% include media-well.html item=c cls="card__media" video=has_video full=include.lead %}
+  <div class="card__body">
+    {%- if c.status %}<p class="status">{{ c.status }}</p>{% endif -%}
+    <h3 class="card__title"><a href="{{ c_href | relative_url }}">{{ c.title }}</a></h3>
+    <p class="card__text">{{ c.card | default: c.summary }}</p>
+    {%- if include.lead and c.contributions -%}
+    <ul class="card__contrib">{%- for k in c.contributions limit: 2 -%}<li>{{ k }}</li>{%- endfor -%}</ul>
+    {%- endif -%}
+    {% include topics.html list=c.topics %}
+    {%- if c.links and c.links.size > 0 -%}
+    <p class="card__links link-row">{%- for l in c.links limit: 2 -%}{% include link.html l=l %}{%- endfor -%}</p>
+    {%- endif -%}
+  </div>
 </article>

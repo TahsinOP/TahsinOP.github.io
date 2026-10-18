@@ -1,44 +1,23 @@
 ---
-title: research
+title: Research
 permalink: /research/
 subtitle: >-
-  Publications and research positions — cooperative mobile manipulation,
-  Ackermann autonomy at e-Yantra, SLAM and soft robotics.
+  Cooperative mobile manipulation, soft robotics, autonomous driving, remote
+  labs for robotics education, and SLAM.
 description: >-
-  Publications and research experience — cooperative mobile manipulation,
-  autonomous driving theme development, SLAM and soft robotics.
+  Research by Tahsin Khan: grasp-anchored cooperative transport,
+  Niti Vahan, remote robotics laboratories, visual SLAM and soft robotics.
 ---
-
-<h2 class="h-section">research areas<span class="h-section__note">each links to the matching projects</span></h2>
-<div class="areas">
-  {%- for a in site.data.research.areas -%}
-  <div class="area">
-    <p class="area__name"><a href="{{ '/projects/' | relative_url }}#{{ a.key }}">{{ a.name }}</a></p>
-    <p class="area__text">{{ a.text }}</p>
+<section class="section" aria-labelledby="work-h">
+  <h2 class="section-title" id="work-h">Research work</h2>
+  <div class="rows">
+    {%- for item in site.data.research.work -%}{% include row.html item=item %}{%- endfor -%}
   </div>
-  {%- endfor -%}
-</div>
+</section>
 
-<h2 class="h-section">publications</h2>
-<div class="pubs">
-  {%- for pub in site.data.research.publications -%}
-    {%- if pub.status == "Published" -%}{% include pub.html item=pub %}{%- endif -%}
-  {%- endfor -%}
-
-  {%- capture ongoing_pubs -%}
-  {%- for pub in site.data.research.publications -%}
-    {%- unless pub.status == "Published" -%}{% include pub.html item=pub %}{%- endunless -%}
-  {%- endfor -%}
-  {%- endcapture -%}
-  {%- if ongoing_pubs != "" -%}
-  <h3 class="h-sub">in progress</h3>
-  {{ ongoing_pubs }}
-  {%- endif -%}
-</div>
-
-<h2 class="h-section">research experience</h2>
-<div class="entries">
-  {%- for item in site.data.research.experience -%}
-    {% include entry.html item=item %}
-  {%- endfor -%}
-</div>
+<section class="section" aria-labelledby="pubs-h">
+  <h2 class="section-title" id="pubs-h">Publications</h2>
+  <div class="pubs">
+    {%- for pub in site.data.research.publications -%}{% include pub.html item=pub %}{%- endfor -%}
+  </div>
+</section>

@@ -1,163 +1,137 @@
-# tahsinkhan.github.io
+# TahsinOP.github.io
 
-Personal research portfolio — clean, minimal, content-driven. The design follows
-[al-folio](https://github.com/alshedivat/al-folio): white page, black text, the
-theme's default magenta accent (lightened for dark mode), Roboto Slab titles, quiet
-hairline structure, no motion. It is a plain Jekyll site with **no gem
-dependencies beyond GitHub Pages defaults**, so github.io builds it natively —
-no GitHub Actions, no build step to maintain. (Real al-folio needs
-jekyll-scholar and a CI build; this keeps the look without the machinery.)
+Research portfolio of Tahsin Khan. A plain Jekyll site built by GitHub Pages
+itself: no GitHub Actions, no plugins beyond `jekyll-sitemap`, no JS framework.
+All content lives in `_data/*.yml`.
 
-Four pages, al-folio style:
+Pages:
 
-- **`/`** — the *about* landing: brief intro, news, social links.
-- **`/research/`** — research areas, publications, research experience.
-- **`/projects/`** — filterable card grid. `#slam`, `#learning`, … deep-link
-  straight to a filtered view.
-- **`/cv/`** — a link to the PDF, education, a compact research-experience
-  summary, competitions, technical skills.
-
----
+- **`/`** home: intro, footage reel, research interests, selected work, publications, news
+- **`/research/`** research work and publications, with a page per item at `/research/<slug>/`
+- **`/projects/`** filterable projects (`#slam`, `#learning`, ... deep-link to a filter),
+  mentoring and workshops, competitions; a page per item at `/projects/<slug>/`
+- **`/about/`** journey timeline, education, teaching and outreach, skills
+- **CV** in the nav opens `assets/cv/CV_NEW.pdf`
 
 ## Deploying to GitHub Pages
 
-1. Create a **public** repo named exactly `TahsinKhan.github.io`
-   (the name must be `<username>.github.io` for the site to live at the root).
-2. Push this folder's contents to `main`:
+1. Create a **public** repo named exactly `TahsinOP.github.io`.
+2. Push this folder to `main`:
 
    ```bash
-   cd tahsinkhan.github.io
-   git init
-   git add .
-   git commit -m "Portfolio site"
+   git init && git add . && git commit -m "Portfolio site"
    git branch -M main
-   git remote add origin git@github.com:TahsinKhan/TahsinKhan.github.io.git
+   git remote add origin git@github.com:TahsinOP/TahsinOP.github.io.git
    git push -u origin main
    ```
-3. Repo → **Settings → Pages** → *Source*: `Deploy from a branch`, branch
-   `main`, folder `/ (root)`.
-4. Wait ~60 s. Live at `https://TahsinKhan.github.io`.
+3. Repo, **Settings, Pages**: deploy from branch `main`, folder `/ (root)`.
+4. After about a minute it is live at `https://tahsinop.github.io`.
 
-If the repo is *not* named `<username>.github.io` (say it is `portfolio`), the
-site is served from `https://TahsinKhan.github.io/portfolio/` — set
-`baseurl: "/portfolio"` in `_config.yml`.
-
-### Custom domain (optional)
-Add a `CNAME` file containing just the domain, point DNS at GitHub's IPs, and set
-the domain in Settings → Pages.
-
----
-
-## Editing content
-
-**You should almost never touch HTML.** Everything lives in `_data/*.yml`:
-
-| File | Drives |
-|---|---|
-| `_data/news.yml` | The dated *news* list on the landing page |
-| `_data/research.yml` | `areas`, `publications` and `experience`, all on `/research/` (`experience` also appears as the CV's summary rows) |
-| `_data/projects.yml` | The project cards on `/projects/` |
-| `_data/competitions.yml` | The *competitions* section of `/cv/` |
-| `_data/about.yml` | the landing page's `subtitle` and `intro` paragraphs · `education` and `skills`, both on `/cv/` |
-| `_data/nav.yml` | The top navigation |
-
-Identity and contact — the name in the nav and the big heading, email, photo,
-affiliation, CV path — live in `_config.yml`, because the nav, footer and page
-metadata read the same values.
-
-Common edits:
-
-- **Rewrite the landing-page intro** → `subtitle` and the `intro` list in
-  `_data/about.yml`. Each `intro` item is one paragraph; both accept inline HTML
-  (`<b>`, `<a href="...">`, `<em>`). No HTML file needs touching.
-
-- **Add a news item** → prepend to `_data/news.yml` (`date` + `text`, newest
-  first). `text` accepts inline HTML: `<b>`, `<a>`, `<em>`.
-- **Add a paper** → append to `publications` in `_data/research.yml`. Anything
-  with `status: Published` is listed first; everything else (`Under review`,
-  `In preparation`) is grouped below under *in progress*, and that subheading
-  only appears when such an entry exists. Add
-  `links: [{label: Paper, url: "..."}, {label: Code, url: "..."}]`. Your own
-  name is bolded automatically wherever it appears in `authors`.
-- **Add a project** → append to `_data/projects.yml`. `domains` must come from
-  `Navigation` / `SLAM` / `Perception` / `Manipulation` / `Learning` / `Hardware`
-  — they drive the filter chips on `/projects/` and the `#slam`-style deep links
-  the CV's research-areas grid points at. Adding a new domain means adding it to
-  the `keys`/`labels` lists at the top of `projects.html` too.
-- **Ordering** → `research.experience` and `_data/news.yml` are rendered in file
-  order, so keep both newest-first.
-- **Add a portrait** → drop the image in `assets/img/` and set
-  `author.photo: "/assets/img/you.jpg"` in `_config.yml`. Until then the landing
-  page shows a `TK` monogram in its place.
-- **Update the CV** → replace `assets/cv/Tahsin_Khan_CV.pdf` (keep the filename,
-  or update `author.cv` in `_config.yml`).
-- **Email / GitHub / LinkedIn / Scholar / ORCID** → the `author:` block in
-  `_config.yml`. Scholar and ORCID icons appear only once those fields are set.
-- **Affiliation under the photo** → the `affiliation:` block in `_config.yml`.
-
-### Changing the colour theme
-
-One token, two places — light at the top of `assets/css/main.css`, dark in the
-`[data-theme="dark"]` block below it:
-
-```css
-:root                { --accent: #b509ac; }   /* al-folio magenta */
-[data-theme="dark"]  { --accent: #ea63e0; }   /* lightened magenta, ~6:1 on #1c1c1d */
-```
-
-Alternatives that suit this layout: deep teal `#0f766e` / `#5eead4`, indigo
-`#4338ca` / `#a5b4fc`, terracotta `#c9481f` / `#ff7a52`. `--accent-ink` is the
-text colour used *on top of* the accent — keep it readable.
-
----
-
-## Running it locally
-
-### Option A — real Jekyll (matches GitHub Pages exactly)
-
-Needs Ruby headers, not installed on this machine yet:
-
-```bash
-sudo apt install ruby-dev build-essential zlib1g-dev
-gem install --user-install bundler
-bundle install
-bundle exec jekyll serve --livereload    # → http://localhost:4000
-```
-
-### Option B — the bundled preview script (no Ruby needed)
-
-`tools/preview.py` is a ~100-line stand-in that renders these templates with
-`python-liquid`. It is a **dev convenience only** — GitHub Pages still builds
-with real Jekyll:
-
-```bash
-pip install --user python-liquid pyyaml
-python3 tools/preview.py .
-cd _preview && python3 -m http.server 8777    # → http://localhost:8777
-```
-
----
+Videos are served from the repo, so anyone can download them: keep anything
+confidential off the site.
 
 ## Structure
 
 ```
-_config.yml           site identity, contact links, affiliation, build config
-_data/                ← all content lives here
-_layouts/             default.html (shell), page.html (inner-page header)
-_includes/            head, nav, social, footer, entry, card, pub
-assets/css/main.css   plain CSS with custom properties; light + dark tokens
-assets/js/site.js     theme toggle, sticky-nav hairline, mobile menu, filters
-assets/cv/            the CV PDF
-assets/img/           portrait goes here
-index.html            the about landing
-research.html         publications + research experience
-projects.html         the project grid
-cv.html               the CV page
-404.html
+_config.yml            identity, contact links, affiliation, site URL
+_data/                 all content (see "Where to edit what")
+_layouts/              default (shell), page (inner pages), detail (project pages)
+_includes/             card, row, media-well, fig, block, yt, pub, link, topics, nav, footer
+research/, projects/   one-line stubs made by tools/make_pages.py
+assets/css/main.css    the only stylesheet: tokens, then components
+assets/js/site.js      theme, menu, filters, reel, reveals, YouTube, gallery, lightbox
+assets/img/<slug>/     images (+ -thumb copies);  assets/video/<slug>/  videos
+tools/                 page stubs, thumbnails, Jekyll build, link and browser checks
 ```
 
-### Unused files
-`_includes/hero.html` and `assets/js/drive.js` are an interactive
-driving-canvas hero that nothing includes, and the CSS it needs (`.drive`,
-`.hud`, `hero__*`) is not in this build. Delete them, or say the word and the
-hero can be wired back in.
+## Colours and type
+
+Tokens sit at the top of `assets/css/main.css`: light under `:root`, dark under
+`[data-theme="dark"]`. The accent is `--accent` (`#8a1c7c` light, `#e58ad9` dark,
+both above 7:1 contrast). Topic chip colours are in `_data/topics.yml`; the CSS
+darkens or lightens them so every chip stays above 4.5:1 in both themes.
+
+## Where to edit what
+
+All content lives in `_data/` (YAML). You rarely need to touch the HTML.
+
+| What you see | File |
+|---|---|
+| Home intro paragraphs | `_data/about.yml` → `intro` |
+| Name, role, photo, email, socials, CV link | `_config.yml` → `author`, `affiliation` |
+| Research interests (home) | `_data/research.yml` → `interests` |
+| Featured cards (home), and their order | `_data/featured.yml` (list of `ref: <slug>`) |
+| News (home) | `_data/news.yml` (newest first) |
+| Research items: card, row, detail page | `_data/research.yml` → `work` |
+| Publications | `_data/research.yml` → `publications` |
+| Projects / competitions | `_data/projects.yml`, `_data/competitions.yml` |
+| Mentored projects | `_data/mentoring.yml` |
+| Workshops (projects page) | `_data/about.yml` → `workshops` |
+| Journey timeline (about) | `_data/timeline.yml` (`kind: role` or `kind: milestone`) |
+| About bio, education, outreach, skills | `_data/about.yml` → `bio`, `education`, `outreach`, `skills` |
+| Nav items | `_data/nav.yml` |
+| The CV PDF | replace `assets/cv/CV_NEW.pdf` |
+
+### Adding a research item or project
+
+1. Copy an existing entry in `_data/research.yml` (`work:`) or `_data/projects.yml`
+   and give it a new `slug` (lowercase-with-dashes).
+2. Put media in `assets/img/<slug>/` and `assets/video/<slug>/`.
+   Keep videos small: `ffmpeg -i in.mp4 -c:v libx264 -crf 27 -vf scale=-2:720 -an -movflags +faststart out.mp4`.
+3. Fill in the fields (all are described at the top of `_data/research.yml`):
+   `cover` (card image), `card` (card text), `summary`, `stack` (3-4 keywords),
+   `links`, `hero` (the main video), `body` (text, `h:` subheadings, small
+   `img:`/`video:`/`youtube:` blocks) and `gallery` (scrollable strip).
+4. Run `python3 tools/make_pages.py` to create its detail page.
+5. To feature it on the home page, add `- ref: <slug>` to `_data/featured.yml`.
+
+### Adding a timeline entry
+
+```yaml
+- kind:  role                    # or: milestone (just date + text)
+  date:  "Aug 2025 - Present"    # "Present" makes the dot pulse
+  title: "Senior Project Technical Assistant"
+  org:   "ERTS Lab (e-Yantra), IIT Bombay"
+  text:  "One line on what you did."
+  link:  /research/              # optional
+  logo:  /assets/img/logos/iitb.png   # optional small org logo
+```
+
+### Adding a skill
+
+In `_data/about.yml` → `skills`, add `{ name: PyTorch, logo: pytorch, color: "#EE4C2C" }`
+after downloading `https://cdn.jsdelivr.net/npm/simple-icons@13.21.0/icons/pytorch.svg`
+into `assets/img/logos/`. With no logo available, use `{ name: Nav2, mark: "N2" }`
+(always quote the mark).
+
+### Build and check locally
+
+GitHub Pages builds the site itself on every push; nothing needs to be committed
+except the source. To check a change before pushing:
+
+```
+python3 tools/make_pages.py            # after adding/removing an item
+python3 tools/optimise_media.py        # after adding images (makes -thumb copies)
+ruby --disable-gems tools/jekyll_build.rb _site   # real Jekyll 3.10 build, like GitHub Pages
+python3 tools/check_links.py _site     # every local link, image and anchor
+python3 -m http.server 8080 -d _site   # then open http://127.0.0.1:8080
+python3 tools/browser_check.py         # keyboard, focus, reduced motion, mobile overflow
+```
+
+`jekyll_build.rb` needs Jekyll's pure-Ruby gems once:
+`gem install --user-install --ignore-dependencies jekyll:3.10.0 liquid:4.0.4 kramdown:2.4.0 kramdown-parser-gfm:1.1.0 rouge:3.30.0 safe_yaml:1.0.5 mercenary:0.3.6 colorator:1.1.0 pathutil:0.16.2 forwardable-extended:2.6.0 addressable:2.8.7 public_suffix:5.1.1 i18n:1.14.6 concurrent-ruby:1.3.4 jekyll-sass-converter:1.5.2 sass:3.7.4 jekyll-sitemap:1.4.0 webrick:1.8.2 rexml:3.3.9`.
+Without Ruby, `python3 tools/preview.py .` renders an approximate preview into `_preview/`.
+
+### Design notes
+
+- One stylesheet, `assets/css/main.css`, organised by section with colour and
+  type tokens at the top (light and dark). Fonts: Source Serif 4 for headings,
+  Inter for text.
+- One card component (`_includes/card.html`) in two sizes; the first entry of
+  `_data/featured.yml` becomes the large lead card on the home page.
+- The home page footage reel is `assets/video/reel/reel.mp4` (about 17 s, silent);
+  `_data/reel.yml` says which project each part shows.
+- Each detail page shows `contributions` first, then the write-up and gallery;
+  keep contributions to what you did, from the CV.
+- Motion: one page-load sequence plus light scroll reveals; all of it switches
+  off for visitors with reduced motion, and the reel starts paused for them.

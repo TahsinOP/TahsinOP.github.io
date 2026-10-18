@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Autonomous Ackermann Vehicle for Field Exploration | Tahsin Khan</title>
+
+<meta name="description" content="Tahsin Khan, robotics engineer at the ERTS Lab (e-Yantra), IIT Bombay. Autonomous navigation, SLAM, cooperative mobile manipulation, whole-body control and imitation learning for manipulation.">
+<meta name="author" content="Tahsin Khan">
+<link rel="canonical" href="https://tahsinop.github.io/research/arms-ackermann/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tahsin Khan">
+<meta property="og:title" content="Autonomous Ackermann Vehicle for Field Exploration | Tahsin Khan">
+<meta property="og:description" content="Tahsin Khan, robotics engineer at the ERTS Lab (e-Yantra), IIT Bombay. Autonomous navigation, SLAM, cooperative mobile manipulation, whole-body control and imitation learning for manipulation.">
+<meta property="og:url" content="https://tahsinop.github.io/research/arms-ackermann/">
+<meta property="og:image" content="https://tahsinop.github.io/assets/img/reel-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17181a" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%238a1c7c'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='17' font-weight='700' text-anchor='middle' fill='%23ffffff'>TK</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<script>
+  // Set the theme before first paint so there is no flash of the wrong palette.
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t !== 'light' && t !== 'dark') {
+        t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner wrap">
+    <a class="nav__brand" href="/">Tahsin Khan</a>
+
+    <nav class="nav__links" aria-label="Primary"><a href="/">Home</a><a href="/research/" aria-current="page">Research</a><a href="/projects/">Projects</a><a href="/about/">About</a><a href="/assets/cv/CV_NEW.pdf" target="_blank" rel="noopener">CV<span class="nav__ext" aria-hidden="true"> ↗</span><span class="sr-only"> (PDF, opens in a new tab)</span></a></nav>
+
+    <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/></g>
+      </svg>
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+        <path d="M20 14.2A8.2 8.2 0 019.8 4a8.4 8.4 0 102 10.2 8.2 8.2 0 008.2 0z" fill="currentColor"/>
+      </svg>
+    </button>
+
+    <button class="icon-btn nav__burger" id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav__mobile" id="nav-mobile" aria-label="Primary"><a href="/">Home</a><a href="/research/" aria-current="page">Research</a><a href="/projects/">Projects</a><a href="/about/">About</a><a href="/assets/cv/CV_NEW.pdf" target="_blank" rel="noopener">CV (PDF)</a></nav>
+</header>
+
+
+  <main id="main">
+    <article class="detail wrap">
+  <a class="back" href="/research/">All research</a>
+
+  <header class="detail__head"><p class="status">eYSIP 2024, ARMS Lab</p><h1>Autonomous Ackermann Vehicle for Field Exploration</h1><p class="detail__tagline">A ROS 2 four-wheel-drive Ackermann vehicle, from motor control to autonomous navigation.</p><ul class="topics" aria-label="Topics"><li class="topic" style="--c: #2563EB">Navigation</li><li class="topic" style="--c: #16A34A">SLAM</li><li class="topic" style="--c: #65A30D">State Estimation</li></ul></header>
+
+  <div class="detail__grid">
+    <div class="detail__main"><figure class="hero-media"><div class="yt" data-id="xZkY93gYrdk">
+  <button class="yt__play" type="button" aria-label="Play video: Demo. (loads YouTube)">
+    <img src="https://i.ytimg.com/vi/xZkY93gYrdk/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+    <span class="yt__btn" aria-hidden="true"></span>
+  </button>
+</div><figcaption>Demo.<a href="https://www.youtube.com/watch?v=xZkY93gYrdk" target="_blank" rel="noopener">Watch on YouTube<span class="sr-only"> (opens in a new tab)</span></a></figcaption></figure><section class="contrib" aria-labelledby="contrib-h">
+        <h2 id="contrib-h">My contributions</h2>
+        <ul><li>Built a ROS 2 4WD Ackermann vehicle, from motor and steering control to autonomous navigation.</li><li>Fused the IMU with Vicon velocity estimates in a Kalman filter for odometry.</li><li>Ran LiDAR SLAM with AMCL localisation in Nav2 and a pure-pursuit planner for waypoints.</li></ul>
+      </section><div class="prose"><p>At the <b>Autonomous Robots and Multi-Systems (ARMS) Lab</b>, IIT Bombay, I built a ROS 2-controlled four-wheel-drive Ackermann vehicle for field exploration, taking it from low-level motor and steering control through to autonomous navigation on the physical platform.</p><h2>State estimation</h2><p>Odometry fuses the <b>IMU with Vicon velocity estimates</b> through a Kalman filter.</p><h2>Mapping, localisation and planning</h2><p>LiDAR SLAM builds the map, <b>AMCL in Nav2</b> localises the vehicle in it, and a <b>pure-pursuit planner</b> drives it through waypoints.</p></div><section class="gallery" aria-labelledby="gallery-h">
+        <div class="gallery__head">
+          <h2 id="gallery-h">Gallery</h2></div>
+        <div class="strip" tabindex="0" aria-label="Gallery, scroll sideways"><figure class="strip__item"><a class="zoom" href="/assets/img/arms-ackermann/hardware.png" data-caption="The vehicle." aria-label="Enlarge image: The vehicle."><img src="/assets/img/arms-ackermann/hardware-thumb.png" alt="The vehicle." loading="lazy" decoding="async"></a><figcaption>The vehicle.</figcaption></figure><figure class="strip__item"><a class="zoom" href="/assets/img/arms-ackermann/poster.jpg" data-caption="eYSIP 2024 project poster." aria-label="Enlarge image: eYSIP 2024 project poster."><img src="/assets/img/arms-ackermann/poster-thumb.jpg" alt="eYSIP 2024 project poster." loading="lazy" decoding="async"></a><figcaption>eYSIP 2024 project poster.</figcaption></figure></div>
+      </section></div>
+
+    <aside class="facts" aria-label="Project details">
+      <dl><dt>Where</dt><dd>ARMS Lab, IIT Bombay</dd><dt>When</dt><dd>May 2024 - Jul 2024</dd><dt>With</dt><dd>Prof. Arpita Sinha</dd><dt>Tools</dt><dd><ul class="tags"><li class="tag">ROS 2</li><li class="tag">Nav2</li><li class="tag">Kalman Filter</li><li class="tag">Pure Pursuit</li></ul></dd><dt>Links</dt><dd><p class="link-row"><a class="chip-link" href="https://github.com/TahsinOP/eYSIP-24_Field_Exploration_ROS_Vehicles" target="_blank" rel="noopener">Code<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr-only"> (opens in a new tab)</span></a><a class="chip-link" href="https://www.youtube.com/watch?v=xZkY93gYrdk" target="_blank" rel="noopener">Video<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr-only"> (opens in a new tab)</span></a></p></dd></dl>
+    </aside>
+  </div>
+
+  <nav class="pager" aria-label="More research"><a class="pager__prev" href="/research/visual-slam-uav/"><small>Previous</small><strong>Visual SLAM for UAVs</strong></a></nav>
+</article>
+  </main>
+
+  <footer class="footer">
+  <div class="wrap footer__inner">
+    <p>
+      Tahsin Khan, ERTS Lab (e-Yantra), IIT Bombay<br>
+      <a href="mailto:tahsin.khan@e-yantra.org">tahsin.khan@e-yantra.org</a>
+    </p>
+    <div class="social" aria-label="Profiles">
+  <a href="mailto:tahsin.khan@e-yantra.org" aria-label="Email">
+    <svg viewBox="0 0 512 512" aria-hidden="true"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4C504.9 141.3 512 127.1 512 112c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+  </a>
+  <a href="https://github.com/TahsinOP" target="_blank" rel="noopener" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+  </a>
+  <a href="https://www.linkedin.com/in/tahsin-khan-" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  </a><a href="https://scholar.google.com/citations?user=hTFoPnEAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg>
+  </a></div>
+
+  </div>
+</footer>
+
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

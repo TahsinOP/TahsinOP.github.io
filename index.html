@@ -1,53 +1,99 @@
 ---
 layout: default
 permalink: /
-title: about
+title: Home
 description: >-
-  Tahsin Khan — robotics engineer at the ERTS Lab (e-Yantra), IIT Bombay.
-  Autonomy, SLAM, cooperative mobile manipulation and imitation learning.
+  Tahsin Khan, robotics engineer at the ERTS Lab (e-Yantra), IIT Bombay.
+  Cooperative mobile manipulation, autonomy, SLAM and learned manipulation.
 ---
-
-<div class="post wrap">
-  <header class="post-header">
-    <h1 class="post-title"><span class="strong">{{ site.first_name }}</span> {{ site.last_name }}</h1>
-    <p class="post-description">{{ site.data.about.subtitle }}</p>
-  </header>
-
-  <div class="post-body">
-    <article class="clearfix">
-      <div class="profile">
-        {%- if site.author.photo != "" -%}
-        <img class="profile__img" src="{{ site.author.photo | relative_url }}" alt="{{ site.author.name }}" loading="lazy">
-        {%- else -%}
-        <div class="profile__ph" aria-hidden="true"><span>{{ site.first_name | slice: 0 }}{{ site.last_name | slice: 0 }}</span></div>
-        {%- endif -%}
-        <div class="profile__info">
-          <p>
-            <strong>{{ site.affiliation.role }}</strong><br>
-            {{ site.affiliation.lab }}<br>
-            {{ site.affiliation.org }}, {{ site.affiliation.address }}
-          </p>
-          <p><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></p>
-        </div>
+{%- assign reel = site.data.reel -%}
+{%- assign first_clip = reel.clips | first -%}
+<div class="home wrap">
+  <section class="intro" aria-label="Introduction">
+    <div class="intro__text">
+      <h1 class="intro__name">{{ site.author.name }}</h1>
+      <p class="intro__role">{{ site.affiliation.role }}, {{ site.affiliation.lab }}, {{ site.affiliation.org }}</p>
+      <div>
+        {%- for para in site.data.about.intro -%}<p>{{ para }}</p>{%- endfor -%}
       </div>
-
-      <div class="prose">
-        {%- for para in site.data.about.intro -%}
-        <p>{{ para }}</p>
-        {%- endfor -%}
+      <div class="intro__actions">
+        <a class="btn btn--solid" href="{{ site.author.cv | relative_url }}" target="_blank" rel="noopener">CV (PDF)<span class="sr-only">, opens in a new tab</span></a>
+        <a class="btn" href="{{ '/about/' | relative_url }}">About me</a>
+        {% include social.html %}
       </div>
-    </article>
+    </div>
+    <figure class="intro__photo">
+      <img src="{{ site.author.photo | relative_url }}" alt="Portrait of {{ site.author.name }}" width="413" height="531">
+    </figure>
+  </section>
 
-    <h2 class="h-section">news</h2>
-    <div class="news">
-      {%- for n in site.data.news -%}
-      <div class="news__row">
-        <div class="news__date">{{ n.date }}</div>
-        <div class="news__text">{{ n.text }}</div>
+  <section class="reel" id="reel" aria-label="Robot footage from my projects" data-clips="{{ reel.clips | jsonify | escape }}">
+    <video autoplay muted loop playsinline preload="metadata" poster="{{ reel.poster | relative_url }}" aria-hidden="true">
+      <source src="{{ reel.src | relative_url }}" type="video/mp4">
+    </video>
+    <div class="reel__bar">
+      <a class="reel__caption" id="reel-link" href="{{ first_clip.link | relative_url }}">
+        <small id="reel-detail">{{ first_clip.detail }}</small>
+        <span id="reel-title">{{ first_clip.title }}</span>
+        <span class="reel__dots" aria-hidden="true">{%- for c in reel.clips -%}<i{% if forloop.first %} class="is-on"{% endif %}></i>{%- endfor -%}</span>
+      </a>
+      <button class="reel__toggle" id="reel-toggle" type="button" aria-pressed="false">
+        <svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0h3v10H1zM6 0h3v10H6z"/></svg>
+        <svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0l9 5-9 5z"/></svg>
+        <span>Pause</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="interests-h">
+    <h2 class="section-title" id="interests-h">Research interests</h2>
+    <div class="interests">
+      {%- for r in site.data.research.interests -%}
+      <div class="interest">
+        <h3>{{ r.name }}</h3>
+        <p>{{ r.text }}</p>
       </div>
       {%- endfor -%}
     </div>
+  </section>
 
-    <div class="social--center">{% include social.html %}</div>
-  </div>
+  <section class="section" aria-labelledby="work-h">
+    <h2 class="section-title" id="work-h">Selected work <a href="{{ '/research/' | relative_url }}">All research</a></h2>
+    <div class="feat">
+      {%- for f in site.data.featured -%}
+        {%- assign hit = false -%}
+        {%- assign hitbase = "/projects/" -%}
+        {%- for w in site.data.research.work -%}{%- if f.ref and w.slug == f.ref -%}{%- assign hit = w -%}{%- assign hitbase = "/research/" -%}{%- endif -%}{%- endfor -%}
+        {%- for w in site.data.projects -%}{%- if f.ref and w.slug == f.ref -%}{%- assign hit = w -%}{%- endif -%}{%- endfor -%}
+        {%- for w in site.data.mentoring -%}{%- if f.ref and w.slug == f.ref -%}{%- assign hit = w -%}{%- endif -%}{%- endfor -%}
+        {%- for w in site.data.competitions -%}{%- if f.ref and w.slug == f.ref -%}{%- assign hit = w -%}{%- endif -%}{%- endfor -%}
+        {%- if hit -%}
+          {%- if forloop.first -%}
+            {% include card.html item=hit base=hitbase lead=true %}
+          {%- else -%}
+            {% include card.html item=hit base=hitbase %}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="pubs-h">
+    <h2 class="section-title" id="pubs-h">Publications</h2>
+    <div class="pubs">
+      {%- for pub in site.data.research.publications -%}{% include pub.html item=pub %}{%- endfor -%}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="news-h">
+    <h2 class="section-title" id="news-h">News</h2>
+    <div class="news">
+      {%- for n in site.data.news -%}
+      <div class="news__row">
+        <p class="news__date">{{ n.date }}</p>
+        <p class="news__text">{{ n.text }}</p>
+      </div>
+      {%- endfor -%}
+    </div>
+  </section>
 </div>

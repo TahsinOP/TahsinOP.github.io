@@ -1,0 +1,71 @@
+# The journey on /about/, newest first.
+#   kind: role       a position: date, title, org, one line of text
+#   kind: milestone  a news-style event: date and one line of text
+#   logo:  optional, small org logo next to a role, e.g. /assets/img/logos/iitb.png
+#   link:  optional, a page on this site, e.g. /research/niti-vahan/
+- kind:   milestone
+  date:   "Sep 2026"
+  text:   "<b>Niti Vahan</b> goes live as the eYRC 2026-27 theme, selected by 1500 teams."
+  link:   /research/niti-vahan/
+
+- kind:   milestone
+  date:   "Jul 2026"
+  text:   "Mentored three eYSIP 2026 projects: imitation learning on SO-101 and UR5 arms, and 3D LiDAR SLAM on a UAV."
+  link:   /projects/#mentoring
+
+- kind:   milestone
+  date:   "Mar 2026"
+  text:   "Ranked 32 / 62 internationally at the <b>LeHome Challenge, IEEE ICRA 2026</b>."
+  link:   /projects/lehome-icra-2026/
+
+- kind:   milestone
+  date:   "Feb 2026"
+  text:   "Started research on <b>grasp-anchored cooperative transport</b> with two mobile manipulators."
+  link:   /research/coop-manipulation/
+
+- kind:   milestone
+  date:   "Jan 2026"
+  text:   "Review on soft mobile manipulators published in <i>Industrial Robot</i>."
+  link:   /research/soft-mobile-manipulators/
+
+- kind:   role
+  title:  "Senior Project Technical Assistant"
+  org:    "ERTS Lab (e-Yantra), IIT Bombay"
+  date:   "Aug 2025 - Present"
+  text:   "Competition theme R&D (Niti Vahan, Krishi CoBot), remote robotics labs, mentoring and outreach."
+  link:   /research/
+
+- kind:   role
+  title:  "Research Intern, Visual SLAM for UAVs"
+  org:    "eYSIP 2025, e-Yantra, IIT Bombay"
+  date:   "May 2025 - Jul 2025"
+  text:   "Built a visual SLAM system from scratch in Open3D and OpenCV."
+  link:   /research/visual-slam-uav/
+
+- kind:   milestone
+  date:   "Apr 2025"
+  text:   "Graduated from <b>NITK Surathkal</b> with a B.Tech in Mechanical Engineering."
+
+- kind:   role
+  title:  "Research Intern"
+  org:    "ARMS Lab, IIT Bombay (eYSIP 2024)"
+  date:   "May 2024 - Jul 2024"
+  text:   "Built a ROS 2 Ackermann vehicle for field exploration, motors to Nav2."
+  link:   /research/arms-ackermann/
+
+- kind:   role
+  title:  "Robotics Intern"
+  org:    "IITD-AIA Foundation for Smart Manufacturing, IIT Delhi"
+  date:   "Jun 2023 - Aug 2023"
+  text:   "UR5 pick-and-place with MoveIt, from Gazebo to hardware."
+
+- kind:   role
+  title:  "Mechanical Subsystem Member"
+  org:    "CSD Robocon, NITK"
+  date:   "2022 - Jul 2023"
+  text:   "Chassis and shooting mechanisms; NITK's first national qualification at DD Robocon 2023."
+  link:   /projects/robocon-2023/
+
+- kind:   milestone
+  date:   "Dec 2021"
+  text:   "Started at <b>NITK Surathkal</b>."

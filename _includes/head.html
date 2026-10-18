@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 {%- capture page_title -%}
-{%- if page.url == "/" -%}{{ site.title }} · {{ site.role }}{%- else -%}{{ page.title | capitalize }} · {{ site.title }}{%- endif -%}
+{%- if page.url == "/" -%}{{ site.title }} | {{ site.role }}{%- else -%}{{ page.title }} | {{ site.title }}{%- endif -%}
 {%- endcapture -%}
 <title>{{ page_title }}</title>
 
@@ -15,16 +15,18 @@
 <meta property="og:title" content="{{ page_title }}">
 <meta property="og:description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{{ '/assets/img/reel-poster.jpg' | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
 
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1c1c1d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#17181a" media="(prefers-color-scheme: dark)">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23b509ac'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='17' font-weight='700' text-anchor='middle' fill='%23ffffff'>TK</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%238a1c7c'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='17' font-weight='700' text-anchor='middle' fill='%23ffffff'>TK</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 

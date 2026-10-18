@@ -1,0 +1,187 @@
+# Mentored projects: cards in the "Mentoring & workshops" section of
+# /projects/, detail pages at /projects/<slug>/. Same fields as projects.
+# Add photos/videos the same way (cover, hero, body, gallery).
+- slug:     so101-imitation
+  title:    "VLA-Based Bimanual Collaborative Stacking"
+  status:   "eYSIP 2026, mentor"
+  tagline:  "Teaching two SO-101 arms to pick, transfer and stack cubes together, from teleoperated demonstrations."
+  card:     "Two SO-101 arms trained with ACT and SmolVLA to pick, transfer and stack cubes together on real hardware."
+  role:     "Mentor, 3 interns"
+  org:      "ERTS Lab (e-Yantra), IIT Bombay"
+  period:   "May 2026 - Jul 2026"
+  cover:    /assets/img/so101-imitation/cover.jpg
+  domains:  [Learning, Manipulation]
+  topics: [Learning, Manipulation, "Education & Outreach"]
+  contributions:
+    - "Defined the project, its plan and timeline, and what to build at each stage; guided three interns through it."
+    - "Guided dataset collection and the training and benchmarking of ACT and SmolVLA across single-arm and bimanual tasks."
+    - "Oversaw an ablation replacing the RGB wrist camera with a RealSense D405, which needed changes to the ACT codebase."
+  stack:    [LeRobot, ACT, SmolVLA, SO-101, RealSense D405]
+  links:
+    - label: Task videos
+      url:   "https://www.youtube.com/playlist?list=PLECUAzaG-6u0"
+  hero:
+    video:   /assets/video/so101-imitation/demo.mp4
+    poster:  /assets/img/so101-imitation/demo-poster.jpg
+    caption: "Project demo: bimanual pick and place, collaborative stacking, and pen placing with a depth camera."
+  body:
+    - >-
+      An eYSIP 2026 project I planned and supervised: training
+      vision-language-action (VLA) policies so that a <b>bimanual SO-101</b>
+      setup can pick, transfer and stack cubes from language instructions and
+      camera feedback. I set the plan, timeline and milestones; three interns
+      built it.
+    - h: From teleoperation to policy
+    - >-
+      The team calibrated a leader-follower SO-101 pair for each arm and
+      recorded teleoperated demonstrations in LeRobot: <b>75+ single-arm
+      episodes</b>, <b>50 bimanual pick-and-place episodes</b> and <b>100
+      bimanual stacking episodes</b>. ACT and SmolVLA were trained and
+      compared on these, then run on the real arms.
+    - h: Tasks
+    - >-
+      The policies were evaluated on single-arm pick and place, bimanual pick
+      and place into a box, <b>collaborative stacking</b> (one arm holds a cube
+      while the other places a cube on top), and placing pens in a stand. A
+      further ablation swapped the RGB wrist camera for a RealSense D405 depth
+      camera.
+    - h: What we learned
+    - >-
+      SmolVLA coordinated the two arms more smoothly than ACT on stacking.
+      Calibration mismatch, noise in the demonstrations, small timing delays
+      between the arms and changes in lighting were the main sources of
+      failure.
+    - h: Task videos
+    - youtubes:
+        - id:      f-Ykbu96VFs
+          caption: "Collaborative cube stacking."
+        - id:      sO5s_3dhsIU
+          caption: "Bimanual pick and place into a box."
+    - youtubes:
+        - id:      wKHi2d1oam8
+          caption: "Placing markers in a stand with SmolVLA."
+        - id:      Bm3_EmB-Zns
+          caption: "Single-arm pick and place."
+    - h: Behind the project
+    - >-
+      e-Yantra's eYSIP 2026 video on the project, with the interns talking
+      through what they built and learned.
+    - youtube: UEJENM4Q0_8
+      caption: "eYSIP 2026 project experience video, by e-Yantra."
+  gallery:
+    - src:     /assets/img/so101-imitation/poster.jpg
+      caption: "eYSIP 2026 project poster."
+    - src:     /assets/img/so101-imitation/cover.jpg
+      caption: "The two SO-101 arms stacking a blue cube on a green one."
+
+- slug:     ur5-imitation
+  title:    "VLA-GRASP: Imitation Learning on a UR5"
+  status:   "eYSIP 2026, co-mentor"
+  tagline:  "A teleoperation-to-policy pipeline that brings an industrial UR5 into the LeRobot workflow."
+  card:     "Pika Sense teleoperation, LeRobot datasets and SmolVLA, on an industrial UR5 that LeRobot does not support."
+  role:     "Co-mentor, 1 intern"
+  org:      "ERTS Lab (e-Yantra), IIT Bombay"
+  period:   "May 2026 - Jul 2026"
+  cover:    /assets/img/ur5-imitation/cover.jpg
+  domains:  [Learning, Manipulation]
+  topics: [Learning, Manipulation, "Education & Outreach"]
+  contributions:
+    - "Planned the project with my co-mentor and guided one intern through it."
+    - "Supervised a UR5 teleoperation and data pipeline with Pika Sense: joint states and camera images recorded to ROS bags and converted into LeRobot format."
+    - "Enabled imitation learning on a platform LeRobot does not support natively."
+  stack:    [LeRobot, SmolVLA, UR5, Pika Sense, ROS 2]
+  links:
+    - label: Code
+      url:   "https://github.com/eYSIP-2026/VLA-grasp"
+  hero:
+    video:   /assets/video/ur5-imitation/pipeline.mp4
+    poster:  /assets/img/ur5-imitation/pipeline-poster.jpg
+    caption: "The pipeline end to end: teleoperation, recording the overhead and wrist views, and the SmolVLA policy grasping on its own."
+  body:
+    - >-
+      Most VLA work targets low-cost research arms like the SO-101. This
+      eYSIP 2026 project adapts the workflow to a <b>UR5 industrial arm</b>
+      with an OnRobot RG2 gripper. I co-mentored it with Jaison Jose; the
+      intern was Kavish V.
+    - h: Collecting demonstrations
+    - >-
+      A handheld <b>Agilex Pika Sense</b> tracks the operator's hand in 6-DoF,
+      and the motion is mapped to the arm in real time. The Pika SDK was ported
+      from ROS 1 to ROS 2, and a custom recorder writes episodes straight into
+      LeRobot format, with an overhead and a wrist camera.
+    - h: Training and deployment
+    - >-
+      SmolVLA was fine-tuned on these demonstrations and run on the real arm
+      through a custom inference node. The arm locates and picks the target
+      cube; larger datasets and higher-contrast objects are the next step to
+      make it more robust.
+    - h: Behind the project
+    - >-
+      e-Yantra's eYSIP 2026 video on the project.
+    - youtube: 87QbDsI2wJc
+      caption: "eYSIP 2026 project experience video, by e-Yantra."
+  gallery:
+    - src:     /assets/img/ur5-imitation/poster.jpg
+      caption: "eYSIP 2026 project poster."
+    - src:     /assets/img/ur5-imitation/cover.jpg
+      caption: "The SmolVLA policy grasping the green cube with the UR5."
+
+- slug:     lidar-slam-uav
+  title:    "3D LiDAR SLAM on a UAV"
+  status:   "eYSIP 2026, mentor"
+  tagline:  "LiDAR-inertial SLAM taken from simulation to a mapping flight on a real drone."
+  card:     "LiDAR-inertial SLAM from PX4 simulation to flight on a Holybro X500, mapping IIT Bombay buildings."
+  role:     "Mentor, 1 intern"
+  org:      "ERTS Lab (e-Yantra), IIT Bombay"
+  period:   "May 2026 - Jul 2026"
+  cover:    /assets/img/lidar-slam-uav/cover.jpg
+  domains:  [SLAM, Hardware]
+  topics: [SLAM, Hardware, "Education & Outreach"]
+  contributions:
+    - "Mentored the intern in benchmarking KISS-ICP, LIO-SAM and FAST-LIO, and in building a custom FAST-LIO back end with keyframes, pose-graph optimisation and loop closure."
+    - "Guided the UAV hardware integration: power distribution board, sensor and compute mounts, and fixing map drift from LiDAR-IMU extrinsics and thermal throttling."
+    - "Supervised LIO-SAM evaluation on manual UAV flights, producing 3D maps; autonomous navigation is ongoing."
+  stack:    [FAST-LIO, LIO-SAM, PX4, Holybro X500, Jetson Orin Nano, RoboSense Airy]
+  links:    []
+  hero:
+    video:   /assets/video/lidar-slam-uav/demo.mp4
+    poster:  /assets/img/lidar-slam-uav/cover.jpg
+    caption: "Project demo: simulation, flight, and the 3D maps of the KReSIT building and the Computing Complex."
+  body:
+    - >-
+      An eYSIP 2026 project I mentored with Arun P. Madhu: a LiDAR-inertial
+      SLAM system for a UAV flying where there is no GPS. The intern was
+      Devanshu Mangal.
+    - h: Simulation first
+    - >-
+      The team built a full simulation stack with <b>PX4 SITL</b>, Gazebo
+      Harmonic and ROS 2 Humble, with a simulated RoboSense Airy LiDAR on the
+      drone. KISS-ICP, LIO-SAM and FAST-LIO2 were integrated and compared
+      there before any hardware flight.
+    - h: On the drone
+    - >-
+      On hardware, the stack runs on a <b>Jetson Orin Nano</b> with the
+      RoboSense Airy on a <b>Holybro X500</b>. I designed the power
+      distribution board and the mounts for the payload limits. Map drift was
+      traced to a LiDAR-IMU extrinsic error and thermal throttling; with both
+      fixed, LIO-SAM produced 3D maps from manual flights.
+    - h: Custom back end
+    - >-
+      A back end built around FAST-LIO odometry adds keyframe selection,
+      Scan Context loop detection with GICP verification, and pose-graph
+      optimisation to build a corrected global map. Autonomous navigation is
+      ongoing.
+    - h: Behind the project
+    - >-
+      e-Yantra's eYSIP 2026 video on the project.
+    - youtube: wWNAZc4SWZM
+      caption: "eYSIP 2026 project experience video, by e-Yantra."
+  gallery:
+    - src:     /assets/img/lidar-slam-uav/frame-20.jpg
+      caption: "Simulation: the drone mapping a Gazebo world."
+    - src:     /assets/img/lidar-slam-uav/frame-40.jpg
+      caption: "Manual mapping flight at IIT Bombay."
+    - src:     /assets/img/lidar-slam-uav/frame-68.jpg
+      caption: "3D map of the KReSIT building."
+    - src:     /assets/img/lidar-slam-uav/cover.jpg
+      caption: "3D map of the Computing Complex."

@@ -1,0 +1,7 @@
+{%- comment -%} YouTube facade: thumbnail + play button; site.js swaps in the player on click. {%- endcomment -%}
+<div class="yt" data-id="{{ include.id }}">
+  <button class="yt__play" type="button" aria-label="Play video{% if include.caption %}: {{ include.caption }}{% endif %} (loads YouTube)">
+    <img src="{% if include.poster %}{{ include.poster | relative_url }}{% else %}https://i.ytimg.com/vi/{{ include.id }}/hqdefault.jpg{% endif %}" alt="" loading="lazy" decoding="async">
+    <span class="yt__btn" aria-hidden="true"></span>
+  </button>
+</div>

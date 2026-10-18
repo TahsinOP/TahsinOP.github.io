@@ -1,0 +1,16 @@
+{%- comment -%} One figure: local video, YouTube (click to load) or image. Params: m, cls, auto {%- endcomment -%}
+{%- assign md = include.m -%}
+<figure class="{{ include.cls }}{% if md.narrow %} fig--narrow{% endif %}{% if md.small %} fig--small{% endif %}{% if md.invert_dark %} fig--invert{% endif %}">
+  {%- if md.youtube -%}
+    {% include yt.html id=md.youtube caption=md.caption poster=md.poster %}
+  {%- elsif md.video -%}
+  <video controls playsinline{% if include.auto %} autoplay muted loop preload="metadata"{% else %} preload="none"{% endif %}{% if md.poster %} poster="{{ md.poster | relative_url }}"{% endif %}{% if md.caption %} aria-label="{{ md.caption }}"{% endif %}>
+    <source src="{{ md.video | relative_url }}" type="video/mp4">
+  </video>
+  {%- elsif md.img -%}
+  <a class="zoom" href="{{ md.img | relative_url }}" data-caption="{{ md.caption }}" aria-label="Enlarge image: {{ md.caption }}"><img src="{{ md.img | relative_url }}" alt="{{ md.caption }}" loading="lazy" decoding="async"></a>
+  {%- endif -%}
+  {%- if md.caption or md.youtube -%}
+  <figcaption>{{ md.caption }}{% if md.youtube %}<a href="https://www.youtube.com/watch?v={{ md.youtube }}" target="_blank" rel="noopener">Watch on YouTube<span class="sr-only"> (opens in a new tab)</span></a>{% endif %}</figcaption>
+  {%- endif -%}
+</figure>

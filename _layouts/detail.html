@@ -1,0 +1,101 @@
+---
+layout: default
+---
+{%- comment -%}
+  Project / research detail page. Content comes from the matching `slug` in
+  _data/research.yml (work), projects.yml, mentoring.yml or competitions.yml.
+{%- endcomment -%}
+{%- if page.back == "/research/" -%}
+  {%- assign list = site.data.research.work -%}
+{%- else -%}
+  {%- assign list = site.data.mentoring | concat: site.data.projects | concat: site.data.competitions -%}
+{%- endif -%}
+{%- assign idx = 0 -%}
+{%- for x in list -%}{%- if x.slug == page.slug -%}{%- assign it = x -%}{%- assign idx = forloop.index0 -%}{%- endif -%}{%- endfor -%}
+{%- assign pi = idx | minus: 1 -%}
+{%- assign ni = idx | plus: 1 -%}
+{%- if idx > 0 -%}{%- assign prev = list[pi] -%}{%- else -%}{%- assign prev = false -%}{%- endif -%}
+{%- assign next = list[ni] -%}
+
+<article class="detail wrap">
+  <a class="back" href="{{ page.back | relative_url }}">All {{ page.back_label | downcase }}</a>
+
+  <header class="detail__head">
+    {%- if it.status %}<p class="status">{{ it.status }}</p>{% endif -%}
+    <h1>{{ it.title }}</h1>
+    {%- if it.tagline %}<p class="detail__tagline">{{ it.tagline }}</p>{% endif -%}
+    {% include topics.html list=it.topics %}
+  </header>
+
+  <div class="detail__grid">
+    <div class="detail__main">
+      {%- if it.hero -%}
+        {% include fig.html m=it.hero cls="hero-media" auto=true %}
+      {%- endif -%}
+
+      {%- if it.contributions -%}
+      <section class="contrib" aria-labelledby="contrib-h">
+        <h2 id="contrib-h">My contributions</h2>
+        <ul>{%- for k in it.contributions -%}<li>{{ k }}</li>{%- endfor -%}</ul>
+      </section>
+      {%- endif -%}
+
+      <div class="prose">
+        {%- for b in it.body -%}
+          {% include block.html block=b %}
+        {%- endfor -%}
+      </div>
+
+      {%- if it.gallery and it.gallery.size > 0 -%}
+      <section class="gallery" aria-labelledby="gallery-h">
+        <div class="gallery__head">
+          <h2 id="gallery-h">Gallery</h2>
+          {%- if it.gallery.size > 2 -%}
+          <div class="gallery__nav">
+            <button class="icon-btn strip-btn" type="button" data-dir="-1" aria-label="Scroll gallery left">‹</button>
+            <button class="icon-btn strip-btn" type="button" data-dir="1" aria-label="Scroll gallery right">›</button>
+          </div>
+          {%- endif -%}
+        </div>
+        <div class="strip" tabindex="0" aria-label="Gallery, scroll sideways">
+          {%- for g in it.gallery -%}
+          <figure class="strip__item{% if g.invert_dark %} fig--invert{% endif %}">
+            {%- if g.video -%}
+            <video controls playsinline preload="none"{% if g.poster %} poster="{{ g.poster | relative_url }}"{% endif %} aria-label="{{ g.caption }}"><source src="{{ g.video | relative_url }}" type="video/mp4"></video>
+            {%- else -%}
+              {%- assign g_ext = g.src | split: "." | last -%}
+              {%- assign g_n = g.src.size | minus: g_ext.size | minus: 1 -%}
+              {%- capture g_thumb -%}{{ g.src | slice: 0, g_n }}-thumb.{{ g_ext }}{%- endcapture -%}
+            <a class="zoom" href="{{ g.src | relative_url }}" data-caption="{{ g.caption }}" aria-label="Enlarge image: {{ g.caption }}"><img src="{{ g_thumb | relative_url }}" alt="{{ g.caption }}" loading="lazy" decoding="async"></a>
+            {%- endif -%}
+            {%- if g.caption %}<figcaption>{{ g.caption }}</figcaption>{% endif -%}
+          </figure>
+          {%- endfor -%}
+        </div>
+      </section>
+      {%- endif -%}
+    </div>
+
+    <aside class="facts" aria-label="Project details">
+      <dl>
+        {%- if it.role %}<dt>Role</dt><dd>{{ it.role }}</dd>{% endif -%}
+        {%- if it.org %}<dt>Where</dt><dd>{{ it.org }}</dd>{% endif -%}
+        {%- if it.period %}<dt>When</dt><dd>{{ it.period }}</dd>{% endif -%}
+        {%- if it.advisor %}<dt>With</dt><dd>{{ it.advisor }}</dd>{% endif -%}
+        {%- if it.stack %}<dt>Tools</dt><dd><ul class="tags">{%- for t in it.stack -%}<li class="tag">{{ t }}</li>{%- endfor -%}</ul></dd>{% endif -%}
+        {%- if it.links and it.links.size > 0 -%}
+        <dt>Links</dt><dd><p class="link-row">{%- for l in it.links -%}{% include link.html l=l %}{%- endfor -%}</p></dd>
+        {%- endif -%}
+      </dl>
+    </aside>
+  </div>
+
+  <nav class="pager" aria-label="More {{ page.back_label | downcase }}">
+    {%- if prev -%}
+    <a class="pager__prev" href="{{ page.back | append: prev.slug | append: '/' | relative_url }}"><small>Previous</small><strong>{{ prev.title }}</strong></a>
+    {%- endif -%}
+    {%- if next -%}
+    <a class="pager__next" href="{{ page.back | append: next.slug | append: '/' | relative_url }}"><small>Next</small><strong>{{ next.title }}</strong></a>
+    {%- endif -%}
+  </nav>
+</article>

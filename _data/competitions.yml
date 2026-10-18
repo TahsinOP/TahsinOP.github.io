@@ -1,56 +1,98 @@
-- title:    "LeHome Challenge, IEEE ICRA 2026 — Bimanual Cloth Folding"
+# Competitions: image cards on /projects/, detail pages at /projects/<slug>/.
+- slug:     lehome-icra-2026
+  title:    "LeHome Challenge, IEEE ICRA 2026"
+  status:   "Rank 32 of 62, simulation round"
+  tagline:  "Bimanual garment folding in simulation, at the first deformable-manipulation challenge at ICRA."
+  card:     "Bimanual garment folding in Isaac Sim with SO-101 arms. Team lemax ranked 32 of 62."
+  role:     "Team lemax"
   org:      "IIT Bombay"
   advisor:  "Prof. Nived Chebrolu"
-  location: "Mumbai, India"
-  date:     "Jan 2026 — Mar 2026"
-  year:     2026
-  result:   "Rank 32 / 62 teams internationally"
-  highlight: true
+  period:   "Jan 2026 - Mar 2026"
+  cover:    /assets/img/lehome-icra-2026/cover.jpg
   domains:  [Learning, Manipulation, Perception]
-  tags:     [Isaac Sim, SO-101, SmolVLA, YOLO, ACT, X-VLA, Diffusion Policy, "π0"]
-  points:
-    - "Simulation round in Isaac Sim: fold any of four garment categories, spawned at random, with a bimanual SO-101 setup."
-    - "Compared four specialist SmolVLA policies routed by a YOLO garment classifier against a single generalist policy; both converged to comparable performance — 55% success locally and 49% on the final server evaluation."
-    - "Also evaluated ACT, X-VLA, diffusion policy and π0, including a SmolVLA and X-VLA hybrid for the specialist route."
+  topics: [Learning, Manipulation, Perception]
+  contributions:
+    - "Compared four specialist SmolVLA policies, routed by a YOLO garment classifier, against one generalist policy."
+    - "Reached 55% success locally and 49.25% on the final server evaluation, ranking 32 of 62 teams."
+    - "Also evaluated ACT, X-VLA, diffusion policy and π0, including a SmolVLA and X-VLA hybrid."
+  stack:    [Isaac Sim, SmolVLA, SO-101, YOLO]
+  links:
+    - label: Challenge site
+      url:   "https://lehome-challenge.com/"
+  body:
+    - img:     /assets/img/lehome-icra-2026/sim-scene.jpg
+      caption: "The simulation task: two SO-101 arms fold a garment on a kitchen table in Isaac Sim."
+      narrow:  true
+    - >-
+      The <a href="https://lehome-challenge.com/" target="_blank" rel="noopener">LeHome Challenge</a>
+      at IEEE ICRA 2026 was the first simulation-driven competition on
+      deformable object manipulation. Its task is garment folding in household
+      scenes with a bimanual <b>LeRobot SO-101</b> setup. The simulation round
+      ran online from February to April 2026, and the top eight teams went on
+      to a real-world round on site at ICRA in Vienna.
+    - >-
+      Each policy had to fold any of four garment categories, spawned at
+      random: long-sleeved tops, short-sleeved tops, long pants and shorts.
+    - h: Specialist or generalist
+    - >-
+      We compared four <b>specialist SmolVLA policies</b>, one per garment
+      category and routed by a YOLO garment classifier, against a single
+      <b>generalist policy</b>. Both reached about the same performance:
+      55% success locally and 49.25% on the final server evaluation.
+    - >-
+      We also evaluated ACT, X-VLA, diffusion policy and π0, including a
+      SmolVLA and X-VLA hybrid for the specialist route.
+    - h: Result
+    - >-
+      Our team, <b>lemax</b>, finished <b>32nd of 62 teams</b> in the
+      simulation round, with per-category success of 44.0% (long-sleeved
+      tops), 39.5% (short-sleeved tops), 48.5% (long pants) and 65.0%
+      (shorts).
+    - img:     /assets/img/lehome-icra-2026/leaderboard.png
+      caption: "Final simulation-round leaderboard (ranks 26 to 35), with our team lemax highlighted at 32."
 
-- title:    "e-Yantra Robotics Competition 2024 — Cosmo Logistic"
-  role:     "Team Captain"
-  org:      "e-Yantra, IIT Bombay"
-  location: "Mumbai, India"
-  date:     "Aug 2023 — Dec 2023"
-  year:     2023
-  result:   "Rank 16 / 500 teams"
-  highlight: true
-  domains:  [Navigation, Manipulation, Perception]
-  tags:     [ROS 2, Nav2, MoveIt 2, OpenCV, ArUco, SLAM]
-  points:
-    - "Led a warehouse-automation solution on ROS 2, Nav2 and MoveIt 2 — SLAM-based navigation, ArUco pose detection and arm manipulation."
-    - "16th nationally out of roughly 500 teams, deployed onto real hardware remotely in e-Yantra's arena."
-
-- title:    "DD Robocon 2023 — ABU Robocon National Qualifier"
-  role:     "Mechanical Subsystem — Chassis & Mechanism Design"
+- slug:     robocon-2023
+  title:    "DD Robocon 2023"
+  status:   "National qualifier, top 50 teams"
+  tagline:  "Ring-throwing robots for India's national ABU Robocon qualifier."
+  card:     "Chassis and ring-shooting mechanisms for two robots: NITK's first national qualification."
+  role:     "Mechanical subsystem"
   org:      "CSD Robocon, NITK"
-  location: "Delhi, India"
-  date:     "Jul 2023"
-  year:     2023
-  result:   "National qualifier · Top 50"
-  highlight: true
+  period:   "Jul 2023"
+  cover:    /assets/img/robocon-2023/cover.jpg
   domains:  [Hardware]
-  tags:     [Mechanism Design, Catapult & Dual-Roller Launchers, FEA, 3D Printing, Laser Cutting]
-  points:
-    - "Designed chassis and mechanisms for two semi-autonomous robots, part of NITK's first-ever qualification for the national stage — including catapult and dual-roller shooting mechanisms for ring throwing onto poles up to 12 metres away."
-    - "Iterated through rapid prototyping with 3D printing and laser cutting, and performed FEA on load-bearing members to size the structure against impact loading during launch."
-
-- title:    "e-Yantra Robotics Competition 2023 — Sentinel Drone"
-  role:     "Team Member"
-  org:      "e-Yantra, IIT Bombay"
-  location: "Mumbai, India"
-  date:     "Oct 2022 — Apr 2023"
-  year:     2022
-  result:   "Finalist"
-  highlight: false
-  domains:  [Navigation, Perception]
-  tags:     [PID Control, OpenCV, Gazebo, QGIS]
-  points:
-    - "PID attitude-and-position control stabilising a simulated quadrotor in Gazebo."
-    - "OpenCV colour segmentation for object detection, with QGIS georeferencing to real coordinates."
+  topics: [Mechanisms, Hardware]
+  contributions:
+    - "Designed chassis and mechanisms for two semi-autonomous robots."
+    - "Built catapult and dual-roller shooters for throwing rings onto poles up to 12 m away."
+    - "Sized load-bearing members with FEA against impact loads at launch."
+  stack:    [Mechanism Design, FEA, Rapid Prototyping]
+  links:    []
+  body:
+    - >-
+      DD Robocon is India's national qualifier for ABU Robocon. In the
+      mechanical subsystem of CSD Robocon NITK, I designed chassis and
+      mechanisms for two semi-autonomous robots. It was NITK's <b>first
+      qualification for the national stage</b>, among the top 50 teams in the
+      country.
+    - h: Mechanisms
+    - >-
+      The task was throwing rings onto poles up to <b>12 metres away</b>. We
+      built catapult and dual-roller shooting mechanisms for it.
+    - imgs:
+        - src:     /assets/img/robocon-2023/rabbit-bot.jpg
+          caption: "Rabbit robot: dual-roller ring shooter."
+        - src:     /assets/img/robocon-2023/elephant-bot.jpg
+          caption: "Elephant robot during assembly."
+    - h: Prototyping and analysis
+    - >-
+      We iterated quickly with 3D printing and laser cutting, and used <b>FEA on
+      load-bearing members</b> to size the structure against impact loads at
+      launch.
+  gallery:
+    - src:     /assets/img/robocon-2023/rabbit-cad.jpg
+      caption: "Rabbit robot CAD."
+    - src:     /assets/img/robocon-2023/elephant-cad.jpg
+      caption: "Elephant robot CAD."
+    - src:     /assets/img/robocon-2023/team.jpg
+      caption: "Team CSD Robocon NITK at the national stage in Delhi."

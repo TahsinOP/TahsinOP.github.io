@@ -1,0 +1,10 @@
+# Featured work on the home page, in order. The first is the large lead card;
+# the rest sit in rows of three.
+#   ref: the slug of any item in research.yml (work), projects.yml,
+#        mentoring.yml or competitions.yml.
+- ref: coop-manipulation
+- ref: soft-mobile-manipulators
+- ref: niti-vahan
+- ref: remote-labs
+- ref: lehome-icra-2026
+- ref: visual-slam-uav

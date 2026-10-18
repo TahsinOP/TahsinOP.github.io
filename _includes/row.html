@@ -1,0 +1,16 @@
+{%- comment -%} A research item on /research/: image left, summary right. {%- endcomment -%}
+{%- assign r = include.item -%}
+{%- capture r_href -%}/research/{{ r.slug }}/{%- endcapture -%}
+{% include has-video.html item=r %}
+<article class="row-item" id="{{ r.slug }}">
+  {% include media-well.html item=r cls="row-item__media" video=has_video %}
+  <div>
+    {%- if r.status %}<p class="status">{{ r.status }}</p>{% endif -%}
+    <h3><a href="{{ r_href | relative_url }}">{{ r.title }}</a></h3>
+    <p class="row-item__text">{{ r.summary }}</p>
+    {% include topics.html list=r.topics %}
+    {%- if r.links and r.links.size > 0 -%}
+    <p class="link-row">{%- for l in r.links -%}{% include link.html l=l %}{%- endfor -%}</p>
+    {%- endif -%}
+  </div>
+</article>

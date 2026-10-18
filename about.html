@@ -1,0 +1,82 @@
+---
+title: About
+permalink: /about/
+subtitle: "The journey so far: experience, education and teaching."
+description: >-
+  About Tahsin Khan: experience timeline, education, teaching and outreach,
+  and technical skills.
+---
+<div class="about-bio">
+  {%- for para in site.data.about.bio -%}<p>{{ para }}</p>{%- endfor -%}
+</div>
+
+<section class="section" aria-labelledby="journey-h">
+  <h2 class="section-title" id="journey-h">Journey <a href="{{ site.author.cv | relative_url }}" target="_blank" rel="noopener">Full CV (PDF)<span class="sr-only">, opens in a new tab</span></a></h2>
+  <ol class="tl">
+    {%- for t in site.data.timeline -%}
+    {%- if t.kind == "role" -%}
+    <li class="tl__item tl__item--role{% if t.date contains 'Present' %} is-now{% endif %}">
+      <p class="tl__when">{{ t.date }}</p>
+      <span class="tl__dot" aria-hidden="true"></span>
+      <div class="tl__body">
+        <h3 class="tl__title">{{ t.title }}</h3>
+        <p class="tl__org">{{ t.org }}</p>
+        {%- if t.text %}<p class="tl__text">{{ t.text }}</p>{% endif -%}
+        {%- if t.link %}<a class="tl__link" href="{{ t.link | relative_url }}">See the work<span class="sr-only">: {{ t.title }}</span></a>{% endif -%}
+      </div>
+    </li>
+    {%- else -%}
+    <li class="tl__item tl__item--ms">
+      <p class="tl__when">{{ t.date }}</p>
+      <span class="tl__dot" aria-hidden="true"></span>
+      <p class="tl__ms">{%- if t.link -%}<a href="{{ t.link | relative_url }}">{{ t.text }}</a>{%- else -%}{{ t.text }}{%- endif -%}</p>
+    </li>
+    {%- endif -%}
+    {%- endfor -%}
+  </ol>
+</section>
+
+<section class="section" aria-labelledby="edu-h">
+  <h2 class="section-title" id="edu-h">Education</h2>
+  {%- for e in site.data.about.education -%}
+  <div class="edu">
+    <p class="edu__when">{{ e.date }}</p>
+    <div>
+      <h3>{{ e.degree }}</h3>
+      <p>{{ e.school }}</p>
+      {%- if e.minor %}<p>{{ e.minor }}</p>{% endif -%}
+      {%- if e.detail %}<p>{{ e.detail }}</p>{% endif -%}
+    </div>
+  </div>
+  {%- endfor -%}
+</section>
+
+<section class="section" aria-labelledby="teach-h">
+  <h2 class="section-title" id="teach-h">Teaching and outreach</h2>
+  <ul class="plain-list">
+    {%- for o in site.data.about.outreach -%}<li>{{ o }}</li>{%- endfor -%}
+  </ul>
+</section>
+
+<section class="section" aria-labelledby="skills-h">
+  <h2 class="section-title" id="skills-h">Skills</h2>
+  <div class="skills">
+    {%- for layer in site.data.about.skills -%}
+    <div class="skills__group">
+      <p class="skills__label">{{ layer.group }}</p>
+      <ul class="skills__row">
+        {%- for i in layer.items -%}
+        <li class="skill"{% if i.color %} style="--b: {{ i.color }}; --bd: {{ i.dark | default: i.color }}"{% endif %}>
+          {%- if i.logo -%}
+          <span class="skill__ico" style="--icon: url('{{ '/assets/img/logos/' | relative_url }}{{ i.logo }}.svg')" aria-hidden="true"></span>
+          {%- else -%}
+          <span class="skill__mark" aria-hidden="true">{{ i.mark }}</span>
+          {%- endif -%}
+          <span class="skill__name">{{ i.name }}</span>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    {%- endfor -%}
+  </div>
+</section>

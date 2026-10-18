@@ -1,108 +1,353 @@
-# domains drive the filter chips on /projects/
-# use: Navigation | SLAM | Perception | Manipulation | Learning | Hardware
-- title:    "Imitation Learning for Arm Manipulation"
-  subtitle: "Two parallel eYSIP 2026 projects benchmarking policies on real hardware"
-  org:      "ERTS Lab, IIT Bombay · Mentor and co-mentor, 4 interns"
-  date:     "May 2026 — Jul 2026"
-  year:     2026
-  featured: true
-  domains:  [Learning, Manipulation, Perception]
-  stack:    [LeRobot, ACT, SmolVLA, SO-101, UR5, AgileX Pika Sense, RealSense D405]
-  points:
-    - "Defined and led two parallel projects evaluating imitation learning policies on real hardware: a bimanual SO-101 setup (mentor, 3 interns) and a UR5 arm (co-mentor, 1 intern)."
-    - "Benchmarked ACT and SmolVLA across bimanual pick and place, cube stacking, precision insertion and single-arm grasping, guiding dataset collection and end-to-end training; ran an ablation swapping an RGB wrist camera for a RealSense D405, modifying the ACT codebase for the extra modality."
-    - "Built a teleoperation and data pipeline for the UR5, a platform LeRobot does not support: Pika Sense teleoperation, joint and image capture to ROS bags, and conversion into LeRobot format — a learned counterpart to the classical GraspNet and MoveIt pipeline built the previous year."
-  links: []
-
-- title:    "3D LiDAR SLAM on a UAV"
-  subtitle: "LiDAR-inertial odometry onto a drone, from benchmark to flight"
-  org:      "ERTS Lab, IIT Bombay · Mentor, 1 intern (eYSIP 2026)"
-  date:     "May 2026 — Jul 2026"
-  year:     2026
-  featured: true
-  domains:  [SLAM, Hardware, Perception]
-  stack:    [LIO-SAM, FAST-LIO, KISS-ICP, Holybro X500, Airy LiDAR, Jetson Orin Nano, Pixhawk]
-  points:
-    - "Benchmarked KISS-ICP, LIO-SAM and FAST-LIO in simulation and on a handheld rig, mapping the KReSIT building at IIT Bombay; guided development of a custom back end on FAST-LIO's odometry adding keyframe storage, pose-graph optimisation and loop closure."
-    - "Designed the full power distribution board and the sensor and compute mounts under tight payload constraints, for the airframe, Pixhawk, Orin Nano and LiDAR."
-    - "Diagnosed map drift traced to a LiDAR-to-IMU extrinsic error and thermal throttling; mapped an area from manual flight using LIO-SAM, with autonomous navigation ongoing."
-  links: []
-
-- title:    "NITK Autonomous Campus Shuttle"
-  subtitle: "Level-5 autonomous shuttle on a Mahindra Reva chassis"
+# Projects: image cards on /projects/, detail pages at /projects/<slug>/.
+# Same fields as research work (see the notes at the top of research.yml).
+# domains drive the filter chips:
+#   Navigation | SLAM | Perception | Manipulation | Learning | Hardware
+- slug:     nitk-shuttle
+  title:    "NITK Autonomous Campus Shuttle"
+  status:   "Software and autonomy lead"
+  tagline:  "An L5 autonomous campus shuttle on a Mahindra Reva electric chassis, built on Autoware and ROS 2."
+  card:     "Autoware on ROS 2 for an L5 campus shuttle: sensor suite, LIO-SAM campus map, autonomous runs."
+  role:     "Software and autonomy lead"
   org:      "Centre for System Design, NITK"
-  date:     "Jan 2025 — Dec 2025"
-  year:     2025
-  featured: true
+  period:   "Jan 2025 - Dec 2025"
+  cover:    /assets/img/nitk-shuttle/cover.jpg
   domains:  [Navigation, SLAM, Perception]
-  stack:    [ROS 2, Autoware, LIO-SAM, 3D LiDAR, IMU, Cameras]
-  points:
-    - "Led the software side of an L5 autonomous shuttle built on a Mahindra Reva electric chassis, while the wider team handled drive-by-wire steering and throttle modifications."
-    - "Selected the sensor suite — 3D LiDAR, IMU and cameras — and set up Autoware as the core stack with ROS 2 as middleware."
-    - "Chose and integrated the SLAM stack, deploying LIO-SAM on the vehicle, mapping a substantial portion of the NITK campus and demonstrating point-to-point autonomous navigation."
-  links: []
+  topics: [Autonomous Driving, SLAM]
+  contributions:
+    - "Guided the team on the software and algorithm side of an L5 shuttle on a Mahindra Reva electric chassis."
+    - "Chose the sensor suite (Velodyne 3D LiDAR, RealSense D435i, 11-axis IMU + GNSS) and set up Autoware on ROS 2 as the core stack."
+    - "Chose and integrated LIO-SAM, used to map a large part of the NITK campus before point-to-point autonomous runs."
+  stack:    [Autoware, ROS 2, LIO-SAM, Velodyne LiDAR, RealSense D435i]
+  links:    []
+  hero:
+    video:   /assets/video/nitk-shuttle/steering-test.mp4
+    poster:  /assets/img/nitk-shuttle/steering-test-poster.jpg
+    caption: "Autonomous steering test on the shuttle."
+  body:
+    - >-
+      An autonomous shuttle for the NITK campus, built at the Centre for
+      System Design on a <b>Mahindra Reva</b> electric chassis. I guided the
+      software and algorithms; the hardware, drive-by-wire conversion and
+      field testing were done by <b>Manish and the CSD team</b>, who also
+      built and ran everything shown here.
+    - h: Sensors and stack
+    - >-
+      I chose the sensor suite: a <b>Velodyne 3D LiDAR</b>, an Intel
+      <b>RealSense D435i</b> depth camera and an
+      <a href="https://thinkrobotics.com/products/imu-inertial-navigation-module-ros1-ros2" target="_blank" rel="noopener">11-axis IMU with GNSS</a>
+      that works with ROS 1 and ROS 2. The software is built on
+      <b>Autoware</b>, with ROS 2 as middleware.
+    - h: Mapping the campus
+    - >-
+      For localisation I chose <b>LIO-SAM</b>, a tightly coupled
+      LiDAR-inertial SLAM system. It was used to build a 3D map of a large part
+      of the campus, which the vehicle then localises against.
+    - video:   /assets/video/nitk-shuttle/lio-sam-mapping.mp4
+      poster:  /assets/img/nitk-shuttle/lio-sam-mapping-poster.jpg
+      caption: "3D map of the NITK campus built with LIO-SAM."
+    - h: Autonomous runs
+    - >-
+      With the map in place, the shuttle drove point-to-point on campus roads
+      under Autoware, including a run where it had to respond to a person
+      walking into its path.
+    - vids:
+        - src:     /assets/video/nitk-shuttle/autonomous-run.mp4
+          poster:  /assets/img/nitk-shuttle/autonomous-run-poster.jpg
+          caption: "Autonomous run on a campus road, with Autoware on the dashboard screen."
+        - src:     /assets/video/nitk-shuttle/autonomous-obstacle.mp4
+          poster:  /assets/img/nitk-shuttle/autonomous-obstacle-poster.jpg
+          caption: "Autonomous run with a pedestrian in the path."
+  gallery:
+    - src:     /assets/img/nitk-shuttle/campus-road.jpg
+      caption: "The shuttle on a campus road."
+    - src:     /assets/img/nitk-shuttle/vehicle-cad.jpg
+      caption: "Vehicle CAD with the sensor mast."
+    - src:     /assets/img/nitk-shuttle/vehicle-front.jpg
+      caption: "The vehicle during the build."
+    - src:     /assets/img/nitk-shuttle/sensor-mount.jpg
+      caption: "LiDAR and camera mount on the roof."
+    - src:     /assets/img/nitk-shuttle/lidar-mount.jpg
+      caption: "The roof sensor mast."
+    - video:   /assets/video/nitk-shuttle/teleop.mp4
+      poster:  /assets/img/nitk-shuttle/teleop-poster.jpg
+      caption: "Teleoperated drive during testing."
 
-- title:    "MuJoCo–ROS 2 Quadruped Navigation"
-  subtitle: "Gait generation and waypoint navigation in simulation"
-  org:      "Personal project"
-  date:     "Apr 2025 — May 2025"
-  year:     2025
-  featured: false
-  domains:  [Navigation, Manipulation]
+- slug:     mujoco-quadruped
+  title:    "MuJoCo-ROS 2 Quadruped Navigation"
+  status:   "Personal project"
+  tagline:  "A simulated Unitree B2 that walks with a trot gait to waypoints picked in RViz."
+  card:     "A Unitree B2 in MuJoCo bridged to ROS 2: IK, a trot gait and spline waypoint navigation from RViz."
+  period:   "Apr 2025 - May 2025"
+  cover:    /assets/img/mujoco-quadruped/cover.jpg
+  domains:  [Navigation]
+  topics: [Navigation, Planning, Control]
+  contributions:
+    - "Built a ROS 2 bridge between MuJoCo and RViz, publishing joint states and the world-to-base transform."
+    - "Wrote PD joint control, 2D and 3D leg IK, and a configurable trot gait for forward and backward motion."
+    - "Added waypoint navigation: RViz interactive markers, cubic-spline paths and IMU heading control."
   stack:    [ROS 2 Humble, MuJoCo, Python, RViz]
-  points:
-    - "ROS 2 bridge enabling communication between MuJoCo and RViz for robot visualization, with 2D and 3D IK solvers calculating joint angles from foot positions for trajectory generation."
-    - "Trotting-gait quadruped locomotion with configurable stride parameters, and waypoint navigation using cubic-spline interpolation of RViz interactive markers with heading control."
-  links: []
+  links:
+    - label: Code
+      url:   "https://github.com/TahsinOP/Mujoco_Quadruped_ROS2_Simualation"
+  hero:
+    video:   /assets/video/mujoco-quadruped/navigation.mp4
+    poster:  /assets/img/mujoco-quadruped/nav-poster.jpg
+    caption: "Waypoint navigation: the B2 walking in MuJoCo (left) along the spline path drawn in RViz (right)."
+  body:
+    - >-
+      A simulated quadruped, the open-source <b>Unitree B2</b> model, in the
+      <b>MuJoCo</b> physics engine, connected to <b>ROS 2 Humble</b> so it can
+      be visualised and commanded from RViz. The goal: walk from point A to
+      point B along waypoints picked in RViz.
+    - h: Bridging MuJoCo and ROS 2
+    - >-
+      A ROS 2 bridge reads joint and actuator data from MuJoCo and publishes
+      joint states and the world-to-base transform, so RViz mirrors the
+      simulation in real time. PD controllers hold each joint at its target
+      angle for a stable stance.
+    - h: Legs and gait
+    - >-
+      Each leg has a geometric IK solver that turns a foot position into hip,
+      thigh and knee angles; a 2D planar solver proved the most accurate. On
+      top of it runs a <b>trot gait</b>: diagonal leg pairs half a cycle apart,
+      with configurable stride length, step height and cycle time, for forward
+      and backward motion.
+    - video:   /assets/video/mujoco-quadruped/trot-gait.mp4
+      poster:  /assets/img/mujoco-quadruped/gait-poster.jpg
+      caption: "Trot gait in MuJoCo, mirrored in RViz."
+    - h: Waypoint navigation
+    - >-
+      Waypoints are dragged out with an <b>interactive marker</b> in RViz and
+      joined into a smooth path by cubic-spline interpolation. A simple state
+      machine turns the robot toward each waypoint using IMU yaw, then trots
+      until it is within 10 cm. Keeping the robot stable through turns is the
+      main open problem, with ZMP-based balance as the next step.
+    - video:   /assets/video/mujoco-quadruped/waypoints.mp4
+      poster:  /assets/img/mujoco-quadruped/waypoints-poster.jpg
+      caption: "Drawing waypoints with an interactive marker in RViz."
+      narrow:  true
+  gallery:
+    - src:     /assets/img/mujoco-quadruped/mujoco-scene.jpg
+      caption: "The B2 spawned in MuJoCo."
+    - src:     /assets/img/mujoco-quadruped/bridge.jpg
+      caption: "MuJoCo and RViz running together over the ROS 2 bridge."
+    - src:     /assets/img/mujoco-quadruped/pd-hold.jpg
+      caption: "PD control holding the home pose."
+    - src:     /assets/img/mujoco-quadruped/trajectories.jpg
+      caption: "Foot trajectories for the trot gait."
+    - src:     /assets/img/mujoco-quadruped/ik-3d.jpg
+      caption: "3D leg IK test."
 
-- title:    "UR5 Manipulation for Pick-and-Place"
-  subtitle: "MoveIt motion planning from simulation to hardware"
-  org:      "IITD-AIA Foundation for Smart Manufacturing, IIT Delhi"
-  date:     "Jun 2023 — Aug 2023"
-  year:     2023
-  featured: false
-  domains:  [Manipulation]
-  stack:    [ROS Noetic, MoveIt, Gazebo, Python]
-  points:
-    - "UR5 configured in ROS Noetic with a Gazebo world for repeatable pick-and-place trials."
-    - "Collision-aware planning through the MoveIt Python API, carried across to hardware."
-  links: []
+- slug:     mems-flooring
+  title:    "Piezoelectric Smart Flooring for Robot Localisation"
+  status:   "Course project, Microsystem Technology"
+  tagline:  "Floor tiles that sense where warehouse robots are, and harvest energy from them as they pass."
+  card:     "MEMS piezoelectric floor tiles that localise warehouse robots with RFID, and harvest energy as they drive over."
+  role:     "Course open project"
+  org:      "NITK Surathkal (ME414 Microsystem Technology)"
+  advisor:  "Prof. S. M. Kulkarni"
+  period:   "Aug 2024 - Oct 2024"
+  cover:    /assets/img/mems-flooring/warehouse-layout.png
+  cover_fit: contain
+  domains:  [Hardware, Perception]
+  topics: [State Estimation, Hardware]
+  contributions:
+    - "Proposed localising warehouse robots from the floor itself: piezoelectric tiles sense passing robots, and RFID checkpoints identify them."
+    - "Designed a floor tile in Fusion 360 with three parallel PZT-5A bimorph cantilevers, a proof mass, spring supports and corner sensors."
+    - "Simulated the cantilever in ANSYS (coupled-field harmonic analysis) under the loads of five industrial mobile robots."
+  stack:    [Fusion 360, ANSYS, PZT-5A, RFID]
+  links:
+    - label: Report
+      url:   /assets/papers/mems-flooring-report.pdf
+  hero:
+    img:     /assets/img/mems-flooring/tile-cad.png
+    caption: "The floor tile: PZT cantilevers under a sprung platform. CAD in Fusion 360."
+  body:
+    - >-
+      An open project for the Microsystem Technology course at NITK, taught by
+      Prof. S. M. Kulkarni. The idea: instead of
+      giving every warehouse robot LiDAR or cameras to localise itself, let
+      the <b>floor</b> do it. Piezoelectric tiles at key points sense robots
+      driving over them and, at the same time, turn that motion into
+      electrical energy. It is a direction we felt had real potential for
+      further research.
+    - h: The tile
+    - >-
+      Each tile holds three <b>PZT-5A bimorph cantilevers</b> in parallel,
+      fixed at one end with a 50 g proof mass at the other, under a
+      transparent platform on four compression springs, with a circular
+      piezo sensor at each spring. A robot rolling over pushes the platform
+      down and bends the beams, which generate a voltage; after it passes,
+      the beams keep ringing and the springs reset the platform, so energy is
+      captured from both the press and the release. A rectifier circuit
+      conditions the output.
+    - h: Localising robots from the floor
+    - >-
+      Tiles go where traffic concentrates: intersections, parking and
+      charging zones, pallet-picking areas and workstations. A robot's
+      pressure and vibration signature tells the system that a robot is on a
+      tile and roughly where; <b>RFID readers</b> at checkpoints say which
+      robot it is. A graph-based probabilistic model of the warehouse fuses
+      the two with known routes and timing, tracking each robot between RFID
+      reads. The same signals give a live robot-density map for fleet
+      management.
+    - img:     /assets/img/mems-flooring/warehouse-layout.png
+      caption: "Warehouse layout with PZT tiles and RFID readers at high-traffic points."
+      narrow:  true
+    - h: Simulation
+    - >-
+      The cantilever (100 x 50 x 3 mm) was simulated in <b>ANSYS</b> with a
+      coupled-field harmonic analysis, under the loads of five industrial
+      mobile robots, from the Robotnik RB-STEEL to the Freight 500 carrying
+      its full payload. The beam deflected up to about 0.019 mm, and the
+      simulated output peaked at about 19 V under the Freight 500.
+    - imgs:
+        - src:     /assets/img/mems-flooring/ansys-setup.jpg
+          caption: "ANSYS boundary conditions: fixed end, load on the proof mass, voltage ground."
+        - src:     /assets/img/mems-flooring/ansys-deformation.jpg
+          caption: "Deformation of the cantilever under load."
+    - >-
+      This was a simulation study. A physical prototype and real robot
+      trials were the natural next step.
+  gallery:
+    - src:     /assets/img/mems-flooring/voltage-results.jpg
+      caption: "Simulated voltage and power across five mobile robots."
+    - src:     /assets/img/mems-flooring/warehouse-layout.png
+      caption: "PZT and RFID placement in the warehouse."
+    - src:     /assets/img/mems-flooring/tile-cad.png
+      caption: "Tile CAD."
 
-- title:    "MEMS Piezoelectric Flooring for Localization"
-  subtitle: "A smart floor that localizes robots and harvests its own power"
-  org:      "Microsystems Technology, NITK"
-  date:     "Aug 2024 — Oct 2024"
-  year:     2024
-  featured: false
-  domains:  [SLAM, Hardware]
-  stack:    [MEMS, ANSYS, PZT Bimorphs, RFID]
-  points:
-    - "Bimorph PZT cantilevers harvesting energy from wheel loading as robots cross the floor."
-    - "Hybrid localization fusing RFID identity with PZT vibration signatures — infrastructure-side odometry with no onboard sensing."
-  links: []
-
-- title:    "ROS 2 Teleoperated Differential-Drive Robot"
-  subtitle: "A from-scratch mobile base on a distributed ROS network"
-  org:      "Personal project"
-  date:     "Mar 2024 — Apr 2024"
-  year:     2024
-  featured: false
-  domains:  [Navigation, Hardware]
-  stack:    [ROS 2, Raspberry Pi, Arduino, UART]
-  points:
-    - "Nodes spanning a host machine and an onboard Raspberry Pi over a shared ROS network."
-    - "Low-latency UART between the Pi and the Arduino motor controller."
-  links: []
-
-- title:    "IEEE Skye Expedition — Drone Delivery System"
-  subtitle: "A modular remote-release payload platform for UAVs"
-  org:      "IEEE Skye Expedition"
-  date:     "Feb 2024 — Mar 2024"
-  year:     2024
-  featured: false
+- slug:     ros2-diff-drive
+  title:    "ROS 2 Differential-Drive Robot from Scratch"
+  status:   "Personal project"
+  tagline:  "My first robot built from the ground up: wiring, power and motor control, driven over ROS 2."
+  card:     "My first robot built from scratch: Raspberry Pi, Arduino and ROS 2 teleoperation, to learn the electronics."
+  period:   "Mar 2024 - Apr 2024"
+  cover:    /assets/img/ros2-diff-drive/cover.jpg
   domains:  [Hardware]
-  stack:    [Fusion 360, ANSYS CFD, ROS 2, CFRP]
-  points:
-    - "CFRP payload-release structure using a two-bar mechanism and electromagnetic attachment, airframe-agnostic."
-    - "Pi and Arduino control exposed over ROS 2, with ANSYS CFD to tune drag and stability."
-  links: []
+  topics: [Hardware]
+  contributions:
+    - "Built a two-wheel differential-drive robot from scratch, through two hardware prototypes."
+    - "Wired the power and motor electronics, and linked a Raspberry Pi 4 to an Arduino Uno over UART."
+    - "Ran ROS 2 across a host PC and the Pi, with keyboard teleoperation driving the motors."
+  stack:    [ROS 2, Raspberry Pi 4, Arduino Uno, UART, L298N]
+  links:
+    - label: Code
+      url:   "https://github.com/TahsinOP/ROS2_2WD_DIFF_DRIVE_ROBOT"
+  body:
+    - >-
+      My first attempt at building a working robot on real hardware, from the
+      chassis up. The software is deliberately simple, keyboard
+      teleoperation; the point was to learn the <b>electronics</b>: power,
+      motor drivers, wiring and getting a computer to talk to a
+      microcontroller reliably.
+    - vids:
+        - src:     /assets/video/ros2-diff-drive/teleop.mp4
+          poster:  /assets/img/ros2-diff-drive/teleop-poster.jpg
+          caption: "Driving the robot with ROS 2 keyboard teleoperation."
+    - h: Hardware
+    - >-
+      Two DC motors with rubber wheels and a castor, on a two-layer acrylic
+      body. The first prototype drove the motors through an <b>L298N</b>
+      driver from a separate 7 V supply, with a 12 V power bank for the
+      electronics. The second swapped in an Arduino motor shield, which
+      performed better and simplified the wiring.
+    - h: How it talks
+    - >-
+      ROS 2 runs on both a host PC and an onboard <b>Raspberry Pi 4</b> on the
+      same network. A teleoperation node on the PC maps W, A, S and D to drive
+      commands and publishes them on a topic. A node on the Pi subscribes and
+      forwards each command over <b>UART</b> to an <b>Arduino Uno</b>, which
+      sets the motor speeds and directions.
+    - img:     /assets/img/ros2-diff-drive/workflow.png
+      caption: "From keyboard to wheels: host PC, Raspberry Pi, Arduino and motor driver."
+    - >-
+      The robot was also modelled in URDF for simulation in Gazebo. Encoder
+      feedback and a PID speed loop were the planned next step.
+  gallery:
+    - src:     /assets/img/ros2-diff-drive/robot.jpg
+      caption: "The robot: Raspberry Pi 4, Arduino Uno and power bank on an acrylic chassis."
+    - src:     /assets/img/ros2-diff-drive/workflow.png
+      caption: "System workflow."
+
+- slug:     ieee-skye-drone
+  title:    "IEEE Skye Expedition: Drone Delivery Platform"
+  status:   "Design competition, Team Duronex"
+  tagline:  "A modular payload-delivery platform that clips onto almost any UAV with an electromagnet, released over ROS 2."
+  card:     "A modular CFRP payload platform that attaches to any UAV by electromagnet and drops its load over ROS 2."
+  role:     "Team project"
+  org:      "IEEE Skye Expedition"
+  period:   "Feb 2024 - Mar 2024"
+  cover:    /assets/img/ieee-skye-drone/cover.jpg
+  domains:  [Hardware]
+  topics: [Hardware, Mechanisms]
+  contributions:
+    - "Designed a modular, layered payload platform in CFRP for 3D printing, with an integrated landing gear."
+    - "Designed a servo-driven two-bar release mechanism and an electromagnet attachment that needs no screws or fasteners on the drone."
+    - "Planned the release control over ROS 2 services (Raspberry Pi to Arduino), and ran ANSYS CFD on the drone and platform."
+  stack:    [Fusion 360, ANSYS CFD, ROS 2, Raspberry Pi, Arduino]
+  links:
+    - label: Code + CAD
+      url:   "https://github.com/TahsinOP/IEEE_Skye_Expedition_Drone_Delivery_Design"
+    - label: Design document
+      url:   /assets/papers/ieee-skye-design-document.pdf
+  hero:
+    img:     /assets/img/ieee-skye-drone/cover.jpg
+    caption: "Render of the payload platform with its integrated landing gear."
+  body:
+    - >-
+      A design entry for the IEEE Skye Expedition: a payload-delivery
+      platform for drones. The brief ruled out screws and fasteners on the
+      drone, so the design centres on two ideas: <b>modularity</b>, so it can
+      scale to more payloads, and <b>compatibility</b>, so it attaches to
+      almost any UAV without modifying it.
+    - h: The platform
+    - >-
+      Three layers, 3D printed in carbon-fibre-reinforced polymer (CFRP) for
+      strength at low weight: a movable bottom base that holds the payload, a
+      fixed middle frame that carries the electronics, and a laser-cut metal
+      top plate. The drone's own landing gear got in the way, so a similar
+      wide-stance gear was built into the platform base. The estimated weight
+      is about 2.2 kg.
+    - h: Releasing the payload
+    - >-
+      The movable base hangs on a <b>two-bar linkage</b> driven by two servos
+      on diagonal corners, which keeps the centre of mass balanced. Turning
+      the servos lowers the base and drops the payload; turning them back
+      resets it.
+    - img:     /assets/img/ieee-skye-drone/release-mechanism.jpg
+      caption: "The two-bar release mechanism under the platform."
+    - >-
+      A Raspberry Pi 4 on the platform talks to the ground over Wi-Fi with
+      <b>ROS 2</b>. Calling a ROS 2 service tells an Arduino Uno to drive the
+      servos down or back up.
+    - h: Attaching to any drone
+    - >-
+      A <b>relay electromagnet</b> rated for 10 kg holds the platform to the
+      drone. In one version the magnet sits under the drone and is switched
+      from a spare channel on the pilot's remote; in the other it sits on the
+      platform and the Arduino switches it, so any drone with a steel base can
+      carry it.
+    - img:     /assets/img/ieee-skye-drone/attachment-flow.jpg
+      caption: "How the electromagnet attachment is triggered."
+      small:   true
+    - h: Aerodynamics
+    - >-
+      ANSYS CFD on the drone and the platform checked the pressure field and
+      airflow around the design.
+    - imgs:
+        - src:     /assets/img/ieee-skye-drone/cfd-pressure.jpg
+          caption: "CFD pressure contour."
+        - src:     /assets/img/ieee-skye-drone/cfd-velocity.jpg
+          caption: "CFD velocity streamlines around the platform."
+  gallery:
+    - src:     /assets/img/ieee-skye-drone/render.jpg
+      caption: "Full render of the platform."
+    - src:     /assets/img/ieee-skye-drone/landing-gear.jpg
+      caption: "Top view: the electronics layer and the built-in landing gear."
+    - src:     /assets/img/ieee-skye-drone/release-mechanism.jpg
+      caption: "Release mechanism."
+    - src:     /assets/img/ieee-skye-drone/cfd-pressure.jpg
+      caption: "CFD pressure contour."
+    - src:     /assets/img/ieee-skye-drone/cfd-velocity.jpg
+      caption: "CFD velocity streamlines."

@@ -1,111 +1,423 @@
+# ── Research interests (home page) ────────────────────────────
+interests:
+  - name: Multi-robot systems
+    text: "Decentralised coordination and cooperative manipulation, without shared maps or central control."
+  - name: Hybrid model-based and learned autonomy
+    text: "Pairing model-based estimation and control with learned policies."
+  - name: Soft robotics and biomimetics
+    text: "Compliant grippers and mechanisms that relax precision demands on the rest of the robot."
+
 # ── Publications ──────────────────────────────────────────────
 # status: "Published" | "Under review" | "In preparation"
 publications:
-  - title:   "Soft autonomous mobile manipulators in agricultural automation – a review"
-    authors: "Tahsin Khan, Mervin Joe Thomas"
-    venue:   "Industrial Robot, Vol. 53 No. 2, pp. 376–398"
-    doi:     "10.1108/IR-05-2025-0162"
-    year:    2026
-    status:  "Published"
-    summary: >-
-      Soft grippers, actuation and control, localization and motion planning for
-      agricultural manipulators — and why integrating them, rather than any one
-      of them, is the open problem.
-    tags: [Soft Robotics, Mobile Manipulation, Review]
+  - title:     "Soft autonomous mobile manipulators in agricultural automation: a review"
+    authors:   "Tahsin Khan, Mervin Joe Thomas"
+    venue:     "Industrial Robot, Vol. 53 No. 2, pp. 376-398, 2026"
+    year:      2026
+    status:    "Published"
+    citations: 4
     links:
-      - label: Paper
-        url: "https://doi.org/10.1108/IR-05-2025-0162"
+      - label: PDF
+        url:   /assets/papers/samm-review.pdf
+      - label: DOI
+        url:   "https://doi.org/10.1108/IR-05-2025-0162"
 
-# ── Research areas ────────────────────────────────────────────
-areas:
-  - name: Multi-Robot Systems
-    key:  manipulation
-    text: "Decentralised cooperative transport — planning and control in the payload frame, with no shared map and no central controller."
-  - name: SLAM & Estimation
-    key:  slam
-    text: "Visual SLAM written from scratch; 3D LiDAR SLAM flown on a UAV. Invariant EKF on SE(3), AMCL, pose-graph optimization."
-  - name: Motion Planning & Control
-    key:  navigation
-    text: "Nav2, global and local planners, pure pursuit; whole-body QP control across a mobile base and arm."
-  - name: Perception
-    key:  perception
-    text: "Depth cameras, ArUco pose, homography, bird's-eye-view lane pipelines."
-  - name: Learning
-    key:  learning
-    text: "ACT, diffusion policy, SmolVLA, π0, X-VLA — action chunking and flow matching for manipulation."
-  - name: Hardware & Mechanical
-    key:  hardware
-    text: "Chassis and mechanisms, power distribution, ESP32 low-level control, Jetson, LiDAR and depth-camera integration."
+  - title:   "Scalable, low-cost remote laboratories for robotics education"
+    authors: "Tahsin Khan et al."
+    venue:   "Working title"
+    year:    2026
+    status:  "In preparation"
 
-# ── Research positions & threads ──────────────────────────────
-experience:
-  - title:    "Decentralised Cooperative Mobile Manipulation"
-    role:     "Researcher"
-    org:      "IIT Bombay"
-    advisor:  "Prof. Shivaram Kalyanakrishnan, Prof. Harshad Khadilkar, Prof. Nived Chebrolu"
-    location: "Mumbai, India"
-    date:     "Feb 2026 — Present"
-    year:     2026
-    domains:  [Manipulation, SLAM, Perception]
-    tags:     [Whole-Body QP Control, Invariant EKF, Decentralised Estimation, Multi-Robot, Jetson Orin]
-    points:
-      - "Cooperative transport of a rigid payload by two nonholonomic mobile manipulators, using onboard vision and decentralised compute only — no motion capture, no shared map and no force/torque sensing at the grasp."
-      - "Planning and control are posed in the payload frame, so transport depends only on the relative pose between the robots; global localisation reduces to coarse landmark-based estimation."
-      - "Relative pose is recovered through the kinematic chain of the shared grasp rather than odometry, making it immune to wheel slip and map drift; a right-invariant EKF on SE(3) estimates each grasp transform with χ² innovation gating at 50 Hz from 30 Hz wrist-camera detections."
-      - "A 14-DoF whole-body QP carries the closed-chain constraint as a soft cost weighted by the live estimator covariance, so coupling relaxes as the estimate degrades and the solver stays feasible mid-transport. Full stack running on hardware."
+# ── Research work ─────────────────────────────────────────────
+# Each item has a card, a row on /research/ and a detail page at
+# /research/<slug>/ (run tools/make_pages.py after adding one).
+#
+#   status:   small coloured line above the title
+#   tagline:  one line under the title on the detail page
+#   cover:    card image (not repeated on the detail page)
+#             cover_fit: contain   for diagrams, posters, cut-outs
+#   card:     two or three lines for cards
+#   summary:  the paragraph on /research/
+#   topics:   2-3 broad areas, coloured (names from _data/topics.yml)
+#   contributions: 2-3 short bullets on what you did (shown first on the detail page)
+#   stack:    3-4 specific tools, shown on the detail page
+#   links:    buttons (PDF, DOI, Video, Code ...); shown on cards too
+#
+#   hero:     the one main video at the top of the detail page
+#               { video: /x.mp4, poster: /x.jpg, caption }  or  { youtube: ID, caption }
+#   body:     the write-up, top to bottom. Plain text = a paragraph, or:
+#               - h: "Subheading"
+#               - img: /x.jpg      caption: "..."        (shown small)
+#                 narrow: true (centred, ~460px)   small: true (centred, ~300px, for tall diagrams)   invert_dark: true (white diagrams)
+#               - imgs: [{src: /a.jpg, caption: ...}, {src: /b.jpg, caption: ...}]   side by side
+#               - video: /x.mp4    poster: ...  caption: "..."
+#               - youtube: ID      caption: "..."   poster: /x.jpg (optional custom thumbnail)
+#   gallery:  scrollable strip at the end; images and local videos
+#               - src: /x.jpg   caption: "..."
+#               - video: /x.mp4 poster: /x.jpg caption: "..."
+work:
+  - slug:    coop-manipulation
+    title:   "Grasp-Anchored Cooperative Transport"
+    status:  "Ongoing"
+    tagline: "Two mobile manipulators carry one rigid payload, and the grasp itself tells each robot where its partner is."
+    org:     "IIT Bombay"
+    period:  "Feb 2026 - Present"
+    advisor: "Prof. Shivaram Kalyanakrishnan, Prof. Harshad Khadilkar, Prof. Nived Chebrolu"
+    cover:   /assets/img/coop-manipulation/cover.jpg
+    card: "Two custom mobile manipulators carry one payload with onboard vision only: no mocap, no shared map."
+    summary: >-
+      Two custom nonholonomic mobile manipulators carry a rigid payload using
+      only onboard vision and decentralised compute: no motion capture, no
+      shared map and no force/torque sensing at the grasp. Planning and control
+      run in the payload frame, an EKF on SE(3) recovers relative pose through
+      the kinematic chain of the shared grasp at 50 Hz on a Jetson Orin, and a
+      14-DoF whole-body QP keeps the closed chain feasible as the estimate
+      degrades.
+    topics: [Mobile Manipulation, Multi-Agent, State Estimation, Control]
+    contributions:
+      - "Posed planning and control in the payload frame, so transport depends only on the relative pose between the two robots."
+      - "Recovered relative pose through the kinematic chain of the shared grasp, with an EKF on SE(3) running at 50 Hz on a Jetson Orin."
+      - "Developed and tested a 14-DoF whole-body QP controller in MuJoCo simulation before deploying it on hardware, weighting the closed-chain constraint by the live estimator covariance."
+    stack: [Whole-Body QP, EKF on SE(3), MuJoCo, Jetson Orin]
+    links: []
+    hero:
+      video:   /assets/video/coop-manipulation/long-demo.mp4
+      poster:  /assets/img/coop-manipulation/long-poster.jpg
+      caption: "Cooperative transport on hardware."
+    body:
+      - >-
+        Cooperative transport is usually shown with motion capture, a shared
+        map or force/torque sensors at the grasp. This work removes all three.
+        Two custom nonholonomic mobile manipulators carry a rigid payload using
+        only <b>onboard vision and decentralised compute</b>.
+      - h: Planning in the payload frame
+      - >-
+        Planning and control are posed entirely in the payload frame, so
+        transport depends only on the <b>relative pose</b> between the two
+        robots. Global localisation reduces to a coarse, landmark-based estimate
+        of where the payload and the bases sit in the workspace.
+      - h: Relative pose from the grasp
+      - >-
+        Relative pose is recovered through the <b>kinematic chain of the shared
+        grasp</b>, not from odometry. This makes relative orientation, the
+        channel where error strains the grasp, immune to wheel slip and map
+        drift.
+      - >-
+        An EKF on SE(3) estimates each grasp transform with χ² innovation
+        gating, running at <b>50 Hz on a Jetson Orin</b> from 30 Hz wrist-camera
+        detections.
+      - h: Whole-body control
+      - >-
+        A <b>14-DoF whole-body QP</b> carries the closed-chain constraint as a
+        soft cost, weighted by the live estimator covariance. When the estimate
+        degrades, the coupling relaxes, so the solver stays feasible
+        mid-transport.
+      - >-
+        The controller and the planner were first developed and tested in
+        <b>MuJoCo simulation</b>, then deployed on the real robots.
+    gallery:
+      - src:     /assets/img/coop-manipulation/setup.jpg
+        caption: "Both manipulators grasping the shared payload."
+      - src:     /assets/img/coop-manipulation/formation-clean.jpg
+        caption: "The two custom mobile manipulators holding the shared payload."
+      - src:     /assets/img/coop-manipulation/formation.jpg
+        caption: "The pair in formation."
+      - video:   /assets/video/coop-manipulation/short-path.mp4
+        poster:  /assets/img/coop-manipulation/short-poster.jpg
+        caption: "Transport along a short path."
 
-  - title:    "e-Yantra Robotics Competition — Theme Development"
-    role:     "Senior Project Technical Assistant"
-    org:      "Embedded Real-Time Systems (ERTS) Lab, e-Yantra, IIT Bombay"
-    advisor:  "Prof. Kavi Arya, Prof. Shivaram Kalyanakrishnan"
-    location: "Mumbai, India"
-    date:     "Aug 2025 — Present"
-    year:     2025
-    domains:  [Navigation, Perception, Manipulation, Hardware]
-    tags:     [Ackermann Autonomy, Lane Detection, ArUco Docking, CoppeliaSim, ROS 2]
-    points:
-      - "Research and development of <b>Niti Vahan</b>, the eYRC 2026-27 theme — an autonomous car operating under city road rules, selected by 1500 teams nationally. Contributed the electronics and the perception and control algorithms for a scratch-built miniature Ackermann vehicle."
-      - "Monocular pipeline on a Raspberry Pi with a single USB camera: lane detection via bird's-eye-view warping, colour segmentation and polynomial fitting under PID steering control, with obstacle detection, lane switching and ArUco-based docking for parking. Teams build against a matched CoppeliaSim digital twin in Stage 1 before moving to physical hardware in Stage 2."
-      - "Developed the <b>Krishi CoBot</b> theme (eYRC 2025-26) for 649 teams and 2436 participants, delivering 475 hours of remote access to a UR5 arm and a mobile robot on a mock greenhouse — part of ongoing research on scalable, low-cost remote laboratories for robotics education, with a paper in preparation."
-      - "Mentored three eYSIP summer research projects and five interns in 2026, and delivered faculty and outreach workshops reaching 120+ participants."
+  - slug:    soft-mobile-manipulators
+    title:   "Soft Autonomous Mobile Manipulators in Agricultural Automation: A Review"
+    status:  "Industrial Robot 2026, 4 citations"
+    tagline: "The first comprehensive review of soft mobile manipulation as an integrated system for agriculture."
+    org:     "NITK Surathkal"
+    period:  "Sep 2024 - Apr 2025"
+    advisor: "Prof. Mervin Joe Thomas"
+    cover:   /assets/img/soft-mobile-manipulators/fig11-field-robots.webp
+    cover_fit: contain
+    card: "A systematic review of soft grippers, mobile bases and planning for agricultural robots."
+    summary: >-
+      A systematic review of soft autonomous mobile manipulators (SAMMs) for
+      harvesting and crop monitoring, published in <i>Industrial Robot</i>
+      (2026). It compares soft gripping and actuation across actuator families,
+      reviews localisation and path planning for mobile bases in unstructured
+      fields, and analyses the mobile manipulator design space. The main
+      finding: each part has matured, but integrating them is the open problem.
+    topics: [Soft Robotics, Mobile Manipulation, Planning]
+    contributions:
+      - "Wrote a systematic review of soft mobile manipulators for agriculture, published in Industrial Robot (2026)."
+      - "Compared soft gripping and actuation across actuator families on compliance, payload and crop damage."
+      - "Analysed the mobile manipulator design space to show where gripper compliance relaxes precision on the base and arm."
+    stack: [Soft Grippers, Mobile Manipulation, Path Planning]
+    links:
+      - label: PDF
+        url:   /assets/papers/samm-review.pdf
+      - label: DOI
+        url:   "https://doi.org/10.1108/IR-05-2025-0162"
+    body:
+      - >-
+        Published in <i>Industrial Robot</i>, Vol. 53 No. 2, pp. 376-398
+        (2026). Written with Prof. Mervin Joe Thomas at NITK Surathkal.
+      - h: Why this review
+      - >-
+        A soft autonomous mobile manipulator combines three parts: a mobile
+        platform, a manipulator arm and a soft gripper. Each has advanced
+        quickly on its own, but no review had examined <b>soft mobile
+        manipulation as one system</b> for agriculture. This paper fills that
+        gap for harvesting and crop monitoring.
+      - h: What it covers
+      - >-
+        <b>Soft grippers:</b> gripping and actuation technologies compared
+        across actuator families, assessing compliance, payload and crop-damage
+        trade-offs for harvesting.
+      - >-
+        <b>Mobile bases:</b> classical and state-of-the-art localisation and
+        path planning for robots operating in unstructured field environments.
+      - >-
+        <b>Integration:</b> motion planning for the mobile manipulator as a
+        whole, and an analysis of its design space.
+      - h: Findings
+      - >-
+        Integration is the hard part: real-time control, adapting to the field,
+        and coordinating mobility with manipulation. The design-space analysis
+        shows where <b>gripper compliance relaxes the precision</b> required
+        from the base and the arm.
+    gallery:
+      - src:     /assets/img/soft-mobile-manipulators/fig11-field-robots.webp
+        caption: "Agricultural mobile manipulators covered in the review (Figure 11). Sources: Chen et al. 2024b; Yuan et al. 2022; Wang et al. 2023a."
+      - src:     /assets/img/soft-mobile-manipulators/samm-overview.png
+        caption: "A SAMM combines a mobile platform, a manipulator arm and a soft gripper (Figure 1)."
+      - src:     /assets/img/soft-mobile-manipulators/fig10-architecture.jpg
+        caption: "Architecture of an agricultural mobile manipulator: perception, planning and control for the base, arm and soft gripper (Figure 10)."
+      - src:     /assets/img/soft-mobile-manipulators/fig6-soft-grippers.webp
+        caption: "Vacuum and hybrid soft grippers compared in the review (Figure 6). Sources: Jo et al. 2024; Gao et al. 2024; Zhuang et al. 2023; Rong et al. 2022."
 
-  - title:    "Visual SLAM for UAVs"
-    role:     "Research Intern · eYSIP 2025"
-    org:      "e-Yantra, ERTS Lab, IIT Bombay"
-    advisor:  ""
-    location: "Mumbai, India"
-    date:     "May 2025 — Jul 2025"
-    year:     2025
-    domains:  [SLAM, Perception]
-    tags:     [Open3D, OpenCV, ICP, Pose-Graph Optimization, Bag of Words, RealSense D455]
-    points:
-      - "Built a complete visual SLAM front end and back end from scratch using only Open3D and OpenCV, after judging ORB-SLAM3 and RTAB-Map impractical to adapt and finding no end-to-end 3D VSLAM plus navigation stack comparable to Nav2."
-      - "Implemented ICP registration, keyframe selection and incremental map building, producing consistent maps of indoor environments; added local and global loop closure with pose-graph optimisation, and relocalisation using a bag-of-words place recognition front end refined by ICP."
-      - "Validated handheld on a RealSense D455 with an Orin NX; designed an extension to tightly coupled VIO by adding IMU preintegration factors to the pose graph."
+  - slug:    niti-vahan
+    title:   "Niti Vahan"
+    status:  "eYRC 2026-27 theme, 1500 teams"
+    tagline: "A new e-Yantra Robotics Competition theme on autonomous driving: a miniature car that follows city road rules."
+    org:     "ERTS Lab (e-Yantra), IIT Bombay"
+    period:  "2025 - 2026"
+    advisor: "Prof. Kavi Arya, Prof. Shivaram Kalyanakrishnan"
+    cover:   /assets/img/niti-vahan/theme-art.webp
+    card: "A new eYRC theme on autonomous driving: a miniature car that follows city road rules."
+    summary: >-
+      A newly developed eYRC 2026-27 theme on autonomous driving, inspired in
+      part by Duckietown and selected by 1500 teams nationally. I built the
+      electronics and the monocular perception and control stack for a
+      scratch-built miniature Ackermann car: bird's-eye-view lane detection
+      with PID steering, obstacle detection, lane switching and ArUco-based
+      parking, all on a Raspberry Pi with one USB camera. Teams start in a
+      matched CoppeliaSim digital twin, then move to hardware.
+    topics: [Autonomous Driving, Perception, Control, "Education & Outreach"]
+    contributions:
+      - "Developed the electronics for a scratch-built miniature Ackermann vehicle."
+      - "Built the monocular perception and control stack: bird's-eye-view lane detection, PID steering, obstacle detection, lane switching and ArUco parking."
+      - "The theme was selected by 1500 teams nationally for eYRC 2026-27."
+    stack: [Raspberry Pi, OpenCV, CoppeliaSim, PID Control]
+    links:
+      - label: YouTube short
+        url:   "https://youtube.com/shorts/P-VORIFtzig"
+      - label: e-Yantra
+        url:   "https://www.e-yantra.org/"
+    hero:
+      video:   /assets/video/niti-vahan/sim-run.mp4
+      poster:  /assets/img/niti-vahan/sim-poster.jpg
+      caption: "Full theme run in the CoppeliaSim digital twin."
+    body:
+      - >-
+        Niti Vahan is a <b>newly developed theme</b> for the e-Yantra Robotics
+        Competition (eYRC) 2026-27, focused on <b>autonomous driving</b> and
+        inspired in part by
+        <a href="https://duckietown.com/" target="_blank" rel="noopener">Duckietown</a>.
+        A miniature car drives a city arena under road rules: lanes, zebra
+        crossings, no-overtaking zones, stop signs and parking. 1500 teams
+        selected it nationally.
+      - h: The vehicle and its stack
+      - >-
+        I built the electronics and the perception and control algorithms for
+        a <b>scratch-built miniature Ackermann vehicle</b>. The stack is
+        deliberately minimal, a Raspberry Pi and one USB camera, so student
+        teams can reproduce it.
+      - >-
+        Lanes are found by bird's-eye-view warping, colour segmentation and
+        polynomial fitting, then tracked with <b>PID steering</b>. On top of
+        that run obstacle detection, lane switching and <b>ArUco-based
+        docking</b> for parking.
+      - video:   /assets/video/niti-vahan/hardware-lane-obstacle.mp4
+        poster:  /assets/img/niti-vahan/hardware-poster.jpg
+        caption: "On hardware: lane following and obstacle avoidance."
+      - h: Simulation to hardware
+      - >-
+        Teams first build against a matched <b>CoppeliaSim digital twin</b> in
+        Stage 1, then move the same stack to the physical car in Stage 2.
 
-  - title:    "Soft Autonomous Mobile Manipulators in Agriculture: A Review"
-    role:     "Undergraduate Researcher"
-    org:      "NITK Surathkal"
-    advisor:  "Prof. Mervin Joe Thomas"
-    location: "Surathkal, India"
-    date:     "Sep 2024 — Apr 2025"
-    year:     2024
-    domains:  [Manipulation]
-    tags:     [Soft Grippers, Mobile Manipulators, Review]
-    points:
-      - "Systematic review of soft mobile manipulators for agricultural automation, published in <i>Industrial Robot</i> (Vol. 53 No. 2, 2026)."
-      - "Compared soft gripping and actuation technologies across actuator families, assessing compliance, payload and crop damage trade-offs for harvesting; reviewed classical and state-of-the-art localisation and path planning for mobile bases in unstructured fields."
-      - "Analysed the mobile manipulator design space, identifying where gripper compliance relaxes precision requirements on the base and arm."
+  - slug:    remote-labs
+    title:   "Remote Labs for Robotics Education"
+    status:  "Ongoing, paper in preparation"
+    tagline: "Scalable, low-cost remote access to real robots for students who have none."
+    org:     "ERTS Lab (e-Yantra), IIT Bombay"
+    period:  "2025 - Present"
+    advisor: "Prof. Kavi Arya, Prof. Shivaram Kalyanakrishnan"
+    cover:   /assets/img/remote-labs/system-setup.png
+    cover_fit: contain
+    card: "475 hours of remote access to a real UR5 and mobile robot for 649 student teams."
+    summary: >-
+      Most students learning robotics never touch a real robot. For the Krishi
+      CoBot theme (eYRC 2025-26), 649 teams and 2436 participants got 475 hours
+      of remote access to a UR5 arm and a mobile robot working on a mock
+      greenhouse. This ongoing work studies how to make such remote labs
+      scalable and low-cost, with a paper in preparation.
+    topics: ["Education & Outreach", Manipulation]
+    contributions:
+      - "Developed the Krishi CoBot theme (eYRC 2025-26): a UR5 arm and a mobile robot working on a mock greenhouse."
+      - "Delivered 475 hours of remote hardware access to 649 teams and 2436 participants."
+      - "Researching how to make remote robotics labs scalable and low-cost; paper in preparation."
+    stack: [UR5, ROS 2, MoveIt, Remote Access]
+    links: []
+    hero:
+      youtube: E0_0cyqnMTQ
+      caption: "Krishi CoBot theme film."
+    body:
+      - >-
+        Most students learning robotics never run code on a real robot. Remote
+        labs close that gap: teams develop in simulation, then book time on
+        <b>physical hardware over the internet</b>. This work asks how to make
+        such labs scalable and low-cost. A paper is in preparation.
+      - h: Krishi CoBot (eYRC 2025-26)
+      - >-
+        I developed the Krishi CoBot theme, in which a <b>UR5 arm and a mobile
+        robot</b> work together on a mock greenhouse. Teams built in simulation,
+        then ran their solutions remotely on the real setup.
+      - >-
+        It served <b>649 teams and 2436 participants</b> with <b>475 hours</b>
+        of remote hardware access.
+      - youtube: UsuBe_GDtT8
+        caption: "Participants on working with the robots remotely."
+      - h: Logistic CoBot
+      - youtube: C349iywNu6s
+        caption: "Logistic CoBot theme film."
+    gallery:
+      - src:     /assets/img/remote-labs/system-setup.png
+        caption: "Krishi CoBot: robot platform, simulated world and the real remote arena."
 
-  - title:    "Autonomous Ackermann Platform for Field Exploration"
-    role:     "Research Intern · eYSIP 2024"
-    org:      "Autonomous Robots and Multi-Systems (ARMS) Lab, IIT Bombay"
-    advisor:  "Prof. Arpita Sinha"
-    location: "Mumbai, India"
-    date:     "May 2024 — Jul 2024"
-    year:     2024
-    domains:  [Navigation, Hardware, SLAM]
-    tags:     [ROS 2, Kalman Filter, LiDAR SLAM, Nav2 AMCL, Pure Pursuit, ESP32]
-    points:
-      - "Built a ROS 2-controlled 4WD Ackermann vehicle for field exploration, from low-level motor and steering control through to autonomous navigation on the physical platform."
-      - "Fused IMU with Vicon velocity estimates through a Kalman filter for odometry, ran LiDAR SLAM with AMCL localisation in Nav2, and implemented a pure-pursuit planner for waypoint navigation."
+  - slug:    visual-slam-uav
+    title:   "Visual SLAM for UAVs"
+    status:  "eYSIP 2025"
+    tagline: "A complete visual SLAM system, built from scratch for indoor UAV navigation."
+    org:     "e-Yantra, ERTS Lab, IIT Bombay"
+    period:  "May 2025 - Jul 2025"
+    cover:   /assets/img/visual-slam-uav/cover-map.jpg
+    card: "Visual SLAM built from scratch with Open3D and OpenCV, with loop closure and relocalisation."
+    summary: >-
+      With ORB-SLAM3 and RTAB-Map impractical to adapt, and no end-to-end 3D
+      visual SLAM and navigation stack comparable to Nav2, we built one from
+      scratch with only Open3D and OpenCV: ICP registration, keyframing,
+      incremental mapping, local and global loop closure with pose-graph
+      optimisation, and bag-of-words relocalisation refined by ICP. Validated
+      handheld on a RealSense D455 with an Orin NX.
+    topics: [SLAM, Perception]
+    contributions:
+      - "Built a visual SLAM front end and back end from scratch with Open3D and OpenCV."
+      - "Implemented local and global loop closure with pose-graph optimisation, and bag-of-words relocalisation refined by ICP."
+      - "Validated handheld on a RealSense D455 with an Orin NX, and designed a tightly coupled VIO extension."
+    stack: [Open3D, OpenCV, Pose-Graph Optimisation, RealSense]
+    links:
+      - label: Demo video
+        url:   "https://youtu.be/ZpXdvz5h0xM"
+    hero:
+      youtube: ZpXdvz5h0xM
+      poster:  /assets/img/visual-slam-uav/demo-poster.jpg
+      caption: "Project demo: dense mapping, then live 6-DoF localisation in the built map."
+    body:
+      - >-
+        ORB-SLAM3 and RTAB-Map are hard to adapt, and no end-to-end 3D visual
+        SLAM and navigation stack comparable to Nav2 existed for our UAV. So we
+        built the front end and back end <b>from scratch</b>, using only Open3D
+        and OpenCV.
+      - h: Mapping
+      - img:     /assets/img/visual-slam-uav/pipeline.png
+        caption: "The pipeline: keyframes, frame-to-frame ICP and a pose graph with local and global loop closure."
+        invert_dark: true
+      - >-
+        ICP registration, keyframe selection and incremental map building
+        produce consistent dense maps of indoor spaces. Local and global
+        <b>loop closures</b> feed a pose-graph optimiser that removes
+        accumulated drift.
+      - img:     /assets/img/visual-slam-uav/mapping.jpg
+        caption: "Dense maps of a room (with its optimised trajectory), a lab and a classroom."
+      - h: Localisation
+      - >-
+        Relocalisation uses <b>bag-of-words place recognition</b>, refined by
+        ICP against stored keyframes, to recover the full 6-DoF camera pose.
+      - img:     /assets/img/visual-slam-uav/localization.jpg
+        caption: "Live 6-DoF localisation in a prebuilt map."
+        narrow:  true
+      - h: Validation and next steps
+      - >-
+        The system was validated handheld on a <b>RealSense D455 with an Orin
+        NX</b>. I also designed an extension to tightly coupled VIO, adding IMU
+        preintegration factors to the pose graph.
+      - h: Behind the project
+      - >-
+        e-Yantra's eYSIP 2025 video on the SLAM on UAVs project, with the team
+        talking through the problem, what we built and what we learned.
+      - youtube: FcKww3YTInA
+        caption: "eYSIP 2025 project experience video, by e-Yantra."
+    gallery:
+      - src:     /assets/img/visual-slam-uav/pipeline.png
+        caption: "Mapping and localisation pipeline."
+        invert_dark: true
+      - src:     /assets/img/visual-slam-uav/hardware.jpg
+        caption: "The UAV hardware stack."
+      - src:     /assets/img/visual-slam-uav/poster.jpg
+        caption: "eYSIP 2025 project poster."
+
+  - slug:    arms-ackermann
+    title:   "Autonomous Ackermann Vehicle for Field Exploration"
+    status:  "eYSIP 2024, ARMS Lab"
+    tagline: "A ROS 2 four-wheel-drive Ackermann vehicle, from motor control to autonomous navigation."
+    org:     "ARMS Lab, IIT Bombay"
+    period:  "May 2024 - Jul 2024"
+    advisor: "Prof. Arpita Sinha"
+    cover:   /assets/img/arms-ackermann/cover.jpg
+    card: "A ROS 2 Ackermann vehicle built from the motors up to autonomous navigation in Nav2."
+    summary: >-
+      At the Autonomous Robots and Multi-Systems Lab, I built a ROS 2-controlled
+      4WD Ackermann vehicle for field exploration, from low-level motor and
+      steering control to autonomous navigation on the physical platform.
+      Odometry fuses the IMU with Vicon velocity through a Kalman filter, with
+      LiDAR SLAM, AMCL localisation in Nav2 and a pure-pursuit planner on top.
+    topics: [Navigation, SLAM, State Estimation, Hardware]
+    contributions:
+      - "Built a ROS 2 4WD Ackermann vehicle, from motor and steering control to autonomous navigation."
+      - "Fused the IMU with Vicon velocity estimates in a Kalman filter for odometry."
+      - "Ran LiDAR SLAM with AMCL localisation in Nav2 and a pure-pursuit planner for waypoints."
+    stack: [ROS 2, Nav2, Kalman Filter, Pure Pursuit]
+    links:
+      - label: Code
+        url:   "https://github.com/TahsinOP/eYSIP-24_Field_Exploration_ROS_Vehicles"
+      - label: Video
+        url:   "https://www.youtube.com/watch?v=xZkY93gYrdk"
+    hero:
+      youtube: xZkY93gYrdk
+      caption: "Demo."
+    body:
+      - >-
+        At the <b>Autonomous Robots and Multi-Systems (ARMS) Lab</b>, IIT
+        Bombay, I built a ROS 2-controlled four-wheel-drive Ackermann vehicle
+        for field exploration, taking it from low-level motor and steering
+        control through to autonomous navigation on the physical platform.
+      - h: State estimation
+      - >-
+        Odometry fuses the <b>IMU with Vicon velocity estimates</b> through a
+        Kalman filter.
+      - h: Mapping, localisation and planning
+      - >-
+        LiDAR SLAM builds the map, <b>AMCL in Nav2</b> localises the vehicle in
+        it, and a <b>pure-pursuit planner</b> drives it through waypoints.
+    gallery:
+      - src:     /assets/img/arms-ackermann/hardware.png
+        caption: "The vehicle."
+      - src:     /assets/img/arms-ackermann/poster.jpg
+        caption: "eYSIP 2024 project poster."

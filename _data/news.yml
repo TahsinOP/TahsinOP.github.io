@@ -1,36 +1,30 @@
 # Newest first. `text` may contain inline HTML (<b>, <a>, <em>).
 - date: "Sep 2026"
   text: >-
-    <b>Niti Vahan</b>, the eYRC 2026-27 theme, is live — an autonomous car under
-    city road rules, selected by <b>1500 teams</b> nationally, running a
-    monocular lane-detection and docking stack on a Raspberry Pi against a
-    matched CoppeliaSim digital twin.
+    <b>Niti Vahan</b>, the new eYRC 2026-27 theme on autonomous driving, is
+    live and was selected by <b>1500 teams</b> nationally.
 
 - date: "Jul 2026"
   text: >-
-    Mentored and co-mentored <b>two eYSIP research projects with four interns</b>
-    — imitation learning on bimanual SO-101 and UR5 arms — plus a third on
-    <b>3D LiDAR SLAM flown on a Holybro X500</b>.
+    Mentored <b>three eYSIP 2026 projects</b>: imitation learning on bimanual
+    SO-101 and UR5 arms, and 3D LiDAR SLAM on a Holybro X500.
 
 - date: "Mar 2026"
   text: >-
     Ranked <b>32 of 62 teams internationally</b> in the <b>LeHome Challenge at
-    IEEE ICRA 2026</b> — bimanual cloth folding in Isaac Sim, comparing
-    specialist and generalist SmolVLA policies.
+    IEEE ICRA 2026</b>, on bimanual cloth folding in Isaac Sim.
 
 - date: "Feb 2026"
   text: >-
-    Started research on <b>decentralised cooperative mobile manipulation</b> —
-    two nonholonomic mobile manipulators transporting a shared payload with
-    onboard vision only, an invariant EKF on SE(3) and a 14-DoF whole-body QP.
+    Started research on <b>grasp-anchored cooperative transport</b>
+    with two custom mobile manipulators and onboard vision only.
 
 - date: "Jan 2026"
   text: >-
-    <i>Soft autonomous mobile manipulators in agricultural automation – a review</i>
-    published in <b>Industrial Robot</b>, Vol. 53 No. 2, pp. 376–398.
+    Our review on <i>soft autonomous mobile manipulators in agricultural
+    automation</i> is published in <b>Industrial Robot</b>, Vol. 53 No. 2.
 
 - date: "Aug 2025"
   text: >-
     Joined the <b>ERTS Lab (e-Yantra), IIT Bombay</b> as a Senior Project
-    Technical Assistant, working on e-Yantra Robotics Competition theme
-    development.
+    Technical Assistant.

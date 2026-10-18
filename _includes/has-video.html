@@ -1,0 +1,6 @@
+{%- comment -%} Sets `has_video` true if the item has any real video: hero, body or gallery. {%- endcomment -%}
+{%- assign hv = include.item -%}
+{%- assign has_video = false -%}
+{%- if hv.hero.video or hv.hero.youtube -%}{%- assign has_video = true -%}{%- endif -%}
+{%- for b in hv.body -%}{%- if b.video or b.youtube or b.youtubes or b.vids -%}{%- assign has_video = true -%}{%- endif -%}{%- endfor -%}
+{%- for g in hv.gallery -%}{%- if g.video -%}{%- assign has_video = true -%}{%- endif -%}{%- endfor -%}

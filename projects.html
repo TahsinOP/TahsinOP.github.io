@@ -1,17 +1,17 @@
 ---
-title: projects
+title: Projects
 permalink: /projects/
 wide: true
 subtitle: >-
-  Systems I have built, mentored or taken apart — SLAM, learned manipulation,
-  autonomous platforms and the hardware underneath them.
+  Things I have built, mentored or competed with: autonomous vehicles,
+  learned manipulation, SLAM and the hardware underneath them.
 description: >-
-  Robotics projects — visual and LiDAR SLAM, imitation learning, autonomous
-  vehicles, quadruped locomotion and mechanical design.
+  Robotics projects and competitions: imitation learning, LiDAR SLAM on a UAV,
+  autonomous shuttle, quadruped locomotion, Robocon and the LeHome Challenge.
 ---
 
-<div class="filters">
-  <span class="filters__label">Filter</span>
+<div class="filters" role="group" aria-label="Filter projects by area">
+  <span class="filters__label">Show</span>
   <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
   {%- assign keys   = "navigation,slam,perception,manipulation,learning,hardware" | split: "," -%}
   {%- assign labels = "Navigation,SLAM,Perception,Manipulation,Learning,Hardware" | split: "," -%}
@@ -19,11 +19,41 @@ description: >-
   <button class="chip" type="button" data-filter="{{ d }}" aria-pressed="false">{{ labels[forloop.index0] }}</button>
   {%- endfor -%}
 </div>
+<p class="filter-empty" role="status">No projects in that area yet.</p>
 
-<p class="filter-empty">Nothing in that area yet.</p>
+<section class="section" id="mentoring" aria-labelledby="mentoring-h">
+  <h2 class="section-title" id="mentoring-h">Mentored research projects</h2>
+  <p class="section-lede">eYSIP 2026 summer research projects at e-Yantra, IIT Bombay, that I planned and supervised. The interns did the building.</p>
+  <div class="grid">
+    {%- for item in site.data.mentoring -%}{% include card.html item=item base="/projects/" %}{%- endfor -%}
+  </div>
+</section>
 
-<div class="grid">
-  {%- for item in site.data.projects -%}
-    {% include card.html item=item %}
-  {%- endfor -%}
-</div>
+<section class="section" id="own" aria-labelledby="own-h">
+  <h2 class="section-title" id="own-h">Projects</h2>
+  <div class="grid">
+    {%- for item in site.data.projects -%}{% include card.html item=item base="/projects/" %}{%- endfor -%}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="comp-h">
+  <h2 class="section-title" id="comp-h">Competitions</h2>
+  <div class="grid">
+    {%- for item in site.data.competitions -%}{% include card.html item=item base="/projects/" %}{%- endfor -%}
+  </div>
+</section>
+
+<section class="section" id="workshops" aria-labelledby="ws-h">
+  <h2 class="section-title" id="ws-h">Workshops</h2>
+  <div class="workshops">
+    {%- for w in site.data.about.workshops -%}
+    <div class="workshop">
+      <p class="workshop__aud">{{ w.audience }}</p>
+      <div>
+        <h3>{{ w.title }}</h3>
+        <p>{{ w.detail }} {{ w.where }}.</p>
+      </div>
+    </div>
+    {%- endfor -%}
+  </div>
+</section>

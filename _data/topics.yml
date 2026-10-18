@@ -1,0 +1,18 @@
+# Topic tags shown on cards, research rows and detail pages, each with a
+# colour. Use these names in an item's `topics:` list (2-3 per item).
+# To add a topic, add a line here with any hex colour.
+"Mobile Manipulation": "#7C3AED"
+"Manipulation":        "#9333EA"
+"Multi-Agent":         "#DB2777"
+"Navigation":          "#2563EB"
+"Planning":            "#0284C7"
+"Control":             "#0D9488"
+"SLAM":                "#16A34A"
+"State Estimation":    "#65A30D"
+"Perception":          "#D97706"
+"Learning":            "#EA580C"
+"Soft Robotics":       "#E11D48"
+"Autonomous Driving":  "#4F46E5"
+"Education & Outreach": "#0891B2"
+"Hardware":            "#64748B"
+"Mechanisms":          "#A16207"
