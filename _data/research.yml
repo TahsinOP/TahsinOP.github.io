@@ -15,7 +15,6 @@ publications:
     venue:     "Industrial Robot, Vol. 53 No. 2, pp. 376-398, 2026"
     year:      2026
     status:    "Published"
-    citations: 4
     links:
       - label: PDF
         url:   /assets/papers/samm-review.pdf
@@ -123,7 +122,7 @@ work:
 
   - slug:    soft-mobile-manipulators
     title:   "Soft Autonomous Mobile Manipulators in Agricultural Automation: A Review"
-    status:  "Industrial Robot 2026, 4 citations"
+    status:  "Industrial Robot, 2026"
     tagline: "The first comprehensive review of soft mobile manipulation as an integrated system for agriculture."
     org:     "NITK Surathkal"
     period:  "Sep 2024 - Apr 2025"
