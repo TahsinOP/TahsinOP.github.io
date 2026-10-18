@@ -1,7 +1,7 @@
 # ── Research interests (home page) ────────────────────────────
 interests:
   - name: Multi-robot systems
-    text: "Decentralised coordination and cooperative manipulation, without shared maps or central control."
+    text: "Teams of robots that coordinate, share information and work together on tasks no single robot can do alone."
   - name: Hybrid model-based and learned autonomy
     text: "Pairing model-based estimation and control with learned policies."
   - name: Soft robotics and biomimetics
@@ -112,8 +112,6 @@ work:
     gallery:
       - src:     /assets/img/coop-manipulation/setup.jpg
         caption: "Both manipulators grasping the shared payload."
-      - src:     /assets/img/coop-manipulation/formation-clean.jpg
-        caption: "The two custom mobile manipulators holding the shared payload."
       - src:     /assets/img/coop-manipulation/formation.jpg
         caption: "The pair in formation."
       - video:   /assets/video/coop-manipulation/short-path.mp4

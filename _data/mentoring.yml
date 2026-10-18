@@ -161,10 +161,11 @@
     - h: On the drone
     - >-
       On hardware, the stack runs on a <b>Jetson Orin Nano</b> with the
-      RoboSense Airy on a <b>Holybro X500</b>. I designed the power
-      distribution board and the mounts for the payload limits. Map drift was
-      traced to a LiDAR-IMU extrinsic error and thermal throttling; with both
-      fixed, LIO-SAM produced 3D maps from manual flights.
+      RoboSense Airy on a <b>Holybro X500</b>. The intern designed the power
+      distribution board and the mounts to fit the payload limits, with my
+      guidance. Map drift was traced to a LiDAR-IMU extrinsic error and
+      thermal throttling; with both fixed, LIO-SAM produced 3D maps from
+      manual flights.
     - h: Custom back end
     - >-
       A back end built around FAST-LIO odometry adds keyframe selection,
