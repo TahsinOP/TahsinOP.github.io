@@ -3,6 +3,7 @@
     <p>
       {{ site.author.name }}, {{ site.affiliation.lab }}, {{ site.affiliation.org }}<br>
       <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+      {%- if site.author.work_email %}<br>Work: <a href="mailto:{{ site.author.work_email }}">{{ site.author.work_email }}</a>{% endif %}
     </p>
     {% include social.html %}
   </div>

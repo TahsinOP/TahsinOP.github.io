@@ -20,7 +20,8 @@ baseurl: ""
 # ─────────────────────────────────────────────────────────────
 author:
   name:      Tahsin Khan
-  email:     tahsin.khan@e-yantra.org
+  email:      tahsinkhan6996@gmail.com      # primary: email icon and footer
+  work_email: tahsin.khan@e-yantra.org      # shown in the footer as "Work"
   github:    TahsinOP
   linkedin:  tahsin-khan-
   scholar:   "hTFoPnEAAAAJ"
